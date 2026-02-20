@@ -102,14 +102,15 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         max-width: 100% !important;
         display: grid !important;
         grid-template-columns: auto 1fr auto !important;
-        grid-template-rows: auto auto !important;
+        grid-template-rows: 1fr auto auto !important;
         align-items: end !important;
         column-gap: 14px !important;
-        row-gap: 6px !important;
+        row-gap: 4px !important;
         overflow: visible !important;
         position: relative !important;
         min-height: 300px !important;
-        padding: 0 20px 32px !important;
+        padding: 0 20px 0 !important;
+        margin-bottom: 60px !important;
         border-radius: var(--co-radius) !important;
         background: url('https://curie-assets.site/images/Park_Haerin_Header.webp') center 30% / cover no-repeat !important;
         box-sizing: border-box !important
@@ -121,16 +122,16 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         position: absolute !important;
         inset: 0 !important;
         border-radius: var(--co-radius) !important;
-        background: linear-gradient(to top, rgba(12, 10, 20, 0.95) 0%, rgba(12, 10, 20, 0.4) 50%, transparent 100%) !important;
+        background: linear-gradient(to top, rgba(12, 10, 20, 1) 0%, rgba(12, 10, 20, 0.7) 25%, rgba(12, 10, 20, 0.2) 55%, transparent 100%) !important;
         z-index: 0 !important;
         pointer-events: none !important
     }
 
-    /* Character name — container ::after, spans above buttons */
+    /* Character name — container ::after, row 2 above buttons */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child::after {
         content: 'Yumi Asaka' !important;
         grid-column: 2 / -1 !important;
-        grid-row: 1 !important;
+        grid-row: 2 !important;
         align-self: end !important;
         z-index: 1 !important;
         font-family: var(--co-font-display) !important;
@@ -140,7 +141,8 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         white-space: nowrap !important;
         text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7) !important;
         letter-spacing: 0.01em !important;
-        line-height: 1.1 !important
+        line-height: 1.1 !important;
+        padding-bottom: 2px !important
     }
 
     /* All direct children above gradient */
@@ -149,11 +151,12 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         z-index: 1 !important
     }
 
-    /* Avatar wrapper — col 1, spans both rows */
+    /* Avatar wrapper — col 1, spans row 2+3, hangs below container edge */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>div:not(.mt-4) {
         grid-column: 1 !important;
-        grid-row: 1 / -1 !important;
-        align-self: end !important
+        grid-row: 2 / -1 !important;
+        align-self: end !important;
+        margin-bottom: -50px !important
     }
 
     /* Remove old name pseudo-element from avatar wrapper */
@@ -161,17 +164,19 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         display: none !important
     }
 
-    /* Action buttons (Chat, Import, Download) — col 2, row 2 */
+    /* Action buttons (Chat, Import, Download) — col 2, row 3, below container */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square) {
         grid-column: 2 !important;
-        grid-row: 2 !important;
+        grid-row: 3 !important;
         margin: 0 !important;
+        margin-bottom: -50px !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         justify-content: flex-start !important;
         gap: 6px !important;
-        background: transparent !important
+        background: transparent !important;
+        padding-top: 8px !important
     }
 
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)>* {
@@ -183,13 +188,15 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         min-width: 0 !important
     }
 
-    /* Favorite button — col 3, row 2 */
+    /* Favorite button — col 3, row 3, below container */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(.anticon-star) {
         grid-column: 3 !important;
-        grid-row: 2 !important;
+        grid-row: 3 !important;
         margin: 0 !important;
+        margin-bottom: -50px !important;
         justify-self: start !important;
-        background: transparent !important
+        background: transparent !important;
+        padding-top: 8px !important
     }
 
     /* Content column → full width below */
@@ -205,13 +212,14 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6 {
         display: grid !important;
         grid-template-columns: auto 1fr auto !important;
-        grid-template-rows: auto auto !important;
+        grid-template-rows: 1fr auto auto !important;
         align-items: end !important;
         column-gap: 10px !important;
         row-gap: 4px !important;
         position: relative !important;
         min-height: 220px !important;
-        padding: 0 14px 24px !important;
+        padding: 0 14px 0 !important;
+        margin-bottom: 50px !important;
         border-radius: var(--co-radius) !important;
         background: url('https://curie-assets.site/images/Park_Haerin_Header.webp') center 30% / cover no-repeat !important
     }
@@ -220,14 +228,14 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         position: absolute !important;
         inset: 0 !important;
         border-radius: var(--co-radius) !important;
-        background: linear-gradient(to top, rgba(12, 10, 20, 0.95) 0%, rgba(12, 10, 20, 0.4) 50%, transparent 100%) !important;
+        background: linear-gradient(to top, rgba(12, 10, 20, 1) 0%, rgba(12, 10, 20, 0.7) 25%, rgba(12, 10, 20, 0.2) 55%, transparent 100%) !important;
         z-index: 0 !important;
         pointer-events: none !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6::after {
         content: 'Yumi Asaka' !important;
         grid-column: 2 / -1 !important;
-        grid-row: 1 !important;
+        grid-row: 2 !important;
         align-self: end !important;
         z-index: 1 !important;
         font-family: var(--co-font-display) !important;
@@ -236,7 +244,8 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         color: #fff !important;
         white-space: nowrap !important;
         text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7) !important;
-        line-height: 1.1 !important
+        line-height: 1.1 !important;
+        padding-bottom: 2px !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>* {
         position: relative !important;
@@ -244,27 +253,32 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>div:not(.mt-4) {
         grid-column: 1 !important;
-        grid-row: 1 / -1 !important;
-        align-self: end !important
+        grid-row: 2 / -1 !important;
+        align-self: end !important;
+        margin-bottom: -36px !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>div:not(.mt-4)::after {
         display: none !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>.mt-4:has(svg.lucide-messages-square) {
         grid-column: 2 !important;
-        grid-row: 2 !important;
+        grid-row: 3 !important;
         margin: 0 !important;
+        margin-bottom: -36px !important;
         display: flex !important;
         align-items: center !important;
         gap: 4px !important;
-        background: transparent !important
+        background: transparent !important;
+        padding-top: 6px !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>.mt-4:has(.anticon-star) {
         grid-column: 3 !important;
-        grid-row: 2 !important;
+        grid-row: 3 !important;
         margin: 0 !important;
+        margin-bottom: -36px !important;
         justify-self: start !important;
-        background: transparent !important
+        background: transparent !important;
+        padding-top: 6px !important
     }
     .ant-col.ant-col-xs-24.ant-col-lg-18 {
         flex: 0 0 100% !important;
