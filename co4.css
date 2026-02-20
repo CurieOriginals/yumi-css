@@ -25,14 +25,14 @@
     --co-font-display: 'Noto Sans JP', sans-serif;
     --co-font-mono: 'JetBrains Mono', monospace;
     --co-font-size: clamp(12px, 1.2vw, 14px);
-    --co-height: 38px;
+    --co-height: 42px;
     --co-inset: 16px;
     --co-fav-gap: 10px;
     --co-fav-width: clamp(100px, 14vw, 150px);
     --co-btn-solid: #161224;
     --co-btn-solid-hover: #221c36;
     --co-btn-transition: all .25s cubic-bezier(.4, 0, .2, 1);
-    --co-page-width: 820px
+    --co-page-width: 1020px
 }
 
 @media (min-width:768px) { :root { --co-inset: 24px } }
@@ -135,7 +135,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         align-self: end !important;
         z-index: 1 !important;
         font-family: var(--co-font-display) !important;
-        font-size: clamp(1.4em, 3vw, 2em) !important;
+        font-size: clamp(1.8em, 3.5vw, 2.5em) !important;
         font-weight: 900 !important;
         color: #fff !important;
         white-space: nowrap !important;
@@ -285,8 +285,8 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 /* ═══ AVATAR IMAGE STYLING ═══ */
 .ant-image-img {
     display: block !important;
-    width: 120px !important;
-    height: 120px !important;
+    width: 150px !important;
+    height: 150px !important;
     border-radius: var(--co-radius) !important;
     object-fit: cover !important;
     border: 3px solid rgba(255, 255, 255, 0.15) !important;
@@ -295,8 +295,8 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 
 @media (max-width:640px) {
     .ant-image-img {
-        width: 72px !important;
-        height: 72px !important
+        width: 90px !important;
+        height: 90px !important
     }
 }
 
@@ -310,7 +310,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn {
     border-radius: var(--co-radius-sm) !important;
     border: 1px solid var(--co-glass-border) !important;
     box-shadow: none !important;
-    font-size: 0.78em !important;
+    font-size: 0.85em !important;
     font-family: var(--co-font-body) !important;
     font-weight: 500 !important;
     text-transform: none !important;
@@ -349,7 +349,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn:active {
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square) {
     flex-shrink: 0 !important;
     width: auto !important;
-    height: 44px !important;
+    height: 50px !important;
     background: linear-gradient(135deg, var(--co-accent), var(--co-accent-deep)) !important;
     color: #fff !important;
     font-weight: 600 !important;
