@@ -1268,6 +1268,11 @@ main.ant-layout-content {
     margin-bottom: 0
 }
 
+/* ===== SCENARIOS SECTION =====
+.cu-section--scenarios {
+    padding: 0
+}
+
 /* ===== LOREBOOK SECTION ===== */
 .cu-section--feedback {
     position: relative;
@@ -1302,9 +1307,9 @@ main.ant-layout-content {
 }
 
 .cu-section--feedback .cu-support-btn {
-    color: var(--cu-accent-soft);
+    color: #facc15;
     border: none;
-    background: var(--cu-accent);
+    background: #facc15;
     clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)
 }
 
@@ -1319,7 +1324,7 @@ main.ant-layout-content {
 }
 
 .cu-section--feedback .cu-support-btn:hover {
-    color: #fff;
+    color: #000;
     transform: none;
     box-shadow: none
 }
@@ -1433,8 +1438,8 @@ main.ant-layout-content {
         repeating-linear-gradient(0deg,
             transparent,
             transparent 1px,
-            rgba(244, 114, 182, 0.05) 1px,
-            rgba(244, 114, 182, 0.05) 2px),
+            rgba(0, 0, 0, 0.1) 1px,
+            rgba(0, 0, 0, 0.1) 2px),
         linear-gradient(180deg,
             transparent 0%,
             rgba(255, 255, 255, 0.03) 50%,
@@ -2057,9 +2062,9 @@ main.ant-layout-content {
     font-family: var(--cu-font-hand);
     font-size: 0.9em;
     font-weight: 400;
-    background: rgba(255, 255, 255, 0.92);
-    color: var(--cu-text);
-    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: rgba(244, 114, 182, 0.1);
+    color: rgba(255,255,255,0.88);
+    border: 1px solid rgba(244, 114, 182, 0.25);
     border-radius: 0;
     padding: 0.6em 1em;
     margin-left: 0.8em;
@@ -2068,7 +2073,7 @@ main.ant-layout-content {
 }
 
 .cu-help-banner:hover span {
-    color: var(--cu-accent);
+    color: var(--cu-accent-soft);
     border-color: var(--cu-accent)
 }
 
