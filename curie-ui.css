@@ -8,21 +8,21 @@
     --co-font-hand: 'Quicksand', sans-serif;
     --co-height: clamp(42px, 5vw, 56px);
     --co-inset: 16px;
-    --co-radius: 14px;
-    --co-chamfer: 0px;
+    --co-radius: 0;
+    --co-chamfer: 12px;
     --co-fav-gap: 10px;
-    --co-border-top: 1px solid rgba(255, 255, 255, .08);
-    --co-shadow: 0 -4px 20px rgba(0, 0, 0, .4);
-    --co-divider: 1px solid rgba(255, 255, 255, .06);
+    --co-border-top: 1px solid rgba(255, 255, 255, .1);
+    --co-shadow: 0 -4px 20px rgba(0, 0, 0, .5);
+    --co-divider: 1px solid rgba(255, 255, 255, .08);
     --co-font-size: clamp(12px, 1.2vw, 14px);
     --co-font-weight: 700;
     --co-btn-bg: transparent;
     --co-btn-color: inherit;
-    --co-btn-hover-bg: rgba(232, 120, 138, .12);
+    --co-btn-hover-bg: rgba(204, 0, 0, .12);
     --co-btn-hover-color: #fff;
-    --co-btn-active-bg: rgba(232, 120, 138, .18);
-    --co-btn-transition: background .2s ease, color .2s ease, box-shadow .2s ease, border-radius .2s ease;
-    --co-btn-hover-shadow: inset 0 -2px 0 rgba(255, 255, 255, .1);
+    --co-btn-active-bg: rgba(204, 0, 0, .18);
+    --co-btn-transition: background .15s ease, color .15s ease, box-shadow .15s ease;
+    --co-btn-hover-shadow: inset 0 -2px 0 rgba(255, 255, 255, .15);
     --co-fav-bg: var(--co-btn-bg);
     --co-fav-color: var(--co-btn-color);
     --co-fav-border: var(--co-divider);
@@ -32,14 +32,14 @@
     --co-gold: #D4708F;
     --co-wine: rgba(18, 12, 22, 0.82);
     --co-rose: rgba(232, 120, 138, 0.08);
-    --co-text: rgba(255, 255, 255, 0.88);
+    --co-text: rgba(255, 255, 255, 0.9);
     --co-btn-solid: #1c1420;
     --co-btn-solid-hover: #2a1e30
 }
 
 a {
     color: var(--co-accent);
-    transition: opacity 0.2s ease
+    transition: opacity 0.15s ease
 }
 
 div.mt-2>.font-size-message {
@@ -47,7 +47,7 @@ div.mt-2>.font-size-message {
 }
 
 a:hover {
-    opacity: 0.75
+    opacity: 0.8
 }
 
 spacer {
@@ -110,24 +110,24 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn {
     height: var(--co-height) !important;
     margin: 0 !important;
     padding: 0 1.2em !important;
-    border-radius: var(--co-radius) !important;
+    border-radius: 0 !important;
     border: none !important;
     box-shadow: none !important;
     font-size: var(--co-font-size) !important;
     font-family: var(--co-font-hand) !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
+    letter-spacing: 0.05em !important;
     min-width: 0 !important;
     transform: none !important;
     animation: none !important;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
     backdrop-filter: none !important;
     color: var(--co-accent-soft) !important;
     transition: var(--co-btn-transition) !important;
     position: relative;
     will-change: background, box-shadow;
-    clip-path: none !important
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--co-chamfer)), calc(100% - var(--co-chamfer)) 100%, 0 100%) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn::before {
@@ -136,8 +136,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn::before {
     inset: 2px !important;
     background: var(--co-btn-solid) !important;
     z-index: -1 !important;
-    border-radius: calc(var(--co-radius) - 2px) !important;
-    clip-path: none !important
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--co-chamfer)), calc(100% - var(--co-chamfer)) 100%, 0 100%) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn::after {
@@ -153,7 +152,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn:hover {
     filter: none !important;
     background: var(--co-btn-solid-hover) !important;
     border-color: var(--co-accent) !important;
-    box-shadow: 0 4px 16px rgba(212, 112, 143, 0.2) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
     transform: none !important;
     color: #fff !important
 }
@@ -168,10 +167,10 @@ div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-
     flex: 1.5 1 0 !important;
     width: auto !important;
     border-right: none !important;
-    border-radius: var(--co-radius) !important;
+    border-radius: 0 !important;
     background: var(--co-accent) !important;
     color: #fff !important;
-    clip-path: none !important
+    clip-path: polygon(0 0, 100% 0, 100% 100%, var(--co-chamfer) 100%, 0 calc(100% - var(--co-chamfer))) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square)::before {
@@ -180,13 +179,12 @@ div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-
     inset: 2px !important;
     background: var(--co-btn-solid) !important;
     z-index: -1 !important;
-    border-radius: calc(var(--co-radius) - 2px) !important;
-    clip-path: none !important
+    clip-path: polygon(0 0, 100% 0, 100% 100%, var(--co-chamfer) 100%, 0 calc(100% - var(--co-chamfer))) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square):hover {
-    transform: translateY(-2px) !important;
-    box-shadow: 0 6px 20px rgba(212, 112, 143, 0.35) !important
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 4px 4px 0 0 #000 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square):hover::before {
@@ -208,14 +206,14 @@ div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
     flex: 0.6 1 0 !important;
     width: auto !important;
     overflow: hidden !important;
-    border-radius: var(--co-radius) !important;
+    border-radius: 0 !important;
     clip-path: none !important;
     background: var(--co-btn-solid) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important
+    border: 1px solid #333 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child:hover {
-    background: #2a1e30 !important
+    background: rgba(255, 255, 255, 0.06) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child::before {
@@ -226,14 +224,14 @@ div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child {
     flex: 1 1 0 !important;
     width: auto !important;
     border-right: none !important;
-    border-radius: var(--co-radius) !important;
+    border-radius: 0 !important;
     clip-path: none !important;
     background: var(--co-btn-solid) !important;
-    border: 1px solid rgba(255, 255, 255, 0.08) !important
+    border: 1px solid #333 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child:hover {
-    background: #2a1e30 !important
+    background: rgba(255, 255, 255, 0.06) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child::before {
@@ -245,10 +243,13 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
 }
 
 @media (max-width:600px) {
+
+    /* Hide Import Chat button */
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
         display: none !important
     }
 
+    /* Icon-only for Download button */
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child span:not(.ant-btn-icon):not(:has(svg)) {
         display: none !important
     }
@@ -259,6 +260,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
         justify-content: center !important
     }
 
+    /* Icon-only for Chat With button */
     div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square) span:not(.ant-btn-icon):not(:has(svg)) {
         display: none !important
     }
@@ -279,7 +281,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star) {
     right: var(--co-inset) !important;
     bottom: var(--co-inset) !important;
     z-index: 9999 !important;
-    border-radius: var(--co-radius) !important;
+    border-radius: 0 !important;
     overflow: visible !important;
     padding: 0 1.5em !important;
     height: var(--co-height) !important;
@@ -287,7 +289,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star) {
     width: var(--co-fav-width) !important;
     font-size: var(--co-font-size) !important;
     font-family: var(--co-font-hand) !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     overflow: visible !important;
     transition: transform .2s ease, filter .2s ease, border-color .2s ease !important;
     pointer-events: auto !important
@@ -296,14 +298,14 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star) {
 button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star)) {
     background: rgba(255, 255, 255, 0.06) !important;
     border: none !important;
-    border-radius: var(--co-radius) !important;
+    border-radius: 0 !important;
     color: var(--co-accent-soft) !important;
     font-family: var(--co-font-hand) !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
+    letter-spacing: 0.05em !important;
     position: relative !important;
-    clip-path: none !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
     transition: color .2s ease !important
 }
 
@@ -313,8 +315,7 @@ button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star))::bef
     inset: 1px !important;
     background: var(--co-btn-solid) !important;
     z-index: -1 !important;
-    border-radius: calc(var(--co-radius) - 1px) !important;
-    clip-path: none !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
     transition: opacity .2s ease !important
 }
 
@@ -338,13 +339,13 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
     display: block !important;
     position: absolute !important;
     inset: -2px !important;
-    border-radius: calc(var(--co-radius) + 2px) !important;
-    clip-path: none !important;
+    border-radius: 0 !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--co-chamfer)), calc(100% - var(--co-chamfer)) 100%, 0 100%) !important;
     z-index: -2 !important;
-    background-image: linear-gradient(135deg, #F2A7BB, #D4708F, #B8577A, #D4708F, #F2A7BB) !important;
-    background-size: 200% 200% !important;
+    background-image: linear-gradient(90deg, #ff007f, #ff7f00, #ffff00, #00ff00, #007fff, #9400d3, #ff007f) !important;
+    background-size: 200% 100% !important;
     background-position: 0% 50%;
-    animation: co-sweep 4s ease infinite !important;
+    animation: co-sweep 3s linear infinite !important;
     transition: filter .2s ease !important
 }
 
@@ -353,8 +354,8 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
     display: block !important;
     position: absolute !important;
     inset: 0 !important;
-    border-radius: var(--co-radius) !important;
-    clip-path: none !important;
+    border-radius: 0 !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--co-chamfer)), calc(100% - var(--co-chamfer)) 100%, 0 100%) !important;
     z-index: -1 !important;
     background: var(--co-btn-solid) !important
 }
@@ -365,8 +366,8 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]):hover::before {
-    filter: brightness(1.3) saturate(1.2) !important;
-    box-shadow: 0 0 20px rgba(212, 112, 143, 0.5) !important
+    filter: brightness(1.4) saturate(1.3) !important;
+    box-shadow: 0 0 18px rgba(255, 0, 128, 0.5), 0 0 40px rgba(0, 200, 255, 0.3) !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]):active {
@@ -379,10 +380,9 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[
     background: rgba(255, 255, 255, 0.06) !important;
     box-shadow: none !important;
     animation: none !important;
-    border-radius: var(--co-radius) !important;
-    clip-path: none !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--co-chamfer)), calc(100% - var(--co-chamfer)) 100%, 0 100%) !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.06em !important
+    letter-spacing: 0.05em !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[d*="M664.8 561.6"])):hover {
@@ -396,8 +396,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[
     inset: 1px !important;
     background: var(--co-btn-solid) !important;
     z-index: -1 !important;
-    border-radius: calc(var(--co-radius) - 1px) !important;
-    clip-path: none !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--co-chamfer)), calc(100% - var(--co-chamfer)) 100%, 0 100%) !important;
     transition: opacity .2s ease !important
 }
 
@@ -454,7 +453,7 @@ footer.ant-layout-footer {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     line-height: 1.3;
-    opacity: 0.35;
+    opacity: 0.4;
     margin-left: 8px;
     color: #fff;
     pointer-events: none;
@@ -482,7 +481,7 @@ header.ant-layout-header {
     overflow: visible !important
 }
 
-/* ===== TOP BANNER (opt-in via --co-banner-text) ===== */
+/* ===== POLICE TAPE BANNER (opt-in via --co-banner-text) ===== */
 header.ant-layout-header::after {
     content: var(--co-banner-text, none);
     position: absolute;
@@ -496,13 +495,17 @@ header.ant-layout-header::after {
     justify-content: center;
     font-family: var(--co-font-mono);
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: #fff;
-    background: linear-gradient(90deg, var(--co-accent), #B8577A, var(--co-accent));
-    background-size: 200% 100%;
-    animation: co-sweep 6s ease infinite
+    letter-spacing: 0.05em;
+    color: #000;
+    background-color: var(--co-accent-soft);
+    background-image:
+        repeating-linear-gradient(-45deg, #000, #000 4px, var(--co-accent-soft) 4px, var(--co-accent-soft) 8px),
+        repeating-linear-gradient(-45deg, #000, #000 4px, var(--co-accent-soft) 4px, var(--co-accent-soft) 8px);
+    background-size: 100% 4px;
+    background-repeat: no-repeat;
+    background-position: top left, bottom left
 }
 
 @media (max-width: 768px) {
@@ -523,6 +526,7 @@ body {
     background-image: none !important;
     background-size: 0 !important
 }
+
 
 .no-arrow.no-vertical-anything {
     background-color: transparent !important
@@ -648,50 +652,105 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     flex-direction: column
 }
 
-.co-col-1 { flex: 0 0 8.333333%; max-width: 8.333333% }
-.co-col-2 { flex: 0 0 16.666667%; max-width: 16.666667% }
-.co-col-3 { flex: 0 0 25%; max-width: 25% }
-.co-col-4 { flex: 0 0 33.333333%; max-width: 33.333333% }
-.co-col-5 { flex: 0 0 41.666667%; max-width: 41.666667% }
-.co-col-6 { flex: 0 0 50%; max-width: 50% }
-.co-col-7 { flex: 0 0 58.333333%; max-width: 58.333333% }
-.co-col-8 { flex: 0 0 66.666667%; max-width: 66.666667% }
-.co-col-9 { flex: 0 0 75%; max-width: 75% }
-.co-col-10 { flex: 0 0 83.333333%; max-width: 83.333333% }
-.co-col-11 { flex: 0 0 91.666667%; max-width: 91.666667% }
-.co-col-12 { flex: 0 0 100%; max-width: 100% }
+.co-col-1 {
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%
+}
+
+.co-col-2 {
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%
+}
+
+.co-col-3 {
+    flex: 0 0 25%;
+    max-width: 25%
+}
+
+.co-col-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%
+}
+
+.co-col-5 {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%
+}
+
+.co-col-6 {
+    flex: 0 0 50%;
+    max-width: 50%
+}
+
+.co-col-7 {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%
+}
+
+.co-col-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%
+}
+
+.co-col-9 {
+    flex: 0 0 75%;
+    max-width: 75%
+}
+
+.co-col-10 {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%
+}
+
+.co-col-11 {
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%
+}
+
+.co-col-12 {
+    flex: 0 0 100%;
+    max-width: 100%
+}
 
 @media (min-width:576px) {
-    .co-container { max-width: 540px }
+    .co-container {
+        max-width: 540px
+    }
 }
 
 @media (min-width:768px) {
-    .co-container { max-width: 90% }
+    .co-container {
+        max-width: 90%
+    }
 }
 
 @media (min-width:992px) {
-    .co-container { max-width: 960px }
+    .co-container {
+        max-width: 960px
+    }
 }
 
 @media (min-width:1200px) {
-    .co-container { max-width: 1400px !important }
+    .co-container {
+        max-width: 1400px !important
+    }
 }
 
 @keyframes co-sweep {
-    0% { background-position: 0% 50% }
-    50% { background-position: 100% 50% }
-    100% { background-position: 0% 50% }
+    to {
+        background-position: 200% center
+    }
 }
 
 @keyframes co-particles {
     0% {
         opacity: 1;
-        box-shadow: 0 0 0 0 #F2A7BB, 0 0 0 0 #D4708F, 0 0 0 0 #B8577A, 0 0 0 0 #F7C8D6, 0 0 0 0 #E8788A, 0 0 0 0 #C96B8B, 0 0 0 0 #FFD1DC, 0 0 0 0 #E0A0B0
+        box-shadow: 0 0 0 0 #ffd700, 0 0 0 0 #ff69b4, 0 0 0 0 #00bfff, 0 0 0 0 #7cfc00, 0 0 0 0 #ff4500, 0 0 0 0 #da70d6, 0 0 0 0 #ffa500, 0 0 0 0 #00ffcc
     }
 
     100% {
         opacity: 0;
-        box-shadow: -45px -55px 0 0 #F2A7BB, 48px -46px 0 0 #D4708F, 55px 38px 0 0 #B8577A, -48px 45px 0 0 #F7C8D6, 25px -65px 0 0 #E8788A, -60px -15px 0 0 #C96B8B, 35px 52px 0 0 #FFD1DC, -28px 58px 0 0 #E0A0B0
+        box-shadow: -45px -55px 0 0 #ffd700, 48px -46px 0 0 #ff69b4, 55px 38px 0 0 #00bfff, -48px 45px 0 0 #7cfc00, 25px -65px 0 0 #ff4500, -60px -15px 0 0 #da70d6, 35px 52px 0 0 #ffa500, -28px 58px 0 0 #00ffcc
     }
 }
 
@@ -700,7 +759,7 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     --page-bg-pos: center;
     --page-bg-size: cover;
     --page-bg-attach: fixed;
-    --page-bg-overlay: linear-gradient(to bottom, rgba(10, 6, 14, 0.3) 0%, rgba(10, 6, 14, 0.88) 100%)
+    --page-bg-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%)
 }
 
 body {
@@ -719,10 +778,10 @@ body {
     object-fit: cover !important;
     z-index: -2 !important;
     pointer-events: none !important;
-    opacity: 0.45 !important;
+    opacity: 0.5 !important;
     background: transparent !important;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.15) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.15) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%);
     will-change: transform
 }
 
@@ -737,7 +796,7 @@ body {
     object-position: var(--co-bg-pos, center) !important;
     z-index: -2 !important;
     pointer-events: none !important;
-    opacity: var(--co-bg-opacity, 0.4) !important;
+    opacity: var(--co-bg-opacity, 0.5) !important;
     will-change: transform
 }
 
@@ -745,7 +804,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--co-bg-overlay, linear-gradient(to bottom, rgba(10, 6, 14, 0.3) 0%, rgba(10, 6, 14, 0.88) 100%));
+    background: var(--co-bg-overlay, linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%));
     pointer-events: none
 }
 
@@ -771,7 +830,7 @@ video::-moz-media-controls {
     display: none !important
 }
 
-/* ===== CORNER DECORATIVE ASSETS ===== */
+/* ===== CORNER ROSE ASSETS ===== */
 .cox-corner-l,
 .cox-corner-r {
     position: fixed;
@@ -784,8 +843,15 @@ video::-moz-media-controls {
     will-change: transform
 }
 
-.cox-corner-l { left: -50px }
-.cox-corner-r { right: -50px }
+.cox-corner-l {
+    left: -50px
+}
+
+.cox-corner-r {
+    right: -50px
+}
+
+
 
 body::before {
     content: '';
@@ -822,11 +888,11 @@ main.ant-layout-content {
 
 .ant-collapse>.ant-collapse-item {
     border: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 0 !important;
     background: var(--co-wine) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
     margin-bottom: 0 !important;
     overflow: hidden !important
 }
@@ -838,7 +904,7 @@ main.ant-layout-content {
 .ant-collapse>.ant-collapse-item>.ant-collapse-header {
     font-family: var(--co-font-serif) !important;
     font-size: 1em !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
     color: var(--co-accent-soft) !important;
     letter-spacing: 0.02em !important
 }
@@ -849,11 +915,13 @@ main.ant-layout-content {
 
 .ant-collapse-content {
     background: transparent !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.08) !important
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important
 }
 
 /* ===== MOBILE HERO LAYOUT ===== */
 @media (max-width: 768px) {
+
+    /* Video Column: 10 cols (83.33%) centered (1 col offset = 8.33%) */
     .co-col-5 {
         flex: 0 0 83.333333% !important;
         max-width: 83.333333% !important;
@@ -861,11 +929,13 @@ main.ant-layout-content {
         margin-top: 2em !important;
     }
 
+    /* Text Column: Full width */
     .co-col-7 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
 
+    /* Disable sticky bottom wrapper logic */
     .co-col-5>div:not(.co-scenario-tv) {
         height: auto !important;
         position: relative !important;
@@ -873,33 +943,35 @@ main.ant-layout-content {
         justify-content: flex-start !important;
     }
 
-    .cox-hero-video {
+    /* Hide video, show static fallback on mobile */
+    .cox-hero-image {
         display: none !important
     }
 
-    .co-col-5:has(.cox-hero-video)>div {
+    .co-col-5:has(.cox-hero-image)>div {
         position: relative !important
     }
 
-    .co-col-5:has(.cox-hero-video)>div::after {
+    .co-col-5:has(.cox-hero-image)>div::after {
         content: '';
         display: block;
         width: 100%;
         max-height: 40vh;
         aspect-ratio: 3 / 4;
         background: var(--co-hero-fallback) top center / cover no-repeat;
-        border-radius: var(--co-radius);
+        border-radius: 0;
         margin-bottom: 20px;
-        filter: drop-shadow(0 10px 24px rgba(212, 112, 143, 0.2));
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
         -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
         mask-image: linear-gradient(to bottom, black 60%, transparent 100%)
     }
 
+    /* Static hero image: fadeout on mobile */
     .cox-hero-image {
         max-height: 40vh !important;
         object-fit: cover !important;
         object-position: top center !important;
-        border-radius: var(--co-radius) !important;
+        border-radius: 0 !important;
         -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
         mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
     }
@@ -910,6 +982,7 @@ main.ant-layout-content {
         max-width: 100% !important;
     }
 
+    /* Allow heading to wrap naturally on mobile */
     .co-title {
         padding-top: 0 !important;
         font-size: clamp(2.5em, 12vw, 6em) !important;
@@ -923,13 +996,14 @@ main.ant-layout-content {
     }
 
     .co-subtitle {
-        font-size: 1em !important
+        font-size: 1.1em !important
     }
 }
 
 /* ===== MOBILE LANDSCAPE HERO ===== */
 @media (max-width: 768px) and (orientation: landscape) {
-    .co-col-5:has(.cox-hero-video)>div::after {
+
+    .co-col-5:has(.cox-hero-image)>div::after {
         aspect-ratio: 2 / 3 !important;
         max-height: 70vh !important;
         -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
@@ -953,7 +1027,7 @@ main.ant-layout-content {
 }
 
 /* ===== DESKTOP: HERO + TEXT ALIGNMENT ===== */
-.co-row:has(> .co-col-5 .cox-hero-video),
+.co-row:has(> .co-col-5 .cox-hero-image),
 .co-row:has(> .co-col-5 .cox-hero-image) {
     align-items: center !important;
     height: fit-content !important
@@ -961,6 +1035,8 @@ main.ant-layout-content {
 
 /* ===== TABLET / IPAD HERO LAYOUT ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
+
+    /* Static image hero: 6 cols */
     .co-col-5:has(.cox-hero-image) {
         flex: 0 0 50% !important;
         max-width: 50% !important;
@@ -971,7 +1047,8 @@ main.ant-layout-content {
         max-width: 50% !important;
     }
 
-    .co-col-5:has(.cox-hero-video) {
+    /* Video hero: full width centered */
+    .co-col-5:has(.cox-hero-image) {
         flex: 0 0 83.333333% !important;
         max-width: 83.333333% !important;
         margin-left: 8.333333% !important;
@@ -983,7 +1060,7 @@ main.ant-layout-content {
         position: relative !important;
     }
 
-    .cox-hero-video {
+    .cox-hero-image {
         max-height: 50vh !important;
         object-fit: cover !important;
         object-position: top !important;
@@ -999,7 +1076,7 @@ main.ant-layout-content {
         mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
     }
 
-    .co-col-5:has(.cox-hero-video)~.co-col-7 {
+    .co-col-5:has(.cox-hero-image)~.co-col-7 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
@@ -1020,7 +1097,7 @@ main.ant-layout-content {
     }
 
     .co-subtitle {
-        font-size: 1.4em !important
+        font-size: 1.6em !important
     }
 
     .co-blurb {
@@ -1038,31 +1115,36 @@ main.ant-layout-content {
 
 /* ===== TYPOGRAPHY ===== */
 .co-title {
-    font-family: var(--co-font-display), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: clamp(48px, 8vw, 88px);
-    font-weight: 900;
-    line-height: 1.05;
+    font-family: var(--co-font-display), impact, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(48px, 8vw, 90px);
+    font-weight: 700;
+    line-height: 1;
     margin: 0 0 12px 0;
     padding-top: 1.5em;
-    text-transform: none;
+    text-transform: uppercase;
     position: relative;
     z-index: 1;
-    animation: coFadeSlideUp 0.7s ease both;
+    animation: fadeSlideUp 0.6s ease both;
     will-change: transform, opacity;
     color: #fff
 }
 
-/* Soft glow shadow instead of scanline */
+/* Striped "Scanline" Shadow */
 .co-title::after {
     content: attr(data-text);
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 6px;
+    top: 6px;
     padding-top: inherit;
     z-index: -1;
-    color: var(--co-accent);
-    opacity: 0.25;
-    filter: blur(16px);
+    background: repeating-linear-gradient(-45deg,
+            var(--co-accent),
+            var(--co-accent) 2px,
+            transparent 2px,
+            transparent 6px);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     pointer-events: none;
     font-family: inherit;
     font-size: inherit;
@@ -1075,25 +1157,24 @@ main.ant-layout-content {
     display: inline;
     background-color: var(--co-accent);
     color: #fff;
-    padding: 3px 14px;
+    padding: 2px 10px;
     line-height: 2;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     font-family: var(--co-font-mono);
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 700;
+    font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
     margin: 0;
-    border-radius: 6px;
-    animation: coFadeSlideUp 0.7s ease 0.15s both;
+    animation: fadeSlideUp 0.6s ease 0.15s both;
     will-change: transform, opacity
 }
 
-@keyframes coFadeSlideUp {
+@keyframes fadeSlideUp {
     from {
         opacity: 0;
-        transform: translateY(24px)
+        transform: translateY(20px)
     }
 
     to {
@@ -1102,30 +1183,19 @@ main.ant-layout-content {
     }
 }
 
-.cox-hero-video {
-    animation: coHeroFadeIn 0.9s ease 0.1s both;
+.cox-hero-image {
+    animation: heroFadeIn 0.8s ease 0.1s both;
     will-change: transform, opacity;
     background: transparent !important;
-    filter: drop-shadow(0 10px 30px rgba(212, 112, 143, 0.15)) !important;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5)) !important;
     -webkit-appearance: none !important;
     appearance: none !important
 }
 
-/* Hero image styling */
-.cox-hero-image {
-    animation: coHeroFadeIn 0.9s ease 0.1s both;
-    will-change: transform, opacity;
-    border-radius: var(--co-radius);
-    filter: drop-shadow(0 10px 30px rgba(212, 112, 143, 0.15));
-    object-fit: cover;
-    width: 100%;
-    display: block;
-}
-
-@keyframes coHeroFadeIn {
+@keyframes heroFadeIn {
     from {
         opacity: 0;
-        transform: scale(0.96)
+        transform: scale(0.97)
     }
 
     to {
@@ -1134,28 +1204,28 @@ main.ant-layout-content {
     }
 }
 
+
 .co-blurb {
     font-family: var(--co-font-hand);
-    font-size: 1.15em;
-    font-weight: 400;
+    font-size: 1.2em;
+    font-weight: 300;
     color: var(--co-text);
-    line-height: 1.75;
+    line-height: 1.7;
     margin: 1em 0 2.5em 0
 }
 
 /* ===== SECTION BASE ===== */
 .co-section {
     border: none;
-    border-radius: var(--co-radius);
+    border-radius: 0;
     background: var(--co-wine);
-    clip-path: none;
-    padding: 1.3em 1.5em;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+    padding: 1.2em 1.4em;
     margin-bottom: 1em;
     flex: 1;
     contain: content;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05)
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px)
 }
 
 .co-section-body ul,
@@ -1174,22 +1244,22 @@ main.ant-layout-content {
 
 .co-section-title {
     font-family: var(--co-font-serif);
-    font-size: 1.05em;
+    font-size: 1.1em;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    opacity: 0.85;
+    letter-spacing: 0.08em;
+    opacity: 0.8;
     margin: 0 0 0.8em 0;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--co-accent-soft)
 }
 
 .co-section-body {
     font-family: var(--co-font-hand);
     font-size: 0.9em;
-    font-weight: 400;
-    line-height: 1.65;
+    font-weight: 300;
+    line-height: 1.6;
     color: var(--co-text)
 }
 
@@ -1202,12 +1272,11 @@ main.ant-layout-content {
     margin-bottom: 0
 }
 
-/* ===== FEEDBACK SECTION (was lorebook) ===== */
+/* ===== LOREBOOK SECTION ===== */
 .co-section--feedback {
     position: relative;
     padding-left: 2.4em;
-    border-radius: var(--co-radius);
-    clip-path: none
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%)
 }
 
 .co-section--feedback::before {
@@ -1216,9 +1285,8 @@ main.ant-layout-content {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 6px;
-    background: linear-gradient(180deg, var(--co-accent), #B8577A, var(--co-accent));
-    border-radius: 3px 0 0 3px;
+    width: 8px;
+    background: repeating-linear-gradient(-45deg, var(--co-accent-soft), var(--co-accent-soft) 4px, #000 4px, #000 8px);
     z-index: 1
 }
 
@@ -1229,7 +1297,8 @@ main.ant-layout-content {
     text-transform: uppercase;
     color: var(--co-accent-soft);
     margin: 0 0 0.6em 0;
-    letter-spacing: 0.05em
+    letter-spacing: 0.05em;
+    text-shadow: 0 2px 0 rgba(0, 0, 0, 0.5)
 }
 
 .co-section--feedback .co-btn-row {
@@ -1239,9 +1308,8 @@ main.ant-layout-content {
 .co-section--feedback .co-support-btn {
     color: var(--co-accent-soft);
     border: none;
-    background: var(--co-accent);
-    border-radius: 8px;
-    clip-path: none
+    background: var(--co-accent-soft);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)
 }
 
 .co-section--feedback .co-support-btn::before {
@@ -1250,15 +1318,14 @@ main.ant-layout-content {
     inset: 1px;
     background: var(--co-wine);
     z-index: -1;
-    border-radius: 7px;
-    clip-path: none;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
     transition: opacity .2s ease
 }
 
 .co-section--feedback .co-support-btn:hover {
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(212, 112, 143, 0.3)
+    color: #000;
+    transform: none;
+    box-shadow: none
 }
 
 .co-section--feedback .co-support-btn:hover::before {
@@ -1277,11 +1344,9 @@ main.ant-layout-content {
     align-items: center;
     gap: 1em;
     padding: 0.7em 0.8em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     cursor: default;
-    transition: background .25s ease;
-    border-radius: 8px;
-    margin: 2px 0
+    transition: background .2s ease
 }
 
 .co-intro-item:last-child {
@@ -1289,20 +1354,20 @@ main.ant-layout-content {
 }
 
 .co-intro-item:hover {
-    background: rgba(212, 112, 143, 0.08)
+    background: rgba(255, 255, 255, 0.05)
 }
 
 .co-intro-num {
     flex-shrink: 0;
     font-family: var(--co-font-display);
-    font-size: 1.5em;
-    font-weight: 900;
+    font-size: 1.6em;
+    font-weight: 700;
     color: var(--co-accent);
-    opacity: 0.3;
+    opacity: 0.4;
     width: 2em;
     text-align: center;
     letter-spacing: 0.05em;
-    transition: opacity .25s ease
+    transition: opacity .2s ease
 }
 
 .co-intro-item:hover .co-intro-num {
@@ -1320,8 +1385,8 @@ main.ant-layout-content {
     font-weight: 700;
     margin: 0 0 0.15em 0;
     color: var(--co-text);
-    text-transform: none;
-    letter-spacing: 0.02em
+    text-transform: uppercase;
+    letter-spacing: 0.03em
 }
 
 .co-intro-content p {
@@ -1337,21 +1402,19 @@ main.ant-layout-content {
     margin: 0
 }
 
-/* --- TV / Preview Frame --- */
+/* --- TV Frame --- */
 .co-scenario-tv {
     position: relative;
     margin-bottom: 1em;
-    padding: 3px;
-    border-radius: var(--co-radius);
-    overflow: hidden
+    padding: 2px
 }
 
 .co-scenario-tv::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(255, 255, 255, 0.08);
-    border-radius: var(--co-radius);
+    background: rgba(255, 255, 255, 0.06);
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
     z-index: 0;
     transition: background .3s ease
 }
@@ -1360,10 +1423,9 @@ main.ant-layout-content {
     position: relative;
     width: 100%;
     aspect-ratio: 3 / 2;
-    background: #0a060e url('https://curie-assets.site/images/Z-Image-L_00375_.png') center / cover no-repeat;
+    background: #000 url('https://curie-assets.site/images/Z-Image-L_00375_.png') center / cover no-repeat;
     overflow: hidden;
-    border-radius: calc(var(--co-radius) - 3px);
-    clip-path: none;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
     z-index: 1
 }
 
@@ -1371,17 +1433,66 @@ main.ant-layout-content {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 0%, rgba(212, 112, 143, 0.03) 50%, transparent 100%);
-    background-size: 100% 200%;
-    animation: co-softglow 6s ease infinite;
+    background:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 1px,
+            rgba(0, 0, 0, 0.1) 1px,
+            rgba(0, 0, 0, 0.1) 2px),
+        linear-gradient(180deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.03) 50%,
+            transparent 100%);
+    background-size: 100% 2px, 100% 200%;
+    animation: co-scanline 4s linear infinite, co-scanflicker 0.15s steps(2) infinite, co-glitch 0.3s steps(3) infinite;
     pointer-events: none;
     z-index: 3
 }
 
-@keyframes co-softglow {
-    0% { background-position: 0 -100% }
-    50% { background-position: 0 100% }
-    100% { background-position: 0 -100% }
+@keyframes co-scanline {
+    0% {
+        background-position: 0 0, 0 -100%
+    }
+
+    100% {
+        background-position: 0 0, 0 100%
+    }
+}
+
+@keyframes co-scanflicker {
+    0% {
+        opacity: 0.8
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes co-glitch {
+    0% {
+        transform: translateX(0)
+    }
+
+    20% {
+        transform: translateX(-3px)
+    }
+
+    40% {
+        transform: translateX(2px)
+    }
+
+    60% {
+        transform: translateX(-1px)
+    }
+
+    80% {
+        transform: translateX(4px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
 }
 
 .co-tv-frame img {
@@ -1392,25 +1503,39 @@ main.ant-layout-content {
     object-fit: cover;
     object-position: center center;
     opacity: 0;
-    transition: opacity .5s ease;
+    transition: opacity .4s ease;
     z-index: 1
 }
 
-/* Hover: accent border glow */
+/* Hover: red border */
 .co-row--scenarios:has(.co-intro-item:hover) .co-scenario-tv::before {
-    background: var(--co-accent);
-    box-shadow: 0 0 20px rgba(212, 112, 143, 0.3)
+    background: var(--co-accent)
 }
 
 /* Hover switching via :has() on the row */
-.co-row--scenarios:has(.co-intro-item[data-intro="1"]:hover) .co-tv-frame img[data-intro="1"] { opacity: 1 }
-.co-row--scenarios:has(.co-intro-item[data-intro="2"]:hover) .co-tv-frame img[data-intro="2"] { opacity: 1 }
-.co-row--scenarios:has(.co-intro-item[data-intro="3"]:hover) .co-tv-frame img[data-intro="3"] { opacity: 1 }
-.co-row--scenarios:has(.co-intro-item[data-intro="4"]:hover) .co-tv-frame img[data-intro="4"] { opacity: 1 }
-.co-row--scenarios:has(.co-intro-item[data-intro="5"]:hover) .co-tv-frame img[data-intro="5"] { opacity: 1 }
+.co-row--scenarios:has(.co-intro-item[data-intro="1"]:hover) .co-tv-frame img[data-intro="1"] {
+    opacity: 1
+}
 
-/* --- Tablet: stack scenarios + tv + feedback --- */
+.co-row--scenarios:has(.co-intro-item[data-intro="2"]:hover) .co-tv-frame img[data-intro="2"] {
+    opacity: 1
+}
+
+.co-row--scenarios:has(.co-intro-item[data-intro="3"]:hover) .co-tv-frame img[data-intro="3"] {
+    opacity: 1
+}
+
+.co-row--scenarios:has(.co-intro-item[data-intro="4"]:hover) .co-tv-frame img[data-intro="4"] {
+    opacity: 1
+}
+
+.co-row--scenarios:has(.co-intro-item[data-intro="5"]:hover) .co-tv-frame img[data-intro="5"] {
+    opacity: 1
+}
+
+/* --- Tablet: stack scenarios + tv + lorebook --- */
 @media (max-width: 1024px) {
+
     .co-row--scenarios>.co-col-5,
     .co-row--scenarios>.co-col-7 {
         flex: 0 0 100% !important;
@@ -1434,7 +1559,7 @@ main.ant-layout-content {
 
 .co-changelog-entry {
     padding: 0.4em 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.9em;
     opacity: 0.8
 }
@@ -1460,9 +1585,9 @@ main.ant-layout-content {
 .co-scenario-card {
     position: relative;
     border: none;
-    border-radius: var(--co-radius);
+    border-radius: 0;
     overflow: hidden;
-    clip-path: none;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--co-chamfer)), calc(100% - var(--co-chamfer)) 100%, 0 100%);
     min-height: 220px;
     display: flex;
     flex-direction: column;
@@ -1470,7 +1595,7 @@ main.ant-layout-content {
     padding: 1.2em;
     background-size: cover;
     background-position: center;
-    transition: border-color 0.2s ease, transform 0.3s ease;
+    transition: border-color 0.2s ease, transform 0.2s ease;
     contain: layout style;
     will-change: transform
 }
@@ -1479,18 +1604,18 @@ main.ant-layout-content {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(10, 6, 14, 0.92) 0%, rgba(10, 6, 14, 0.3) 50%, rgba(10, 6, 14, 0.05) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
     z-index: 1;
     transition: background 0.2s ease
 }
 
 .co-scenario-card:hover {
     border-color: var(--co-accent);
-    transform: translateY(-3px)
+    transform: translateY(-2px)
 }
 
 .co-scenario-card:hover::before {
-    background: linear-gradient(to top, rgba(10, 6, 14, 0.95) 0%, rgba(10, 6, 14, 0.2) 50%, rgba(10, 6, 14, 0.02) 100%)
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.05) 100%)
 }
 
 .co-scenario-card>* {
@@ -1531,10 +1656,10 @@ main.ant-layout-content {
 
 .co-scenario-tag {
     font-size: 0.7em;
-    padding: 0.15em 0.6em;
-    border-radius: 6px;
+    padding: 0.1em 0.55em 0.05em;
+    border-radius: 0;
     background: var(--co-rose);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     font-family: var(--co-font-hand);
     font-weight: 600;
     text-transform: uppercase;
@@ -1554,6 +1679,7 @@ main.ant-layout-content {
     contain: layout style
 }
 
+/* Triangular back flap /\ */
 .co-letter-flap {
     position: absolute;
     inset: 0;
@@ -1562,6 +1688,7 @@ main.ant-layout-content {
     z-index: 0
 }
 
+/* Polaroid photo */
 .co-letter-photo {
     position: absolute;
     top: -5px;
@@ -1590,12 +1717,24 @@ main.ant-layout-content {
     transform: translateX(-50%) rotate(1deg)
 }
 
+/* Envelope front V-flap (static, with rounded bottom corners) */
 .co-love-letter::before {
     background: #efe5d5 !important;
-    clip-path: polygon(0% 42%, 50% 62%, 100% 42%, 100% calc(100% - 12px), calc(100% - 3px) calc(100% - 5px), calc(100% - 8px) calc(100% - 1px), calc(100% - 12px) 100%, 12px 100%, 8px calc(100% - 1px), 3px calc(100% - 5px), 0% calc(100% - 12px));
+    clip-path: polygon(0% 42%,
+            50% 62%,
+            100% 42%,
+            100% calc(100% - 12px),
+            calc(100% - 3px) calc(100% - 5px),
+            calc(100% - 8px) calc(100% - 1px),
+            calc(100% - 12px) 100%,
+            12px 100%,
+            8px calc(100% - 1px),
+            3px calc(100% - 5px),
+            0% calc(100% - 12px));
     z-index: 1
 }
 
+/* Fold crease along V edge (static) */
 .co-love-letter::after {
     content: '';
     position: absolute;
@@ -1603,13 +1742,19 @@ main.ant-layout-content {
     z-index: 2;
     pointer-events: none;
     background: rgba(140, 100, 70, 0.18);
-    clip-path: polygon(0% 41.5%, 50% 61.5%, 100% 41.5%, 100% 42.5%, 50% 62.5%, 0% 42.5%);
+    clip-path: polygon(0% 41.5%,
+            50% 61.5%,
+            100% 41.5%,
+            100% 42.5%,
+            50% 62.5%,
+            0% 42.5%);
     opacity: 1;
     height: auto;
     bottom: 0;
     border-radius: 0
 }
 
+/* Hover: subtle card lift */
 .co-love-letter:hover {
     transform: translateY(-3px)
 }
@@ -1655,26 +1800,59 @@ main.ant-layout-content {
 }
 
 @media (min-width: 1270px) {
-    .co-letter-photo { top: -50px; width: 75% }
-    .co-love-letter:hover .co-letter-photo { top: -65px }
+    .co-letter-photo {
+        top: -50px;
+        width: 75%
+    }
+
+    .co-love-letter:hover .co-letter-photo {
+        top: -65px
+    }
 }
 
 @media (max-width: 1024px) {
-    .co-scenario-list { grid-template-columns: repeat(2, 1fr) }
-    .co-letter-photo { width: 65%; top: 40px }
-    .co-col-7>.co-row { margin-bottom: 0 }
+    .co-scenario-list {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .co-letter-photo {
+        width: 65%;
+        top: 40px
+    }
+
+    .co-col-7>.co-row {
+        margin-bottom: 0
+    }
 }
 
 @media (max-width: 768px) {
-    .co-scenario-list { grid-template-columns: 1fr }
-    .co-letter-photo { width: 65%; top: 70px }
-    .co-love-letter:hover .co-letter-photo { top: 55px }
-    .co-col-7>.co-row { margin-bottom: 0 }
+    .co-scenario-list {
+        grid-template-columns: 1fr
+    }
+
+    .co-letter-photo {
+        width: 65%;
+        top: 70px
+    }
+
+    .co-love-letter:hover .co-letter-photo {
+        top: 55px
+    }
+
+    .co-col-7>.co-row {
+        margin-bottom: 0
+    }
 }
 
 @media (min-width: 470px) and (max-width: 768px) {
-    .co-letter-photo { width: 50% !important; top: 40px !important; }
-    .co-love-letter:hover .co-letter-photo { top: 30px !important; }
+    .co-letter-photo {
+        width: 50% !important;
+        top: 40px !important;
+    }
+
+    .co-love-letter:hover .co-letter-photo {
+        top: 30px !important;
+    }
 }
 
 /* ===== POLAROID VARIANT ===== */
@@ -1690,7 +1868,7 @@ main.ant-layout-content {
     background: #fff !important;
     padding: 8px 8px 0 8px !important;
     border: none !important;
-    border-radius: 4px !important;
+    border-radius: 0 !important;
     min-height: auto !important;
     justify-content: flex-start !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -1699,7 +1877,10 @@ main.ant-layout-content {
     contain: layout style
 }
 
-.co-polaroid::before { display: none !important }
+/* Kill the dark gradient overlay from base card */
+.co-polaroid::before {
+    display: none !important
+}
 
 .co-polaroid:hover {
     border-color: transparent !important;
@@ -1708,8 +1889,14 @@ main.ant-layout-content {
     z-index: 5
 }
 
-.co-tilt-l { transform: rotate(-2.5deg) !important }
-.co-tilt-r { transform: rotate(2.5deg) !important }
+/* Scattered rotation - applied via class in HTML */
+.co-tilt-l {
+    transform: rotate(-2.5deg) !important
+}
+
+.co-tilt-r {
+    transform: rotate(2.5deg) !important
+}
 
 .co-polaroid-img {
     width: 100%;
@@ -1770,6 +1957,7 @@ main.ant-layout-content {
     color: #4a3535
 }
 
+/* Glossy sheen overlay */
 .co-polaroid::after {
     content: '';
     position: absolute;
@@ -1781,20 +1969,36 @@ main.ant-layout-content {
     z-index: 3
 }
 
-.co-polaroid:hover::after { opacity: 1 }
+.co-polaroid:hover::after {
+    opacity: 1
+}
 
 @media (min-width: 1200px) {
-    .co-polaroids { grid-template-columns: repeat(4, 1fr) }
+    .co-polaroids {
+        grid-template-columns: repeat(4, 1fr)
+    }
 }
 
 @media (max-width: 1024px) {
-    .co-polaroids { grid-template-columns: repeat(2, 1fr); gap: 1.5em 1em }
+    .co-polaroids {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5em 1em
+    }
 }
 
 @media (max-width: 600px) {
-    .co-polaroids { grid-template-columns: repeat(2, 1fr); gap: 1.2em 0.8em }
-    .co-polaroid-body h4 { font-size: 0.95em }
-    .co-polaroid-body p { font-size: 0.75em }
+    .co-polaroids {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2em 0.8em
+    }
+
+    .co-polaroid-body h4 {
+        font-size: 0.95em
+    }
+
+    .co-polaroid-body p {
+        font-size: 0.75em
+    }
 }
 
 /* ===== PRESETS & PERSONAS ===== */
@@ -1802,7 +2006,7 @@ main.ant-layout-content {
     margin: 0 0 1em 0;
     color: var(--co-text);
     font-family: var(--co-font-hand);
-    font-weight: 400
+    font-weight: 300
 }
 
 .co-btn-row {
@@ -1840,8 +2044,8 @@ main.ant-layout-content {
     border-radius: 50%;
     flex-shrink: 0;
     object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 0 12px rgba(212, 112, 143, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     transition: transform 0.2s ease, box-shadow 0.2s ease
@@ -1849,18 +2053,18 @@ main.ant-layout-content {
 
 .co-help-banner:hover img {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(212, 112, 143, 0.4)
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.4)
 }
 
 .co-help-banner span {
     position: relative;
     font-family: var(--co-font-hand);
     font-size: 0.9em;
-    font-weight: 500;
+    font-weight: 400;
     background: rgba(255, 255, 255, 0.92);
-    color: #120a14;
+    color: #1a0a10;
     border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: 8px;
+    border-radius: 0;
     padding: 0.6em 1em;
     margin-left: 0.8em;
     backdrop-filter: blur(8px);
@@ -1894,20 +2098,20 @@ main.ant-layout-content {
     display: inline-block;
     padding: 0.8em 2.2em;
     border: none;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.15);
     box-shadow: none;
     color: var(--co-accent-soft);
     font-size: var(--co-font-size);
     font-family: var(--co-font-hand);
-    font-weight: 500;
+    font-weight: 400;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.05em;
     transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
     will-change: transform, box-shadow;
     position: relative;
-    clip-path: none;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
     opacity: 1 !important
 }
 
@@ -1917,15 +2121,14 @@ main.ant-layout-content {
     inset: 1px;
     background: var(--co-btn-solid);
     z-index: -1;
-    border-radius: 7px;
-    clip-path: none;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
     transition: opacity 0.2s ease
 }
 
 .co-support-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(212, 112, 143, 0.25);
-    color: #fff
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 #000;
+    color: #000
 }
 
 .co-support-btn:hover::before {
@@ -1935,10 +2138,10 @@ main.ant-layout-content {
 /* ===== ANT TAGS (platform) ===== */
 .ant-tag {
     font-size: 0.7em !important;
-    padding: 0.15em 0.6em !important;
-    border-radius: 6px !important;
+    padding: 0.1em 0.55em 0.05em !important;
+    border-radius: 0 !important;
     background: var(--co-rose) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
     font-family: var(--co-font-hand) !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
@@ -1949,7 +2152,7 @@ main.ant-layout-content {
 }
 
 .ant-tag:hover {
-    background: rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.25) !important;
     color: #fff !important
 }
 
