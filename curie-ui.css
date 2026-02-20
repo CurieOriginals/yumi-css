@@ -127,7 +127,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn {
     transition: var(--cu-btn-transition) !important;
     position: relative;
     will-change: background, box-shadow;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn::before {
@@ -136,7 +136,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn::before {
     inset: 2px !important;
     background: var(--cu-btn-solid) !important;
     z-index: -1 !important;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn::after {
@@ -213,7 +213,7 @@ div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child:hover {
-    background: #2a1525 !important
+    background: #333 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child::before {
@@ -231,7 +231,7 @@ div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child {
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child:hover {
-    background: #2a1525 !important
+    background: #333 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child::before {
@@ -244,10 +244,12 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
 
 @media (max-width:600px) {
 
+    /* Hide Import Chat button */
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
         display: none !important
     }
 
+    /* Icon-only for Download button */
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child span:not(.ant-btn-icon):not(:has(svg)) {
         display: none !important
     }
@@ -258,6 +260,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
         justify-content: center !important
     }
 
+    /* Icon-only for Chat With button */
     div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square) span:not(.ant-btn-icon):not(:has(svg)) {
         display: none !important
     }
@@ -302,7 +305,7 @@ button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star)) {
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
     position: relative !important;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
     transition: color .2s ease !important
 }
 
@@ -312,7 +315,7 @@ button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star))::bef
     inset: 1px !important;
     background: var(--cu-btn-solid) !important;
     z-index: -1 !important;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
     transition: opacity .2s ease !important
 }
 
@@ -337,7 +340,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
     position: absolute !important;
     inset: -2px !important;
     border-radius: 0 !important;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important;
     z-index: -2 !important;
     background-image: linear-gradient(90deg, #f472b6, #c084fc, #818cf8, #60a5fa, #34d399, #c084fc, #f472b6) !important;
     background-size: 200% 100% !important;
@@ -352,7 +355,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
     position: absolute !important;
     inset: 0 !important;
     border-radius: 0 !important;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important;
     z-index: -1 !important;
     background: var(--cu-btn-solid) !important
 }
@@ -377,7 +380,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[
     background: #2a1525 !important;
     box-shadow: none !important;
     animation: none !important;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important
 }
@@ -393,7 +396,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[
     inset: 1px !important;
     background: var(--cu-btn-solid) !important;
     z-index: -1 !important;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important;
     transition: opacity .2s ease !important
 }
 
@@ -478,6 +481,7 @@ header.ant-layout-header {
     overflow: visible !important
 }
 
+/* ===== POLICE TAPE BANNER (opt-in via --cu-banner-text) ===== */
 header.ant-layout-header::after {
     content: var(--cu-banner-text, none);
     position: absolute;
@@ -518,6 +522,7 @@ body {
     background-image: none !important;
     background-size: 0 !important
 }
+
 
 .no-arrow.no-vertical-anything {
     background-color: transparent !important
@@ -568,9 +573,7 @@ div[length][color]:has(.msg-mkdn-container)::after {
 div[length][color]:has(.msg-mkdn-container)~*,
 div[length][color]:has(.msg-mkdn-container)~spacer,
 div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
-    display: none !important;
-    max-height: 0 !important;
-    overflow: hidden !important
+    display: none !important
 }
 
 .ant-dropdown-placement-topLeft .ant-dropdown-menu.ant-dropdown-menu-vertical {
@@ -597,23 +600,8 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
         width: 90vw !important;
         animation: none !important;
         transition: none !important;
-        opacity: 1 !important
+        opacity: 1 !important;
     }
-}
-
-@keyframes cu-fadeIn {
-    from {
-        opacity: 0
-    }
-
-    to {
-        opacity: 1
-    }
-}
-
-.msg-mkdn-container {
-    animation: cu-fadeIn 0.4s ease both;
-    opacity: 1 !important
 }
 
 .cu-container {
@@ -767,7 +755,7 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     --page-bg-pos: center;
     --page-bg-size: cover;
     --page-bg-attach: fixed;
-    --page-bg-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%)
+    --page-bg-overlay: linear-gradient(to bottom, rgba(8, 3, 12, 0.2) 0%, rgba(8, 3, 12, 0.88) 100%)
 }
 
 body {
@@ -776,6 +764,7 @@ body {
     position: relative !important
 }
 
+/* ===== VIDEO BACKGROUND ===== */
 .cux-bg-video {
     position: fixed !important;
     top: 0 !important;
@@ -792,6 +781,7 @@ body {
     will-change: transform
 }
 
+/* ===== IMAGE BACKGROUND ===== */
 .cux-bg-image {
     position: fixed !important;
     top: 0 !important;
@@ -836,6 +826,7 @@ video::-moz-media-controls {
     display: none !important
 }
 
+/* ===== CORNER ROSE ASSETS ===== */
 .cux-corner-l,
 .cux-corner-r {
     position: fixed;
@@ -855,6 +846,8 @@ video::-moz-media-controls {
 .cux-corner-r {
     right: -50px
 }
+
+
 
 body::before {
     content: '';
@@ -881,6 +874,7 @@ main.ant-layout-content {
     font-size: 0.85em
 }
 
+/* ===== COLLAPSE PANELS (platform) ===== */
 .ant-collapse {
     border: none !important;
     background: transparent !important;
@@ -920,8 +914,10 @@ main.ant-layout-content {
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important
 }
 
+/* ===== MOBILE HERO LAYOUT ===== */
 @media (max-width: 768px) {
 
+    /* Video Column: 10 cols (83.33%) centered (1 col offset = 8.33%) */
     .cu-col-5 {
         flex: 0 0 83.333333% !important;
         max-width: 83.333333% !important;
@@ -929,11 +925,13 @@ main.ant-layout-content {
         margin-top: 2em !important;
     }
 
+    /* Text Column: Full width */
     .cu-col-7 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
 
+    /* Disable sticky bottom wrapper logic */
     .cu-col-5>div:not(.cu-scenario-tv) {
         height: auto !important;
         position: relative !important;
@@ -941,6 +939,7 @@ main.ant-layout-content {
         justify-content: flex-start !important;
     }
 
+    /* Hide video, show static fallback on mobile */
     .cux-hero-video {
         display: none !important
     }
@@ -963,6 +962,7 @@ main.ant-layout-content {
         mask-image: linear-gradient(to bottom, black 60%, transparent 100%)
     }
 
+    /* Static hero image: fadeout on mobile */
     .cux-hero-image {
         max-height: 40vh !important;
         object-fit: cover !important;
@@ -978,6 +978,7 @@ main.ant-layout-content {
         max-width: 100% !important;
     }
 
+    /* Allow heading to wrap naturally on mobile */
     .cu-title {
         padding-top: 0 !important;
         font-size: clamp(2.5em, 12vw, 6em) !important;
@@ -985,7 +986,7 @@ main.ant-layout-content {
     }
 
     .cu-title::after {
-        top: 4px !important;
+        top: 6px !important;
         word-break: break-word !important;
         width: 100% !important;
     }
@@ -995,6 +996,7 @@ main.ant-layout-content {
     }
 }
 
+/* ===== MOBILE LANDSCAPE HERO ===== */
 @media (max-width: 768px) and (orientation: landscape) {
 
     .cu-col-5:has(.cux-hero-video)>div::after {
@@ -1009,16 +1011,28 @@ main.ant-layout-content {
         -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
         mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
     }
+
+    .cu-letter-photo {
+        width: 50% !important;
+        top: 40px !important;
+    }
+
+    .cu-love-letter:hover .cu-letter-photo {
+        top: 30px !important;
+    }
 }
 
+/* ===== DESKTOP: HERO + TEXT ALIGNMENT ===== */
 .cu-row:has(> .cu-col-5 .cux-hero-video),
 .cu-row:has(> .cu-col-5 .cux-hero-image) {
     align-items: center !important;
     height: fit-content !important
 }
 
+/* ===== TABLET / IPAD HERO LAYOUT ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
 
+    /* Static image hero: 6 cols */
     .cu-col-5:has(.cux-hero-image) {
         flex: 0 0 50% !important;
         max-width: 50% !important;
@@ -1029,6 +1043,7 @@ main.ant-layout-content {
         max-width: 50% !important;
     }
 
+    /* Video hero: full width centered */
     .cu-col-5:has(.cux-hero-video) {
         flex: 0 0 83.333333% !important;
         max-width: 83.333333% !important;
@@ -1094,6 +1109,7 @@ main.ant-layout-content {
     }
 }
 
+/* ===== TYPOGRAPHY ===== */
 .cu-title {
     font-family: var(--cu-font-display), impact, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-size: clamp(48px, 8vw, 90px);
@@ -1109,11 +1125,12 @@ main.ant-layout-content {
     color: #fff
 }
 
+/* Striped "Scanline" Shadow */
 .cu-title::after {
     content: attr(data-text);
     position: absolute;
-    left: 4px;
-    top: 4px;
+    left: 6px;
+    top: 6px;
     padding-top: inherit;
     z-index: -1;
     background: repeating-linear-gradient(-45deg,
@@ -1171,22 +1188,6 @@ main.ant-layout-content {
     appearance: none !important
 }
 
-.cux-hero-image {
-    animation: heroFadeIn 0.8s ease 0.1s both;
-    will-change: transform, opacity;
-    background: transparent !important;
-    filter: drop-shadow(0 10px 28px rgba(244, 114, 182, 0.18)) !important;
-    width: 100%;
-    max-height: 100vh;
-    height: auto;
-    display: block;
-    margin-bottom: 0;
-    object-fit: cover;
-    object-position: top center;
-    -webkit-mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 72%, transparent 100%)
-}
-
 @keyframes heroFadeIn {
     from {
         opacity: 0;
@@ -1199,6 +1200,7 @@ main.ant-layout-content {
     }
 }
 
+
 .cu-blurb {
     font-family: var(--cu-font-hand);
     font-size: 1.2em;
@@ -1208,11 +1210,12 @@ main.ant-layout-content {
     margin: 1em 0 2.5em 0
 }
 
+/* ===== SECTION BASE ===== */
 .cu-section {
     border: none;
     border-radius: 0;
     background: var(--cu-wine);
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
     padding: 1.2em 1.4em;
     margin-bottom: 1em;
     flex: 1;
@@ -1265,10 +1268,11 @@ main.ant-layout-content {
     margin-bottom: 0
 }
 
+/* ===== LOREBOOK SECTION ===== */
 .cu-section--feedback {
     position: relative;
     padding-left: 2.4em;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer))
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%)
 }
 
 .cu-section--feedback::before {
@@ -1301,7 +1305,7 @@ main.ant-layout-content {
     color: var(--cu-accent-soft);
     border: none;
     background: var(--cu-accent);
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer))
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)
 }
 
 .cu-section--feedback .cu-support-btn::before {
@@ -1310,7 +1314,7 @@ main.ant-layout-content {
     inset: 1px;
     background: var(--cu-wine);
     z-index: -1;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
     transition: opacity .2s ease
 }
 
@@ -1324,6 +1328,7 @@ main.ant-layout-content {
     opacity: 0
 }
 
+/* --- Intros List --- */
 .cu-intros {
     display: flex;
     flex-direction: column;
@@ -1393,6 +1398,7 @@ main.ant-layout-content {
     margin: 0
 }
 
+/* --- TV Frame --- */
 .cu-scenario-tv {
     position: relative;
     margin-bottom: 1em;
@@ -1404,7 +1410,7 @@ main.ant-layout-content {
     position: absolute;
     inset: 0;
     background: #2a1525;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
     z-index: 0;
     transition: background .3s ease
 }
@@ -1415,7 +1421,7 @@ main.ant-layout-content {
     aspect-ratio: 3 / 2;
     background: #08030c url('https://curie-assets.site/images/Z-Image-L_00375_.png') center / cover no-repeat;
     overflow: hidden;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
     z-index: 1
 }
 
@@ -1427,11 +1433,11 @@ main.ant-layout-content {
         repeating-linear-gradient(0deg,
             transparent,
             transparent 1px,
-            rgba(244, 114, 182, 0.04) 1px,
-            rgba(244, 114, 182, 0.04) 2px),
+            rgba(244, 114, 182, 0.05) 1px,
+            rgba(244, 114, 182, 0.05) 2px),
         linear-gradient(180deg,
             transparent 0%,
-            rgba(255, 255, 255, 0.02) 50%,
+            rgba(255, 255, 255, 0.03) 50%,
             transparent 100%);
     background-size: 100% 2px, 100% 200%;
     animation: cu-scanline 4s linear infinite, cu-scanflicker 0.15s steps(2) infinite, cu-glitch 0.3s steps(3) infinite;
@@ -1497,10 +1503,12 @@ main.ant-layout-content {
     z-index: 1
 }
 
+/* Hover: red border */
 .cu-row--scenarios:has(.cu-intro-item:hover) .cu-scenario-tv::before {
     background: var(--cu-accent)
 }
 
+/* Hover switching via :has() on the row */
 .cu-row--scenarios:has(.cu-intro-item[data-intro="1"]:hover) .cu-tv-frame img[data-intro="1"] {
     opacity: 1
 }
@@ -1521,6 +1529,7 @@ main.ant-layout-content {
     opacity: 1
 }
 
+/* --- Tablet: stack scenarios + tv + lorebook --- */
 @media (max-width: 1024px) {
 
     .cu-row--scenarios>.cu-col-5,
@@ -1531,12 +1540,14 @@ main.ant-layout-content {
     }
 }
 
+/* --- Tablet/Mobile: hide TV --- */
 @media (max-width: 1024px) {
     .cu-scenario-tv {
         display: none !important
     }
 }
 
+/* ===== CHANGELOG ===== */
 .cu-changelog-list {
     padding: 0;
     margin: 0
@@ -1560,6 +1571,7 @@ main.ant-layout-content {
     font-size: 0.85em
 }
 
+/* ===== SCENARIO CARDS ===== */
 .cu-scenario-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1571,7 +1583,7 @@ main.ant-layout-content {
     border: none;
     border-radius: 0;
     overflow: hidden;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%);
     min-height: 220px;
     display: flex;
     flex-direction: column;
@@ -1651,51 +1663,341 @@ main.ant-layout-content {
     color: var(--cu-accent-soft)
 }
 
-.cu-section--support {
+/* ===== LOVE LETTER VARIANT ===== */
+.cu-love-letter {
+    min-height: 300px;
+    border: none !important;
+    background: transparent;
+    overflow: visible !important;
+    transition: transform 0.35s ease !important;
+    border-radius: 0 !important;
+    padding-top: 0 !important;
+    contain: layout style
+}
+
+/* Triangular back flap /\ */
+.cu-letter-flap {
+    position: absolute;
+    inset: 0;
+    background: #efe5d5;
+    clip-path: polygon(50% 0%, 0% 42%, 50% 62%, 100% 42%);
+    z-index: 0
+}
+
+/* Polaroid photo */
+.cu-letter-photo {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    background: #fff;
+    padding: 5px;
+    border-radius: 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 0;
+    transition: top 0.4s ease, transform 0.4s ease
+}
+
+.cu-letter-photo img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border-radius: 0
+}
+
+.cu-love-letter:hover .cu-letter-photo {
+    top: -35px;
+    transform: translateX(-50%) rotate(1deg)
+}
+
+/* Envelope front V-flap (static, with rounded bottom corners) */
+.cu-love-letter::before {
+    background: #efe5d5 !important;
+    clip-path: polygon(0% 42%,
+            50% 62%,
+            100% 42%,
+            100% calc(100% - 12px),
+            calc(100% - 3px) calc(100% - 5px),
+            calc(100% - 8px) calc(100% - 1px),
+            calc(100% - 12px) 100%,
+            12px 100%,
+            8px calc(100% - 1px),
+            3px calc(100% - 5px),
+            0% calc(100% - 12px));
+    z-index: 1
+}
+
+/* Fold crease along V edge (static) */
+.cu-love-letter::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background: rgba(140, 100, 70, 0.18);
+    clip-path: polygon(0% 41.5%,
+            50% 61.5%,
+            100% 41.5%,
+            100% 42.5%,
+            50% 62.5%,
+            0% 42.5%);
+    opacity: 1;
+    height: auto;
+    bottom: 0;
+    border-radius: 0
+}
+
+/* Hover: subtle card lift */
+.cu-love-letter:hover {
+    transform: translateY(-3px)
+}
+
+.cu-love-letter .cu-letter-body {
+    position: relative;
+    z-index: 2;
+    padding: 0.2em 0
+}
+
+.cu-love-letter .cu-letter-body h4 {
+    font-family: var(--cu-font-hand);
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #2a1a1a;
+    margin: 0 0 0.2em 0;
+    line-height: 1.2
+}
+
+.cu-love-letter .cu-letter-body p {
+    font-family: var(--cu-font-hand);
+    font-size: 0.88em;
+    color: #3a2828;
+    opacity: 0.85;
+    line-height: 1.55;
+    margin: 0 0 0.5em 0
+}
+
+.cu-love-letter .cu-scenario-number {
+    color: var(--cu-accent);
+    opacity: 0.35;
+    font-family: var(--cu-font-display);
+    font-size: 2.5em;
+    top: auto;
+    bottom: 0.3em;
+    right: 0.4em
+}
+
+.cu-love-letter .cu-scenario-tag {
+    background: rgba(42, 26, 26, 0.08);
+    border-color: rgba(42, 26, 26, 0.15);
+    color: #3a2828
+}
+
+@media (min-width: 1270px) {
+    .cu-letter-photo {
+        top: -50px;
+        width: 75%
+    }
+
+    .cu-love-letter:hover .cu-letter-photo {
+        top: -65px
+    }
+}
+
+@media (max-width: 1024px) {
+    .cu-scenario-list {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .cu-letter-photo {
+        width: 65%;
+        top: 40px
+    }
+
+    .cu-col-7>.cu-row {
+        margin-bottom: 0
+    }
+}
+
+@media (max-width: 768px) {
+    .cu-scenario-list {
+        grid-template-columns: 1fr
+    }
+
+    .cu-letter-photo {
+        width: 65%;
+        top: 70px
+    }
+
+    .cu-love-letter:hover .cu-letter-photo {
+        top: 55px
+    }
+
+    .cu-col-7>.cu-row {
+        margin-bottom: 0
+    }
+}
+
+@media (min-width: 470px) and (max-width: 768px) {
+    .cu-letter-photo {
+        width: 50% !important;
+        top: 40px !important;
+    }
+
+    .cu-love-letter:hover .cu-letter-photo {
+        top: 30px !important;
+    }
+}
+
+/* ===== POLAROID VARIANT ===== */
+.cu-polaroids {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2em 1.5em;
+    padding: 1em 0
+}
+
+.cu-polaroid {
+    position: relative;
+    background: #fff !important;
+    padding: 8px 8px 0 8px !important;
+    border: none !important;
+    border-radius: 0 !important;
+    min-height: auto !important;
+    justify-content: flex-start !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+    overflow: hidden;
+    contain: layout style
+}
+
+/* Kill the dark gradient overlay from base card */
+.cu-polaroid::before {
+    display: none !important
+}
+
+.cu-polaroid:hover {
+    border-color: transparent !important;
+    transform: rotate(0deg) translateY(-6px) scale(1.03) !important;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 5
+}
+
+/* Scattered rotation - applied via class in HTML */
+.cu-tilt-l {
+    transform: rotate(-2.5deg) !important
+}
+
+.cu-tilt-r {
+    transform: rotate(2.5deg) !important
+}
+
+.cu-polaroid-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border-radius: 0
+}
+
+.cu-polaroid-body {
+    padding: 0.6em 0.4em 0.8em;
     text-align: center
 }
 
-.cu-support-btn {
-    display: inline-block;
-    padding: 0.8em 2.2em;
-    border: none;
-    border-radius: 0;
-    background: rgba(255, 255, 255, 0.15);
-    box-shadow: none;
-    color: var(--cu-accent-soft);
-    font-size: var(--cu-font-size);
+.cu-polaroid-body h4 {
     font-family: var(--cu-font-hand);
-    font-weight: 400;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
-    will-change: transform, box-shadow;
-    position: relative;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
-    opacity: 1 !important
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #2a1a1a;
+    margin: 0 0 0.15em 0;
+    line-height: 1.2
 }
 
-.cu-support-btn::before {
+.cu-polaroid-body p {
+    font-family: var(--cu-font-hand);
+    font-size: 0.82em;
+    font-weight: 400;
+    color: #4a3535;
+    opacity: 0.8;
+    line-height: 1.4;
+    margin: 0
+}
+
+.cu-polaroid .cu-scenario-number {
+    position: absolute;
+    bottom: 0.6em;
+    right: 0.6em;
+    font-family: var(--cu-font-hand);
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--cu-accent);
+    opacity: 1;
+    text-shadow: none;
+    z-index: 2
+}
+
+.cu-polaroid .cu-scenario-tags {
+    display: flex;
+    justify-content: center;
+    gap: 0.3em;
+    padding-bottom: 0.4em
+}
+
+.cu-polaroid .cu-scenario-tag {
+    background: rgba(42, 26, 26, 0.06);
+    border-color: rgba(42, 26, 26, 0.12);
+    color: #4a3535
+}
+
+/* Glossy sheen overlay */
+.cu-polaroid::after {
     content: '';
     position: absolute;
-    inset: 1px;
-    background: var(--cu-btn-solid);
-    z-index: -1;
-    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
-    transition: opacity 0.2s ease
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.08) 40%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.08) 60%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: 3
 }
 
-.cu-support-btn:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0 0 #000;
-    color: #fff
+.cu-polaroid:hover::after {
+    opacity: 1
 }
 
-.cu-support-btn:hover::before {
-    opacity: 0
+@media (min-width: 1200px) {
+    .cu-polaroids {
+        grid-template-columns: repeat(4, 1fr)
+    }
 }
 
+@media (max-width: 1024px) {
+    .cu-polaroids {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5em 1em
+    }
+}
+
+@media (max-width: 600px) {
+    .cu-polaroids {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2em 0.8em
+    }
+
+    .cu-polaroid-body h4 {
+        font-size: 0.95em
+    }
+
+    .cu-polaroid-body p {
+        font-size: 0.75em
+    }
+}
+
+/* ===== PRESETS & PERSONAS ===== */
 .cu-disclaimer {
     margin: 0 0 1em 0;
     color: var(--cu-text);
@@ -1755,9 +2057,9 @@ main.ant-layout-content {
     font-family: var(--cu-font-hand);
     font-size: 0.9em;
     font-weight: 400;
-    background: rgba(244, 114, 182, 0.1);
+    background: rgba(255, 255, 255, 0.92);
     color: var(--cu-text);
-    border: 1px solid rgba(244, 114, 182, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.6);
     border-radius: 0;
     padding: 0.6em 1em;
     margin-left: 0.8em;
@@ -1766,7 +2068,7 @@ main.ant-layout-content {
 }
 
 .cu-help-banner:hover span {
-    color: var(--cu-accent-soft);
+    color: var(--cu-accent);
     border-color: var(--cu-accent)
 }
 
@@ -1783,6 +2085,53 @@ main.ant-layout-content {
     border-right: 6px solid rgba(244, 114, 182, 0.25)
 }
 
+/* ===== SUPPORT / DONATE ===== */
+.cu-section--support {
+    text-align: center
+}
+
+.cu-support-btn {
+    display: inline-block;
+    padding: 0.8em 2.2em;
+    border: none;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: none;
+    color: var(--cu-accent-soft);
+    font-size: var(--cu-font-size);
+    font-family: var(--cu-font-hand);
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    will-change: transform, box-shadow;
+    position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    opacity: 1 !important
+}
+
+.cu-support-btn::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: var(--cu-btn-solid);
+    z-index: -1;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    transition: opacity 0.2s ease
+}
+
+.cu-support-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 #000;
+    color: #000
+}
+
+.cu-support-btn:hover::before {
+    opacity: 0
+}
+
+/* ===== ANT TAGS (platform) ===== */
 .ant-tag {
     font-size: 0.7em !important;
     padding: 0.1em 0.55em 0.05em !important;
@@ -1809,6 +2158,7 @@ main.ant-layout-content {
     flex-wrap: wrap !important
 }
 
+/* ===== HIDE ANT SEARCHBAR ===== */
 .ant-select-selection-overflow,
 .ant-select:has(.ant-select-selection-overflow) {
     display: none !important
