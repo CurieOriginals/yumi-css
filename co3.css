@@ -72,12 +72,10 @@ body::before {
    PLATFORM LAYOUT — BLEACHBUNNY SKELETON
    ═══════════════════════════════════════
    
-   Strategy:
-   - ant-row-center → centered, max-width matches content
-   - ant-col-lg-6 → 100% width, becomes the HEADER area
-     with background-image, avatar bottom-left, buttons bottom-right
-   - Character name as ::after on avatar wrapper
-   - ant-col-lg-18 (content) below at 100%
+   Layout (CSS Grid):
+   Col 1 (avatar)  | Col 2 (name spans →)  | Col 3
+   avatar (spans)   | "Yumi Asaka"          |
+   avatar (spans)   | [Chat][Import][DL]    | [Fav]
    
    ═══════════════════════════════════════ */
 
@@ -95,28 +93,29 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
     padding-right: 16px !important
 }
 
-/* ═══ DESKTOP SKELETON (≥992px) ═══ */
+/* ═══ DESKTOP (≥992px) ═══ */
 @media (min-width:992px) {
 
-    /* Left column → full width HEADER BANNER */
+    /* Left column → full-width HEADER with CSS Grid inside */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child {
         flex: 0 0 100% !important;
         max-width: 100% !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: flex-end !important;
-        flex-wrap: wrap !important;
-        gap: 12px !important;
+        display: grid !important;
+        grid-template-columns: auto 1fr auto !important;
+        grid-template-rows: auto auto !important;
+        align-items: end !important;
+        column-gap: 14px !important;
+        row-gap: 6px !important;
         overflow: visible !important;
         position: relative !important;
-        min-height: 280px !important;
-        padding: 20px 20px 16px !important;
+        min-height: 300px !important;
+        padding: 0 20px 32px !important;
         border-radius: var(--co-radius) !important;
         background: url('https://curie-assets.site/images/Park_Haerin_Header.webp') center 30% / cover no-repeat !important;
         box-sizing: border-box !important
     }
 
-    /* Gradient fade at bottom of header */
+    /* Gradient fade overlay */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child::before {
         content: '' !important;
         position: absolute !important;
@@ -127,27 +126,13 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         pointer-events: none !important
     }
 
-    /* All direct children above the gradient */
-    .ant-row.ant-row-center>.ant-col-lg-6:first-child>* {
-        position: relative !important;
-        z-index: 1 !important
-    }
-
-    /* Avatar wrapper — left side, with character name */
-    .ant-row.ant-row-center>.ant-col-lg-6:first-child>div:not(.mt-4) {
-        flex: 0 0 auto !important;
-        min-width: 0 !important;
-        max-width: 100% !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: flex-end !important;
-        gap: 14px !important
-    }
-
-    /* Character name as pseudo-element next to avatar */
-    .ant-row.ant-row-center>.ant-col-lg-6:first-child>div:not(.mt-4)::after {
+    /* Character name — container ::after, spans above buttons */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child::after {
         content: 'Yumi Asaka' !important;
-        display: block !important;
+        grid-column: 2 / -1 !important;
+        grid-row: 1 !important;
+        align-self: end !important;
+        z-index: 1 !important;
         font-family: var(--co-font-display) !important;
         font-size: clamp(1.4em, 3vw, 2em) !important;
         font-weight: 900 !important;
@@ -155,29 +140,56 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         white-space: nowrap !important;
         text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7) !important;
         letter-spacing: 0.01em !important;
-        line-height: 1.1 !important;
-        padding-bottom: 4px !important
+        line-height: 1.1 !important
     }
 
-    /* All .mt-4 containers (buttons) — pushed right */
-    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4 {
-        margin: 0 0 0 auto !important;
+    /* All direct children above gradient */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>* {
+        position: relative !important;
+        z-index: 1 !important
+    }
+
+    /* Avatar wrapper — col 1, spans both rows */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>div:not(.mt-4) {
+        grid-column: 1 !important;
+        grid-row: 1 / -1 !important;
+        align-self: end !important
+    }
+
+    /* Remove old name pseudo-element from avatar wrapper */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>div:not(.mt-4)::after {
+        display: none !important
+    }
+
+    /* Action buttons (Chat, Import, Download) — col 2, row 2 */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square) {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        margin: 0 !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
-        justify-content: flex-end !important;
-        flex-wrap: wrap !important;
-        gap: 8px !important;
+        justify-content: flex-start !important;
+        gap: 6px !important;
         background: transparent !important
     }
 
-    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4>* {
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)>* {
         margin: 0 !important
     }
 
-    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4 button {
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square) button {
         width: auto !important;
         min-width: 0 !important
+    }
+
+    /* Favorite button — col 3, row 2 */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(.anticon-star) {
+        grid-column: 3 !important;
+        grid-row: 2 !important;
+        margin: 0 !important;
+        justify-self: start !important;
+        background: transparent !important
     }
 
     /* Content column → full width below */
@@ -191,14 +203,15 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 /* ═══ MOBILE (<992px) ═══ */
 @media (max-width:991px) {
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6 {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: flex-end !important;
-        flex-wrap: wrap !important;
-        gap: 10px !important;
+        display: grid !important;
+        grid-template-columns: auto 1fr auto !important;
+        grid-template-rows: auto auto !important;
+        align-items: end !important;
+        column-gap: 10px !important;
+        row-gap: 4px !important;
         position: relative !important;
-        min-height: 200px !important;
-        padding: 14px 14px 12px !important;
+        min-height: 220px !important;
+        padding: 0 14px 24px !important;
         border-radius: var(--co-radius) !important;
         background: url('https://curie-assets.site/images/Park_Haerin_Header.webp') center 30% / cover no-repeat !important
     }
@@ -211,34 +224,46 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         z-index: 0 !important;
         pointer-events: none !important
     }
-    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>* {
-        position: relative !important;
-        z-index: 1 !important
-    }
-    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>div:not(.mt-4) {
-        flex: 0 0 auto !important;
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: flex-end !important;
-        gap: 10px !important
-    }
-    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>div:not(.mt-4)::after {
+    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6::after {
         content: 'Yumi Asaka' !important;
-        display: block !important;
+        grid-column: 2 / -1 !important;
+        grid-row: 1 !important;
+        align-self: end !important;
+        z-index: 1 !important;
         font-family: var(--co-font-display) !important;
         font-size: 1.3em !important;
         font-weight: 900 !important;
         color: #fff !important;
         white-space: nowrap !important;
         text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7) !important;
-        padding-bottom: 2px !important
+        line-height: 1.1 !important
     }
-    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>.mt-4 {
-        margin: 0 0 0 auto !important;
+    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>* {
+        position: relative !important;
+        z-index: 1 !important
+    }
+    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>div:not(.mt-4) {
+        grid-column: 1 !important;
+        grid-row: 1 / -1 !important;
+        align-self: end !important
+    }
+    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>div:not(.mt-4)::after {
+        display: none !important
+    }
+    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>.mt-4:has(svg.lucide-messages-square) {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        margin: 0 !important;
         display: flex !important;
-        flex-direction: row !important;
         align-items: center !important;
         gap: 4px !important;
+        background: transparent !important
+    }
+    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>.mt-4:has(.anticon-star) {
+        grid-column: 3 !important;
+        grid-row: 2 !important;
+        margin: 0 !important;
+        justify-self: start !important;
         background: transparent !important
     }
     .ant-col.ant-col-xs-24.ant-col-lg-18 {
