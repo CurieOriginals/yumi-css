@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Nunito:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap');
 
 :root {
     --cu-bg: var(--background, #08030c);
@@ -8,12 +8,12 @@
     --cu-font-hand: 'Nunito', sans-serif;
     --cu-height: clamp(42px, 5vw, 56px);
     --cu-inset: 16px;
-    --cu-radius: 6px;
-    --cu-chamfer: 6px;
+    --cu-radius: 0;
+    --cu-chamfer: 12px;
     --cu-fav-gap: 10px;
-    --cu-border-top: 1px solid rgba(255, 255, 255, .08);
+    --cu-border-top: 1px solid rgba(255, 255, 255, .1);
     --cu-shadow: 0 -4px 20px rgba(0, 0, 0, .5);
-    --cu-divider: 1px solid rgba(255, 255, 255, .07);
+    --cu-divider: 1px solid rgba(255, 255, 255, .08);
     --cu-font-size: clamp(12px, 1.2vw, 14px);
     --cu-font-weight: 700;
     --cu-btn-bg: transparent;
@@ -22,7 +22,7 @@
     --cu-btn-hover-color: #fff;
     --cu-btn-active-bg: rgba(244, 114, 182, .18);
     --cu-btn-transition: background .15s ease, color .15s ease, box-shadow .15s ease;
-    --cu-btn-hover-shadow: 0 0 0 1px rgba(244, 114, 182, .3);
+    --cu-btn-hover-shadow: inset 0 -2px 0 rgba(255, 255, 255, .15);
     --cu-fav-bg: var(--cu-btn-bg);
     --cu-fav-color: var(--cu-btn-color);
     --cu-fav-border: var(--cu-divider);
@@ -30,9 +30,9 @@
     --cu-accent: #f472b6;
     --cu-accent-soft: #fbcfe8;
     --cu-gold: #f472b6;
-    --cu-wine: rgba(8, 3, 12, 0.82);
-    --cu-rose: rgba(244, 114, 182, 0.07);
-    --cu-text: rgba(255, 255, 255, 0.88);
+    --cu-wine: rgba(8, 3, 12, 0.85);
+    --cu-rose: rgba(244, 114, 182, 0.08);
+    --cu-text: rgba(255, 255, 255, 0.9);
     --cu-btn-solid: #120810;
     --cu-btn-solid-hover: #1e1020
 }
@@ -110,23 +110,33 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn {
     height: var(--cu-height) !important;
     margin: 0 !important;
     padding: 0 1.2em !important;
-    border-radius: var(--cu-radius) !important;
-    border: 1px solid rgba(244, 114, 182, .15) !important;
+    border-radius: 0 !important;
+    border: none !important;
     box-shadow: none !important;
     font-size: var(--cu-font-size) !important;
     font-family: var(--cu-font-hand) !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.06em !important;
+    letter-spacing: 0.05em !important;
     min-width: 0 !important;
     transform: none !important;
     animation: none !important;
-    background: rgba(244, 114, 182, 0.08) !important;
-    backdrop-filter: blur(8px) !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: none !important;
     color: var(--cu-accent-soft) !important;
     transition: var(--cu-btn-transition) !important;
     position: relative;
-    will-change: background, box-shadow
+    will-change: background, box-shadow;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important
+}
+
+div.mt-4:has(svg.lucide-messages-square) button.ant-btn::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 2px !important;
+    background: var(--cu-btn-solid) !important;
+    z-index: -1 !important;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn::after {
@@ -140,9 +150,9 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn>* {
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn:hover {
     filter: none !important;
-    background: rgba(244, 114, 182, .18) !important;
+    background: var(--cu-btn-solid-hover) !important;
     border-color: var(--cu-accent) !important;
-    box-shadow: 0 0 12px rgba(244, 114, 182, .2) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
     transform: none !important;
     color: #fff !important
 }
@@ -157,15 +167,28 @@ div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-
     flex: 1.5 1 0 !important;
     width: auto !important;
     border-right: none !important;
-    background: linear-gradient(135deg, #f472b6, #c084fc) !important;
+    border-radius: 0 !important;
+    background: var(--cu-accent) !important;
     color: #fff !important;
-    border: none !important
+    clip-path: polygon(0 0, 100% 0, 100% 100%, var(--cu-chamfer) 100%, 0 calc(100% - var(--cu-chamfer))) !important
+}
+
+div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square)::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 2px !important;
+    background: var(--cu-btn-solid) !important;
+    z-index: -1 !important;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, var(--cu-chamfer) 100%, 0 calc(100% - var(--cu-chamfer))) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square):hover {
-    opacity: 0.9 !important;
-    box-shadow: 0 4px 16px rgba(244, 114, 182, .4) !important;
-    transform: translateY(-1px) !important
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 4px 4px 0 0 #000 !important
+}
+
+div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square):hover::before {
+    opacity: 0 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex {
@@ -183,23 +206,36 @@ div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
     flex: 0.6 1 0 !important;
     width: auto !important;
     overflow: hidden !important;
+    border-radius: 0 !important;
+    clip-path: none !important;
     background: var(--cu-btn-solid) !important;
-    border: 1px solid rgba(244, 114, 182, .2) !important
+    border: 1px solid #2a1525 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child:hover {
-    background: var(--cu-btn-solid-hover) !important
+    background: #2a1525 !important
+}
+
+div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child::before {
+    display: none !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child {
     flex: 1 1 0 !important;
     width: auto !important;
+    border-right: none !important;
+    border-radius: 0 !important;
+    clip-path: none !important;
     background: var(--cu-btn-solid) !important;
-    border: 1px solid rgba(244, 114, 182, .2) !important
+    border: 1px solid #2a1525 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child:hover {
-    background: var(--cu-btn-solid-hover) !important
+    background: #2a1525 !important
+}
+
+div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child::before {
+    display: none !important
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
@@ -207,6 +243,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
 }
 
 @media (max-width:600px) {
+
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
         display: none !important
     }
@@ -241,7 +278,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star) {
     right: var(--cu-inset) !important;
     bottom: var(--cu-inset) !important;
     z-index: 9999 !important;
-    border-radius: var(--cu-radius) !important;
+    border-radius: 0 !important;
     overflow: visible !important;
     padding: 0 1.5em !important;
     height: var(--cu-height) !important;
@@ -249,28 +286,42 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star) {
     width: var(--cu-fav-width) !important;
     font-size: var(--cu-font-size) !important;
     font-family: var(--cu-font-hand) !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
+    overflow: visible !important;
     transition: transform .2s ease, filter .2s ease, border-color .2s ease !important;
     pointer-events: auto !important
 }
 
 button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star)) {
-    background: rgba(244, 114, 182, .07) !important;
-    border: 1px solid rgba(244, 114, 182, .2) !important;
-    border-radius: var(--cu-radius) !important;
+    background: #2a1525 !important;
+    border: none !important;
+    border-radius: 0 !important;
     color: var(--cu-accent-soft) !important;
     font-family: var(--cu-font-hand) !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important;
     position: relative !important;
-    transition: color .2s ease, background .2s ease !important
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
+    transition: color .2s ease !important
+}
+
+button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star))::before {
+    content: '' !important;
+    position: absolute !important;
+    inset: 1px !important;
+    background: var(--cu-btn-solid) !important;
+    z-index: -1 !important;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
+    transition: opacity .2s ease !important
 }
 
 button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star)):hover {
-    color: #fff !important;
-    background: rgba(244, 114, 182, .15) !important;
-    border-color: var(--cu-accent) !important
+    color: #fff !important
+}
+
+button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star)):hover::before {
+    opacity: 0 !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]) {
@@ -285,12 +336,14 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
     display: block !important;
     position: absolute !important;
     inset: -2px !important;
-    border-radius: var(--cu-radius) !important;
+    border-radius: 0 !important;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
     z-index: -2 !important;
-    background-image: linear-gradient(90deg, #f472b6, #c084fc, #818cf8, #60a5fa, #34d399, #f472b6) !important;
+    background-image: linear-gradient(90deg, #f472b6, #c084fc, #818cf8, #60a5fa, #34d399, #c084fc, #f472b6) !important;
     background-size: 200% 100% !important;
     background-position: 0% 50%;
-    animation: cu-sweep 3s linear infinite !important
+    animation: cu-sweep 3s linear infinite !important;
+    transition: filter .2s ease !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"])::after {
@@ -298,30 +351,54 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
     display: block !important;
     position: absolute !important;
     inset: 0 !important;
-    border-radius: var(--cu-radius) !important;
+    border-radius: 0 !important;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
     z-index: -1 !important;
     background: var(--cu-btn-solid) !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]):hover {
-    transform: scale(1.04) !important;
+    transform: scale(1.06) !important;
     filter: brightness(1.1) !important
+}
+
+div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]):hover::before {
+    filter: brightness(1.4) saturate(1.3) !important;
+    box-shadow: 0 0 18px rgba(244, 114, 182, 0.5), 0 0 40px rgba(192, 132, 252, 0.3) !important
+}
+
+div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]):active {
+    transform: scale(0.95) !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[d*="M664.8 561.6"])) {
     color: var(--cu-accent-soft) !important;
-    border: 1px solid rgba(244, 114, 182, .25) !important;
-    background: rgba(244, 114, 182, .07) !important;
+    border: none !important;
+    background: #2a1525 !important;
     box-shadow: none !important;
     animation: none !important;
-    border-radius: var(--cu-radius) !important;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
     text-transform: uppercase !important;
     letter-spacing: 0.05em !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[d*="M664.8 561.6"])):hover {
-    color: #fff !important;
-    background: rgba(244, 114, 182, .15) !important
+    color: #fff !important
+}
+
+div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[d*="M664.8 561.6"]))::before {
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    inset: 1px !important;
+    background: var(--cu-btn-solid) !important;
+    z-index: -1 !important;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer)) !important;
+    transition: opacity .2s ease !important
+}
+
+div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[d*="M664.8 561.6"])):hover::before {
+    opacity: 0 !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[d*="M664.8 561.6"]))::after {
@@ -364,6 +441,22 @@ footer.ant-layout-footer {
     margin-top: 2px
 }
 
+.ant-menu-item:has(img[alt="logo"]) .ant-menu-title-content::after {
+    content: 'CURIEUI\A BY CURIE';
+    white-space: pre;
+    font-family: var(--cu-font-mono);
+    font-size: 7px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    line-height: 1.3;
+    opacity: 0.4;
+    margin-left: 8px;
+    color: #fff;
+    pointer-events: none;
+    text-decoration: none
+}
+
 .ant-layout {
     margin-top: 0 !important
 }
@@ -391,16 +484,16 @@ header.ant-layout-header::after {
     top: 0;
     left: 0;
     right: 0;
-    height: var(--cu-banner-height, 28px);
+    height: var(--cu-banner-height, 32px);
     z-index: 10001;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--cu-font-mono);
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 11px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
     color: #fff;
     background: linear-gradient(90deg, #f472b6, #c084fc, #818cf8, #c084fc, #f472b6);
     background-size: 300% 100%;
@@ -523,7 +616,6 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     opacity: 1 !important
 }
 
-/* ===== GRID CONTAINER ===== */
 .cu-container {
     width: 100%;
     margin-right: auto;
@@ -548,9 +640,18 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     margin-left: -15px
 }
 
-.cu-col-1, .cu-col-2, .cu-col-3, .cu-col-4, .cu-col-5,
-.cu-col-6, .cu-col-7, .cu-col-8, .cu-col-9, .cu-col-10,
-.cu-col-11, .cu-col-12 {
+.cu-col-1,
+.cu-col-2,
+.cu-col-3,
+.cu-col-4,
+.cu-col-5,
+.cu-col-6,
+.cu-col-7,
+.cu-col-8,
+.cu-col-9,
+.cu-col-10,
+.cu-col-11,
+.cu-col-12 {
     position: relative;
     width: 100%;
     padding-right: 15px;
@@ -559,65 +660,136 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     flex-direction: column
 }
 
-.cu-col-1 { flex: 0 0 8.333333%; max-width: 8.333333% }
-.cu-col-2 { flex: 0 0 16.666667%; max-width: 16.666667% }
-.cu-col-3 { flex: 0 0 25%; max-width: 25% }
-.cu-col-4 { flex: 0 0 33.333333%; max-width: 33.333333% }
-.cu-col-5 { flex: 0 0 41.666667%; max-width: 41.666667% }
-.cu-col-6 { flex: 0 0 50%; max-width: 50% }
-.cu-col-7 { flex: 0 0 58.333333%; max-width: 58.333333% }
-.cu-col-8 { flex: 0 0 66.666667%; max-width: 66.666667% }
-.cu-col-9 { flex: 0 0 75%; max-width: 75% }
-.cu-col-10 { flex: 0 0 83.333333%; max-width: 83.333333% }
-.cu-col-11 { flex: 0 0 91.666667%; max-width: 91.666667% }
-.cu-col-12 { flex: 0 0 100%; max-width: 100% }
+.cu-col-1 {
+    flex: 0 0 8.333333%;
+    max-width: 8.333333%
+}
 
-@media (min-width:576px) { .cu-container { max-width: 540px } }
-@media (min-width:768px) { .cu-container { max-width: 90% } }
-@media (min-width:992px) { .cu-container { max-width: 960px } }
-@media (min-width:1200px) { .cu-container { max-width: 1400px !important } }
+.cu-col-2 {
+    flex: 0 0 16.666667%;
+    max-width: 16.666667%
+}
 
-/* ===== KEYFRAMES ===== */
+.cu-col-3 {
+    flex: 0 0 25%;
+    max-width: 25%
+}
+
+.cu-col-4 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%
+}
+
+.cu-col-5 {
+    flex: 0 0 41.666667%;
+    max-width: 41.666667%
+}
+
+.cu-col-6 {
+    flex: 0 0 50%;
+    max-width: 50%
+}
+
+.cu-col-7 {
+    flex: 0 0 58.333333%;
+    max-width: 58.333333%
+}
+
+.cu-col-8 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%
+}
+
+.cu-col-9 {
+    flex: 0 0 75%;
+    max-width: 75%
+}
+
+.cu-col-10 {
+    flex: 0 0 83.333333%;
+    max-width: 83.333333%
+}
+
+.cu-col-11 {
+    flex: 0 0 91.666667%;
+    max-width: 91.666667%
+}
+
+.cu-col-12 {
+    flex: 0 0 100%;
+    max-width: 100%
+}
+
+@media (min-width:576px) {
+    .cu-container {
+        max-width: 540px
+    }
+}
+
+@media (min-width:768px) {
+    .cu-container {
+        max-width: 90%
+    }
+}
+
+@media (min-width:992px) {
+    .cu-container {
+        max-width: 960px
+    }
+}
+
+@media (min-width:1200px) {
+    .cu-container {
+        max-width: 1400px !important
+    }
+}
+
 @keyframes cu-sweep {
-    to { background-position: 200% center }
+    to {
+        background-position: 200% center
+    }
 }
 
 @keyframes cu-particles {
     0% {
         opacity: 1;
-        box-shadow: 0 0 0 0 #f472b6, 0 0 0 0 #c084fc, 0 0 0 0 #818cf8,
-            0 0 0 0 #60a5fa, 0 0 0 0 #34d399, 0 0 0 0 #fbbf24,
-            0 0 0 0 #e879f9, 0 0 0 0 #06b6d4
+        box-shadow: 0 0 0 0 #f472b6, 0 0 0 0 #c084fc, 0 0 0 0 #818cf8, 0 0 0 0 #60a5fa, 0 0 0 0 #34d399, 0 0 0 0 #fbbf24, 0 0 0 0 #e879f9, 0 0 0 0 #06b6d4
     }
+
     100% {
         opacity: 0;
-        box-shadow: -45px -55px 0 0 #f472b6, 48px -46px 0 0 #c084fc,
-            55px 38px 0 0 #818cf8, -48px 45px 0 0 #60a5fa,
-            25px -65px 0 0 #34d399, -60px -15px 0 0 #fbbf24,
-            35px 52px 0 0 #e879f9, -28px 58px 0 0 #06b6d4
+        box-shadow: -45px -55px 0 0 #f472b6, 48px -46px 0 0 #c084fc, 55px 38px 0 0 #818cf8, -48px 45px 0 0 #60a5fa, 25px -65px 0 0 #34d399, -60px -15px 0 0 #fbbf24, 35px 52px 0 0 #e879f9, -28px 58px 0 0 #06b6d4
     }
 }
 
-@keyframes cu-fadeSlideUp {
-    from { opacity: 0; transform: translateY(16px) }
-    to   { opacity: 1; transform: translateY(0) }
-}
-
-@keyframes cu-heroFadeIn {
-    from { opacity: 0; transform: scale(0.98) }
-    to   { opacity: 1; transform: scale(1) }
-}
-
-/* ===== BACKGROUND ===== */
 :root {
     --page-bg: none;
-    --page-bg-overlay: linear-gradient(to bottom, rgba(8,3,12,0.1) 0%, rgba(8,3,12,0.85) 100%)
+    --page-bg-pos: center;
+    --page-bg-size: cover;
+    --page-bg-attach: fixed;
+    --page-bg-overlay: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%)
 }
 
 body {
     background-color: #08030c !important;
     background-image: none !important;
     position: relative !important
+}
+
+.cux-bg-video {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    object-fit: cover !important;
+    z-index: -2 !important;
+    pointer-events: none !important;
+    opacity: 0.5 !important;
+    background: transparent !important;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    will-change: transform
 }
 
 .cux-bg-image {
@@ -630,8 +802,58 @@ body {
     object-position: var(--cu-bg-pos, center) !important;
     z-index: -2 !important;
     pointer-events: none !important;
-    opacity: var(--cu-bg-opacity, 0.4) !important;
+    opacity: var(--cu-bg-opacity, 0.5) !important;
     will-change: transform
+}
+
+.cux-bg-image::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--cu-bg-overlay, linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%));
+    pointer-events: none
+}
+
+video {
+    background: transparent !important;
+    -webkit-media-controls: none !important
+}
+
+video::-webkit-media-controls,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-enclosure,
+video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    position: absolute !important;
+    width: 0 !important;
+    height: 0 !important
+}
+
+video::-moz-media-controls {
+    display: none !important
+}
+
+.cux-corner-l,
+.cux-corner-r {
+    position: fixed;
+    bottom: -45px;
+    height: 180px;
+    width: auto;
+    z-index: 9997;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+    will-change: transform
+}
+
+.cux-corner-l {
+    left: -50px
+}
+
+.cux-corner-r {
+    right: -50px
 }
 
 body::before {
@@ -653,7 +875,6 @@ main.ant-layout-content {
     z-index: 1
 }
 
-/* ===== COLLAPSE PANELS ===== */
 .ant-collapse-content-box,
 .ant-collapse-content-box .ant-descriptions-item-content {
     font-family: var(--cu-font-mono) !important;
@@ -669,11 +890,11 @@ main.ant-layout-content {
 
 .ant-collapse>.ant-collapse-item {
     border: none !important;
-    border-bottom: 1px solid rgba(244, 114, 182, 0.1) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
     border-radius: 0 !important;
     background: var(--cu-wine) !important;
-    backdrop-filter: blur(12px) !important;
-    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
     margin-bottom: 0 !important;
     overflow: hidden !important
 }
@@ -696,75 +917,65 @@ main.ant-layout-content {
 
 .ant-collapse-content {
     background: transparent !important;
-    border-top: 1px solid rgba(244, 114, 182, 0.08) !important
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important
 }
 
-/* ===== ANT TAGS ===== */
-.ant-tag {
-    font-size: 0.7em !important;
-    padding: 0.1em 0.6em 0.05em !important;
-    border-radius: 999px !important;
-    background: var(--cu-rose) !important;
-    border: 1px solid rgba(244, 114, 182, 0.2) !important;
-    font-family: var(--cu-font-hand) !important;
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.04em !important;
-    color: var(--cu-accent-soft) !important;
-    line-height: 1.6 !important;
-    transition: background 0.15s ease, color 0.15s ease !important
-}
-
-.ant-tag:hover {
-    background: rgba(244, 114, 182, 0.22) !important;
-    color: #fff !important
-}
-
-.ant-space.ant-space-horizontal.ant-space-align-center {
-    max-height: none !important;
-    overflow: visible !important;
-    flex-wrap: wrap !important
-}
-
-.ant-select-selection-overflow,
-.ant-select:has(.ant-select-selection-overflow) {
-    display: none !important
-}
-
-/* ===== MOBILE HERO LAYOUT ===== */
 @media (max-width: 768px) {
+
     .cu-col-5 {
         flex: 0 0 83.333333% !important;
         max-width: 83.333333% !important;
         margin-left: 8.333333% !important;
-        margin-top: 2em !important
+        margin-top: 2em !important;
     }
 
     .cu-col-7 {
         flex: 0 0 100% !important;
-        max-width: 100% !important
+        max-width: 100% !important;
     }
 
     .cu-col-5>div:not(.cu-scenario-tv) {
         height: auto !important;
         position: relative !important;
         display: block !important;
-        justify-content: flex-start !important
+        justify-content: flex-start !important;
     }
 
-    .cu-col-5:has(.cux-hero-image)>div {
+    .cux-hero-video {
+        display: none !important
+    }
+
+    .cu-col-5:has(.cux-hero-video)>div {
         position: relative !important
     }
 
-    .cux-hero-image {
-        max-height: 46vh !important;
-        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
-        mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important
+    .cu-col-5:has(.cux-hero-video)>div::after {
+        content: '';
+        display: block;
+        width: 100%;
+        max-height: 40vh;
+        aspect-ratio: 3 / 4;
+        background: var(--cu-hero-fallback) top center / cover no-repeat;
+        border-radius: 0;
+        margin-bottom: 20px;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%)
     }
 
-    .cu-col-4, .cu-col-6 {
+    .cux-hero-image {
+        max-height: 40vh !important;
+        object-fit: cover !important;
+        object-position: top center !important;
+        border-radius: 0 !important;
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
+    }
+
+    .cu-col-4,
+    .cu-col-6 {
         flex: 0 0 100% !important;
-        max-width: 100% !important
+        max-width: 100% !important;
     }
 
     .cu-title {
@@ -773,38 +984,92 @@ main.ant-layout-content {
         word-break: break-word !important
     }
 
+    .cu-title::after {
+        top: 4px !important;
+        word-break: break-word !important;
+        width: 100% !important;
+    }
+
     .cu-subtitle {
-        font-size: 1em !important
+        font-size: 1.1em !important
     }
 }
 
+@media (max-width: 768px) and (orientation: landscape) {
+
+    .cu-col-5:has(.cux-hero-video)>div::after {
+        aspect-ratio: 2 / 3 !important;
+        max-height: 70vh !important;
+        -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
+        mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
+    }
+
+    .cux-hero-image {
+        max-height: 70vh !important;
+        -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
+        mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
+    }
+}
+
+.cu-row:has(> .cu-col-5 .cux-hero-video),
+.cu-row:has(> .cu-col-5 .cux-hero-image) {
+    align-items: center !important;
+    height: fit-content !important
+}
+
 @media (min-width: 769px) and (max-width: 1024px) {
+
     .cu-col-5:has(.cux-hero-image) {
         flex: 0 0 50% !important;
-        max-width: 50% !important
+        max-width: 50% !important;
     }
 
     .cu-col-5:has(.cux-hero-image)~.cu-col-7 {
         flex: 0 0 50% !important;
-        max-width: 50% !important
+        max-width: 50% !important;
+    }
+
+    .cu-col-5:has(.cux-hero-video) {
+        flex: 0 0 83.333333% !important;
+        max-width: 83.333333% !important;
+        margin-left: 8.333333% !important;
+        overflow: hidden !important;
+    }
+
+    .cu-col-5>div {
+        height: auto !important;
+        position: relative !important;
+    }
+
+    .cux-hero-video {
+        max-height: 50vh !important;
+        object-fit: cover !important;
+        object-position: top !important;
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
     }
 
     .cux-hero-image {
-        max-height: 52vh !important;
+        max-height: 50vh !important;
         object-fit: cover !important;
         object-position: top !important;
-        -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%) !important;
-        mask-image: linear-gradient(to bottom, black 65%, transparent 100%) !important
+        -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
+        mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
+    }
+
+    .cu-col-5:has(.cux-hero-video)~.cu-col-7 {
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
     }
 
     .cu-col-7>.cu-row>.cu-col-6:first-child {
         flex: 0 0 58.333333% !important;
-        max-width: 58.333333% !important
+        max-width: 58.333333% !important;
     }
 
     .cu-col-7>.cu-row>.cu-col-6:last-child {
         flex: 0 0 41.666667% !important;
-        max-width: 41.666667% !important
+        max-width: 41.666667% !important;
     }
 
     .cu-title {
@@ -813,32 +1078,33 @@ main.ant-layout-content {
     }
 
     .cu-subtitle {
-        font-size: 1.5em !important
+        font-size: 1.6em !important
     }
 
     .cu-blurb {
-        font-size: 1.1em !important
+        font-size: 1.2em !important
+    }
+
+    .cu-col-5 spacer,
+    .cu-col-7 spacer,
+    .cu-row>spacer {
+        display: none !important;
+        max-height: 0 !important;
+        overflow: hidden !important
     }
 }
 
-.cu-row:has(>.cu-col-5 .cux-hero-image) {
-    align-items: center !important;
-    height: fit-content !important
-}
-
-/* ===== TYPOGRAPHY ===== */
 .cu-title {
-    font-family: var(--cu-font-display), -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: clamp(48px, 8vw, 88px);
+    font-family: var(--cu-font-display), impact, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(48px, 8vw, 90px);
     font-weight: 700;
     line-height: 1;
-    margin: 0 0 16px 0;
+    margin: 0 0 12px 0;
     padding-top: 1.5em;
     text-transform: uppercase;
     position: relative;
     z-index: 1;
-    letter-spacing: -0.02em;
-    animation: cu-fadeSlideUp 0.6s ease both;
+    animation: fadeSlideUp 0.6s ease both;
     will-change: transform, opacity;
     color: #fff
 }
@@ -846,80 +1112,113 @@ main.ant-layout-content {
 .cu-title::after {
     content: attr(data-text);
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 4px;
+    top: 4px;
     padding-top: inherit;
     z-index: -1;
+    background: repeating-linear-gradient(-45deg,
+            var(--cu-accent),
+            var(--cu-accent) 2px,
+            transparent 2px,
+            transparent 6px);
+    -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
-    -webkit-text-stroke: 1px rgba(244, 114, 182, 0.35);
-    text-stroke: 1px rgba(244, 114, 182, 0.35);
-    filter: blur(8px);
-    opacity: 0.7;
     pointer-events: none;
     font-family: inherit;
     font-size: inherit;
     font-weight: inherit;
     line-height: inherit;
-    text-transform: inherit;
-    letter-spacing: inherit
+    text-transform: inherit
 }
 
 .cu-subtitle {
     display: inline;
-    background: linear-gradient(90deg, rgba(244,114,182,0.22), rgba(192,132,252,0.18));
-    color: var(--cu-accent-soft);
-    padding: 3px 14px;
-    line-height: 2.2;
+    background: linear-gradient(90deg, var(--cu-accent), #c084fc);
+    color: #fff;
+    padding: 2px 10px;
+    line-height: 2;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     font-family: var(--cu-font-mono);
-    font-weight: 500;
-    font-size: 14px;
+    font-weight: 700;
+    font-size: 16px;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.15em;
     margin: 0;
-    border: 1px solid rgba(244, 114, 182, 0.25);
-    border-radius: 999px;
-    animation: cu-fadeSlideUp 0.6s ease 0.15s both;
+    animation: fadeSlideUp 0.6s ease 0.15s both;
     will-change: transform, opacity
 }
 
-.cux-hero-image {
-    animation: cu-heroFadeIn 0.8s ease 0.1s both;
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+.cux-hero-video {
+    animation: heroFadeIn 0.8s ease 0.1s both;
     will-change: transform, opacity;
     background: transparent !important;
-    display: block;
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5)) !important;
+    -webkit-appearance: none !important;
+    appearance: none !important
+}
+
+.cux-hero-image {
+    animation: heroFadeIn 0.8s ease 0.1s both;
+    will-change: transform, opacity;
+    background: transparent !important;
+    filter: drop-shadow(0 10px 28px rgba(244, 114, 182, 0.18)) !important;
     width: 100%;
-    max-height: 90vh;
+    max-height: 100vh;
     height: auto;
+    display: block;
+    margin-bottom: 0;
     object-fit: cover;
     object-position: top center;
-    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
-    filter: drop-shadow(0 12px 32px rgba(244, 114, 182, 0.18))
+    -webkit-mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 72%, transparent 100%)
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.97)
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
 }
 
 .cu-blurb {
     font-family: var(--cu-font-hand);
-    font-size: 1.15em;
+    font-size: 1.2em;
     font-weight: 300;
     color: var(--cu-text);
-    line-height: 1.75;
-    margin: 1.2em 0 2.5em 0
+    line-height: 1.7;
+    margin: 1em 0 2.5em 0
 }
 
-/* ===== SECTION BASE ===== */
 .cu-section {
     border: none;
-    border-radius: var(--cu-radius);
+    border-radius: 0;
     background: var(--cu-wine);
-    border-left: 2px solid rgba(244, 114, 182, 0.3);
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
     padding: 1.2em 1.4em;
     margin-bottom: 1em;
     flex: 1;
     contain: content;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px)
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px)
 }
 
 .cu-section-body ul,
@@ -937,15 +1236,15 @@ main.ant-layout-content {
 }
 
 .cu-section-title {
-    font-family: var(--cu-font-display);
-    font-size: 0.75em;
-    font-weight: 600;
+    font-family: var(--cu-font-serif);
+    font-size: 1.1em;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.14em;
-    opacity: 0.65;
-    margin: 0 0 0.9em 0;
+    letter-spacing: 0.08em;
+    opacity: 0.8;
+    margin: 0 0 0.8em 0;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid rgba(244, 114, 182, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     color: var(--cu-accent-soft)
 }
 
@@ -953,7 +1252,7 @@ main.ant-layout-content {
     font-family: var(--cu-font-hand);
     font-size: 0.9em;
     font-weight: 300;
-    line-height: 1.65;
+    line-height: 1.6;
     color: var(--cu-text)
 }
 
@@ -966,26 +1265,65 @@ main.ant-layout-content {
     margin-bottom: 0
 }
 
-/* ===== FEEDBACK SECTION ===== */
 .cu-section--feedback {
-    border-left: 2px solid var(--cu-accent)
+    position: relative;
+    padding-left: 2.4em;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer))
+}
+
+.cu-section--feedback::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    background: linear-gradient(180deg, #f472b6, #c084fc, #818cf8);
+    z-index: 1
 }
 
 .cu-feedback-name {
     font-family: var(--cu-font-display);
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 700;
     text-transform: uppercase;
     color: var(--cu-accent-soft);
     margin: 0 0 0.6em 0;
-    letter-spacing: 0.06em
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 12px rgba(244, 114, 182, 0.4)
 }
 
 .cu-section--feedback .cu-btn-row {
-    margin-top: 1em
+    margin-top: 1.2em
 }
 
-/* ===== SCENARIO LIST ===== */
+.cu-section--feedback .cu-support-btn {
+    color: var(--cu-accent-soft);
+    border: none;
+    background: var(--cu-accent);
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer))
+}
+
+.cu-section--feedback .cu-support-btn::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: var(--cu-wine);
+    z-index: -1;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    transition: opacity .2s ease
+}
+
+.cu-section--feedback .cu-support-btn:hover {
+    color: #fff;
+    transform: none;
+    box-shadow: none
+}
+
+.cu-section--feedback .cu-support-btn:hover::before {
+    opacity: 0
+}
+
 .cu-intros {
     display: flex;
     flex-direction: column;
@@ -996,8 +1334,8 @@ main.ant-layout-content {
     display: flex;
     align-items: center;
     gap: 1em;
-    padding: 0.75em 0.8em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.7em 0.8em;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     cursor: default;
     transition: background .2s ease
 }
@@ -1012,14 +1350,14 @@ main.ant-layout-content {
 
 .cu-intro-num {
     flex-shrink: 0;
-    font-family: var(--cu-font-mono);
-    font-size: 1.3em;
-    font-weight: 500;
+    font-family: var(--cu-font-display);
+    font-size: 1.6em;
+    font-weight: 700;
     color: var(--cu-accent);
-    opacity: 0.3;
-    width: 2.2em;
+    opacity: 0.4;
+    width: 2em;
     text-align: center;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.05em;
     transition: opacity .2s ease
 }
 
@@ -1034,19 +1372,19 @@ main.ant-layout-content {
 
 .cu-intro-content h4 {
     font-family: var(--cu-font-display);
-    font-size: 0.88em;
-    font-weight: 600;
+    font-size: 0.9em;
+    font-weight: 700;
     margin: 0 0 0.15em 0;
     color: var(--cu-text);
     text-transform: uppercase;
-    letter-spacing: 0.04em
+    letter-spacing: 0.03em
 }
 
 .cu-intro-content p {
     font-family: var(--cu-font-hand);
     font-size: 0.85em;
     margin: 0 0 0.4em 0;
-    color: rgba(255, 255, 255, 0.45);
+    color: rgba(255, 255, 255, 0.5);
     line-height: 1.4
 }
 
@@ -1055,15 +1393,20 @@ main.ant-layout-content {
     margin: 0
 }
 
-/* ===== TV / PREVIEW FRAME ===== */
 .cu-scenario-tv {
     position: relative;
     margin-bottom: 1em;
-    border-radius: var(--cu-radius);
-    overflow: hidden;
-    border: 1px solid rgba(244, 114, 182, 0.18);
-    box-shadow: 0 0 24px rgba(244, 114, 182, 0.06);
-    transition: border-color .3s ease
+    padding: 2px
+}
+
+.cu-scenario-tv::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #2a1525;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    z-index: 0;
+    transition: background .3s ease
 }
 
 .cu-tv-frame {
@@ -1072,18 +1415,74 @@ main.ant-layout-content {
     aspect-ratio: 3 / 2;
     background: #08030c url('https://curie-assets.site/images/Z-Image-L_00375_.png') center / cover no-repeat;
     overflow: hidden;
-    border-radius: calc(var(--cu-radius) - 1px)
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    z-index: 1
 }
 
 .cu-tv-frame::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg,
-        rgba(8, 3, 12, 0.0) 60%,
-        rgba(8, 3, 12, 0.55) 100%);
+    background:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 1px,
+            rgba(244, 114, 182, 0.04) 1px,
+            rgba(244, 114, 182, 0.04) 2px),
+        linear-gradient(180deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.02) 50%,
+            transparent 100%);
+    background-size: 100% 2px, 100% 200%;
+    animation: cu-scanline 4s linear infinite, cu-scanflicker 0.15s steps(2) infinite, cu-glitch 0.3s steps(3) infinite;
     pointer-events: none;
     z-index: 3
+}
+
+@keyframes cu-scanline {
+    0% {
+        background-position: 0 0, 0 -100%
+    }
+
+    100% {
+        background-position: 0 0, 0 100%
+    }
+}
+
+@keyframes cu-scanflicker {
+    0% {
+        opacity: 0.8
+    }
+
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes cu-glitch {
+    0% {
+        transform: translateX(0)
+    }
+
+    20% {
+        transform: translateX(-3px)
+    }
+
+    40% {
+        transform: translateX(2px)
+    }
+
+    60% {
+        transform: translateX(-1px)
+    }
+
+    80% {
+        transform: translateX(4px)
+    }
+
+    100% {
+        transform: translateX(0)
+    }
 }
 
 .cu-tv-frame img {
@@ -1092,23 +1491,38 @@ main.ant-layout-content {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center center;
     opacity: 0;
-    transition: opacity .35s ease;
+    transition: opacity .4s ease;
     z-index: 1
 }
 
-.cu-row--scenarios:has(.cu-intro-item:hover) .cu-scenario-tv {
-    border-color: var(--cu-accent)
+.cu-row--scenarios:has(.cu-intro-item:hover) .cu-scenario-tv::before {
+    background: var(--cu-accent)
 }
 
-.cu-row--scenarios:has(.cu-intro-item[data-intro="1"]:hover) .cu-tv-frame img[data-intro="1"] { opacity: 1 }
-.cu-row--scenarios:has(.cu-intro-item[data-intro="2"]:hover) .cu-tv-frame img[data-intro="2"] { opacity: 1 }
-.cu-row--scenarios:has(.cu-intro-item[data-intro="3"]:hover) .cu-tv-frame img[data-intro="3"] { opacity: 1 }
-.cu-row--scenarios:has(.cu-intro-item[data-intro="4"]:hover) .cu-tv-frame img[data-intro="4"] { opacity: 1 }
-.cu-row--scenarios:has(.cu-intro-item[data-intro="5"]:hover) .cu-tv-frame img[data-intro="5"] { opacity: 1 }
+.cu-row--scenarios:has(.cu-intro-item[data-intro="1"]:hover) .cu-tv-frame img[data-intro="1"] {
+    opacity: 1
+}
+
+.cu-row--scenarios:has(.cu-intro-item[data-intro="2"]:hover) .cu-tv-frame img[data-intro="2"] {
+    opacity: 1
+}
+
+.cu-row--scenarios:has(.cu-intro-item[data-intro="3"]:hover) .cu-tv-frame img[data-intro="3"] {
+    opacity: 1
+}
+
+.cu-row--scenarios:has(.cu-intro-item[data-intro="4"]:hover) .cu-tv-frame img[data-intro="4"] {
+    opacity: 1
+}
+
+.cu-row--scenarios:has(.cu-intro-item[data-intro="5"]:hover) .cu-tv-frame img[data-intro="5"] {
+    opacity: 1
+}
 
 @media (max-width: 1024px) {
+
     .cu-row--scenarios>.cu-col-5,
     .cu-row--scenarios>.cu-col-7 {
         flex: 0 0 100% !important;
@@ -1123,27 +1537,113 @@ main.ant-layout-content {
     }
 }
 
-/* ===== CHANGELOG ===== */
 .cu-changelog-list {
     padding: 0;
     margin: 0
+}
+
+.cu-changelog-entry {
+    padding: 0.4em 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9em;
+    opacity: 0.8
+}
+
+.cu-changelog-entry:last-child {
+    border-bottom: none
 }
 
 .cu-changelog-date {
     font-weight: 600;
     color: var(--cu-accent-soft);
     margin-right: 0.6em;
-    font-size: 0.82em;
-    font-family: var(--cu-font-mono)
+    font-size: 0.85em
 }
 
-/* ===== SCENARIO TAGS ===== */
+.cu-scenario-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1em
+}
+
+.cu-scenario-card {
+    position: relative;
+    border: none;
+    border-radius: 0;
+    overflow: hidden;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.2em;
+    background-size: cover;
+    background-position: center;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    contain: layout style;
+    will-change: transform
+}
+
+.cu-scenario-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 1;
+    transition: background 0.2s ease
+}
+
+.cu-scenario-card:hover {
+    border-color: var(--cu-accent);
+    transform: translateY(-2px)
+}
+
+.cu-scenario-card:hover::before {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.05) 100%)
+}
+
+.cu-scenario-card>* {
+    position: relative;
+    z-index: 2
+}
+
+.cu-scenario-number {
+    position: absolute;
+    top: 0.8em;
+    right: 0.8em;
+    font-size: 0.75em;
+    font-weight: 800;
+    opacity: 0.4;
+    z-index: 2;
+    letter-spacing: 0.05em
+}
+
+.cu-scenario-card h4 {
+    font-family: var(--cu-font-serif);
+    margin: 0 0 0.3em 0;
+    font-size: 1.1em;
+    font-weight: 700
+}
+
+.cu-scenario-card p {
+    margin: 0 0 0.6em 0;
+    font-size: 0.85em;
+    opacity: 0.75;
+    line-height: 1.5
+}
+
+.cu-scenario-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35em
+}
+
 .cu-scenario-tag {
-    font-size: 0.68em;
-    padding: 0.1em 0.6em 0.05em;
-    border-radius: 999px;
+    font-size: 0.7em;
+    padding: 0.1em 0.55em 0.05em;
+    border-radius: 0;
     background: var(--cu-rose);
-    border: 1px solid rgba(244, 114, 182, 0.22);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     font-family: var(--cu-font-hand);
     font-weight: 600;
     text-transform: uppercase;
@@ -1151,7 +1651,51 @@ main.ant-layout-content {
     color: var(--cu-accent-soft)
 }
 
-/* ===== BUTTONS / SUPPORT ===== */
+.cu-section--support {
+    text-align: center
+}
+
+.cu-support-btn {
+    display: inline-block;
+    padding: 0.8em 2.2em;
+    border: none;
+    border-radius: 0;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: none;
+    color: var(--cu-accent-soft);
+    font-size: var(--cu-font-size);
+    font-family: var(--cu-font-hand);
+    font-weight: 400;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    will-change: transform, box-shadow;
+    position: relative;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    opacity: 1 !important
+}
+
+.cu-support-btn::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: var(--cu-btn-solid);
+    z-index: -1;
+    clip-path: polygon(var(--cu-chamfer) 0, 100% 0, 100% 100%, 0 100%, 0 var(--cu-chamfer));
+    transition: opacity 0.2s ease
+}
+
+.cu-support-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0 0 #000;
+    color: #fff
+}
+
+.cu-support-btn:hover::before {
+    opacity: 0
+}
+
 .cu-disclaimer {
     margin: 0 0 1em 0;
     color: var(--cu-text);
@@ -1189,63 +1733,83 @@ main.ant-layout-content {
 }
 
 .cu-help-banner img {
-    width: 48px;
-    height: 48px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
     flex-shrink: 0;
     object-fit: cover;
     border: 2px solid rgba(244, 114, 182, 0.25);
-    box-shadow: 0 0 10px rgba(244, 114, 182, 0.15);
+    box-shadow: 0 0 12px rgba(244, 114, 182, 0.2);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     transition: transform 0.2s ease, box-shadow 0.2s ease
 }
 
 .cu-help-banner:hover img {
-    transform: scale(1.08);
-    box-shadow: 0 0 18px rgba(244, 114, 182, 0.4)
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(244, 114, 182, 0.4)
 }
 
 .cu-help-banner span {
     position: relative;
     font-family: var(--cu-font-hand);
-    font-size: 0.88em;
+    font-size: 0.9em;
     font-weight: 400;
-    background: rgba(244, 114, 182, 0.08);
+    background: rgba(244, 114, 182, 0.1);
     color: var(--cu-text);
-    border: 1px solid rgba(244, 114, 182, 0.2);
-    border-radius: var(--cu-radius);
-    padding: 0.55em 1em;
-    margin-left: 0.75em;
+    border: 1px solid rgba(244, 114, 182, 0.25);
+    border-radius: 0;
+    padding: 0.6em 1em;
+    margin-left: 0.8em;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px)
 }
 
 .cu-help-banner:hover span {
     color: var(--cu-accent-soft);
-    border-color: rgba(244, 114, 182, 0.45)
+    border-color: var(--cu-accent)
 }
 
-.cu-support-btn {
-    display: inline-block;
-    padding: 0.7em 2em;
-    border: 1px solid rgba(244, 114, 182, 0.28);
-    border-radius: var(--cu-radius);
-    background: rgba(244, 114, 182, 0.07);
-    box-shadow: none;
-    color: var(--cu-accent-soft);
-    font-size: var(--cu-font-size);
-    font-family: var(--cu-font-hand);
-    font-weight: 500;
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    transition: background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
-    will-change: background;
-    opacity: 1 !important
+.cu-help-banner span::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-right: 6px solid rgba(244, 114, 182, 0.25)
 }
 
-.cu-support-btn:hover {
-    background: rgba(244, 114, 182, 0.16);
-    border-color: var(--cu-accent);
-    color: #fff;
-    box-shadow: 0 0 12px rgba(244, 114, 182, 0.2)
+.ant-tag {
+    font-size: 0.7em !important;
+    padding: 0.1em 0.55em 0.05em !important;
+    border-radius: 0 !important;
+    background: var(--cu-rose) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    font-family: var(--cu-font-hand) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    color: var(--cu-accent-soft) !important;
+    line-height: 1.6 !important;
+    transition: background 0.15s ease, color 0.15s ease !important
+}
+
+.ant-tag:hover {
+    background: rgba(244, 114, 182, 0.22) !important;
+    color: #fff !important
+}
+
+.ant-space.ant-space-horizontal.ant-space-align-center {
+    max-height: none !important;
+    overflow: visible !important;
+    flex-wrap: wrap !important
+}
+
+.ant-select-selection-overflow,
+.ant-select:has(.ant-select-selection-overflow) {
+    display: none !important
 }
