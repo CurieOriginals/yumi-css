@@ -99,7 +99,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         overflow: visible !important;
         position: relative !important;
         min-height: 300px !important;
-        padding: 0 16px 0 !important;
+        padding: 0 0 0 !important;
         margin-bottom: 80px !important;
         border-radius: var(--co-radius) !important;
         background: url('https://curie-assets.site/images/Park_Haerin_Header.webp') center 30% / cover no-repeat !important;
@@ -178,7 +178,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         min-width: 0 !important
     }
 
-    /* Import+Download group → pushed right, aligned with content below */
+    /* Import+Download group → pushed right, flush with About box */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)>.flex {
         margin-left: auto !important;
         margin-right: 0 !important
@@ -189,11 +189,13 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         display: none !important
     }
 
-    /* Content column → full width below */
+    /* Content column → full width below, strip Ant gutter to match header */
     .ant-row.ant-row-center>.ant-col-lg-18 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
-        margin-top: 0 !important
+        margin-top: 0 !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important
     }
 }
 
@@ -257,21 +259,26 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         margin-bottom: -42px !important;
         display: flex !important;
         align-items: center !important;
+        flex-wrap: nowrap !important;
         gap: 4px !important;
         background: transparent !important;
-        padding-top: 10px !important
+        padding-top: 10px !important;
+        max-width: 100% !important;
+        overflow: hidden !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>.mt-4:has(svg.lucide-messages-square)>.flex {
-        margin-left: 6px !important;
+        margin-left: 4px !important;
         margin-right: 0 !important;
-        flex-shrink: 1 !important
+        flex-shrink: 0 !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>.mt-4:has(.anticon-star) {
         display: none !important
     }
     .ant-col.ant-col-xs-24.ant-col-lg-18 {
         flex: 0 0 100% !important;
-        max-width: 100% !important
+        max-width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important
     }
 }
 
@@ -384,12 +391,21 @@ div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child:hover {
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child::before { display: none !important }
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { display: none !important }
 
-/* Mobile: hide Import, icon-only Download, but KEEP Chat With full text+icon */
+/* Mobile: hide Import, icon-only Download, Chat button smaller */
 @media (max-width:640px) {
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child { display: none !important }
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child span:not(.ant-btn-icon):not(:has(svg)) { display: none !important }
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child { padding: 0 10px !important; justify-content: center !important }
     div.mt-4:has(svg.lucide-messages-square)>.flex { gap: 4px }
+    div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square) {
+        height: 38px !important;
+        padding: 0 12px !important;
+        font-size: 0.75em !important;
+        flex-shrink: 1 !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        white-space: nowrap !important
+    }
 }
 
 /* ═══ FAVORITE BUTTON — IN THE ROW, PULSING ═══ */
@@ -632,17 +648,17 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 
 /* ═══ SCENARIOS ═══ */
 .co-scenarios { padding: 0; overflow: hidden }
-.co-scenarios .co-card-label { padding: 20px 24px 12px }
+.co-scenarios .co-card-label { padding: 24px 24px 14px }
 
 .co-sc-item {
-    display: flex; align-items: center; gap: 16px; padding: 12px 24px;
+    display: flex; align-items: center; gap: 18px; padding: 16px 24px;
     border-top: 1px solid var(--co-glass-border); transition: background .25s ease;
-    cursor: default
+    cursor: default; min-height: 90px
 }
 .co-sc-item:hover { background: rgba(232, 126, 161, 0.05) }
 
 .co-sc-img {
-    width: 64px; height: 64px; border-radius: var(--co-radius-xs);
+    width: 72px; height: 72px; border-radius: var(--co-radius-xs);
     object-fit: cover; flex-shrink: 0; border: 1px solid var(--co-glass-border);
     transition: transform .3s ease, box-shadow .3s ease
 }
@@ -660,10 +676,10 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 
 .co-sc-text { flex: 1; min-width: 0 }
 .co-sc-text h4 {
-    font-family: var(--co-font-display); font-size: 0.88em; font-weight: 700;
-    color: var(--co-text); margin: 0 0 2px; line-height: 1.3
+    font-family: var(--co-font-display); font-size: 0.95em; font-weight: 700;
+    color: var(--co-text); margin: 0 0 3px; line-height: 1.3
 }
-.co-sc-text p { font-size: 0.82em; color: var(--co-text-dim); margin: 0; line-height: 1.4 }
+.co-sc-text p { font-size: 0.88em; color: var(--co-text-dim); margin: 0; line-height: 1.5 }
 .co-sc-tag {
     font-size: 0.65em; padding: 2px 8px; border-radius: 12px;
     background: var(--co-accent-glow); border: 1px solid rgba(232, 126, 161, 0.15);
@@ -719,7 +735,10 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
     .co-header-img { height: 180px }
     .co-name { font-size: 1.6em; margin-top: -20px }
     .co-card { padding: 18px; margin-top: 12px }
-    .co-sc-item { padding: 10px 18px; gap: 12px }
-    .co-sc-img { width: 52px; height: 52px }
-    .co-scenarios .co-card-label { padding: 16px 18px 10px }
+    .co-sc-item { padding: 14px 16px; gap: 12px; min-height: 80px; align-items: flex-start }
+    .co-sc-img { width: 60px; height: 60px }
+    .co-sc-num { min-width: 20px; font-size: 0.7em; padding-top: 4px }
+    .co-sc-text h4 { font-size: 0.9em }
+    .co-sc-text p { font-size: 0.78em; line-height: 1.5 }
+    .co-scenarios .co-card-label { padding: 16px 16px 10px }
 }
