@@ -73,11 +73,11 @@ body::before {
    ═══════════════════════════════════════
    
    Strategy:
-   - ant-col-lg-6 → 100% width flex row
-   - Avatar (ant-image-img) on the left
-   - All .mt-4 button containers float right (auto margin-left)
-   - ant-col-lg-18 (content) drops below at 100%
-   - Everything stays in document flow, scrolls with page
+   - ant-row-center → centered, max-width matches content
+   - ant-col-lg-6 → 100% width, becomes the HEADER area
+     with background-image, avatar bottom-left, buttons bottom-right
+   - Character name as ::after on avatar wrapper
+   - ant-col-lg-18 (content) below at 100%
    
    ═══════════════════════════════════════ */
 
@@ -86,10 +86,19 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 /* Hide ribbon text */
 .ant-ribbon-text { display: none !important; visibility: hidden !important }
 
+/* Center the entire row to match content width */
+.ant-row.ant-row-center {
+    max-width: var(--co-page-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important
+}
+
 /* ═══ DESKTOP SKELETON (≥992px) ═══ */
 @media (min-width:992px) {
 
-    /* Left column → full width, horizontal flex row */
+    /* Left column → full width HEADER BANNER */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child {
         flex: 0 0 100% !important;
         max-width: 100% !important;
@@ -97,16 +106,57 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         flex-direction: row !important;
         align-items: flex-end !important;
         flex-wrap: wrap !important;
-        gap: 16px !important;
-        padding: 16px 0 !important;
-        overflow: visible !important
+        gap: 12px !important;
+        overflow: visible !important;
+        position: relative !important;
+        min-height: 280px !important;
+        padding: 20px 20px 16px !important;
+        border-radius: var(--co-radius) !important;
+        background: url('https://curie-assets.site/images/Park_Haerin_Header.webp') center 30% / cover no-repeat !important;
+        box-sizing: border-box !important
     }
 
-    /* Avatar wrapper — stays left */
+    /* Gradient fade at bottom of header */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child::before {
+        content: '' !important;
+        position: absolute !important;
+        inset: 0 !important;
+        border-radius: var(--co-radius) !important;
+        background: linear-gradient(to top, rgba(12, 10, 20, 0.95) 0%, rgba(12, 10, 20, 0.4) 50%, transparent 100%) !important;
+        z-index: 0 !important;
+        pointer-events: none !important
+    }
+
+    /* All direct children above the gradient */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>* {
+        position: relative !important;
+        z-index: 1 !important
+    }
+
+    /* Avatar wrapper — left side, with character name */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>div:not(.mt-4) {
         flex: 0 0 auto !important;
         min-width: 0 !important;
-        max-width: 100% !important
+        max-width: 100% !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-end !important;
+        gap: 14px !important
+    }
+
+    /* Character name as pseudo-element next to avatar */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>div:not(.mt-4)::after {
+        content: 'Yumi Asaka' !important;
+        display: block !important;
+        font-family: var(--co-font-display) !important;
+        font-size: clamp(1.4em, 3vw, 2em) !important;
+        font-weight: 900 !important;
+        color: #fff !important;
+        white-space: nowrap !important;
+        text-shadow: 0 2px 16px rgba(0, 0, 0, 0.7) !important;
+        letter-spacing: 0.01em !important;
+        line-height: 1.1 !important;
+        padding-bottom: 4px !important
     }
 
     /* All .mt-4 containers (buttons) — pushed right */
@@ -143,13 +193,45 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6 {
         display: flex !important;
         flex-direction: row !important;
-        align-items: center !important;
+        align-items: flex-end !important;
         flex-wrap: wrap !important;
         gap: 10px !important;
-        padding: 12px 0 !important
+        position: relative !important;
+        min-height: 200px !important;
+        padding: 14px 14px 12px !important;
+        border-radius: var(--co-radius) !important;
+        background: url('https://curie-assets.site/images/Park_Haerin_Header.webp') center 30% / cover no-repeat !important
+    }
+    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6::before {
+        content: '' !important;
+        position: absolute !important;
+        inset: 0 !important;
+        border-radius: var(--co-radius) !important;
+        background: linear-gradient(to top, rgba(12, 10, 20, 0.95) 0%, rgba(12, 10, 20, 0.4) 50%, transparent 100%) !important;
+        z-index: 0 !important;
+        pointer-events: none !important
+    }
+    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>* {
+        position: relative !important;
+        z-index: 1 !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>div:not(.mt-4) {
-        flex: 0 0 auto !important
+        flex: 0 0 auto !important;
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: flex-end !important;
+        gap: 10px !important
+    }
+    .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>div:not(.mt-4)::after {
+        content: 'Yumi Asaka' !important;
+        display: block !important;
+        font-family: var(--co-font-display) !important;
+        font-size: 1.3em !important;
+        font-weight: 900 !important;
+        color: #fff !important;
+        white-space: nowrap !important;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7) !important;
+        padding-bottom: 2px !important
     }
     .ant-col.text-left.ant-col-xs-24.ant-col-lg-6>.mt-4 {
         margin: 0 0 0 auto !important;
@@ -168,18 +250,18 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 /* ═══ AVATAR IMAGE STYLING ═══ */
 .ant-image-img {
     display: block !important;
-    width: 72px !important;
-    height: 72px !important;
+    width: 100px !important;
+    height: 100px !important;
     border-radius: var(--co-radius) !important;
     object-fit: cover !important;
-    border: 2px solid rgba(255, 255, 255, 0.1) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4) !important
+    border: 3px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5) !important
 }
 
 @media (max-width:640px) {
     .ant-image-img {
-        width: 56px !important;
-        height: 56px !important
+        width: 72px !important;
+        height: 72px !important
     }
 }
 
@@ -485,28 +567,13 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
     padding: 0 16px; position: relative; z-index: 2
 }
 
-/* ═══ HEADER BANNER ═══ */
-.co-header {
-    position: relative; width: 100%; border-radius: var(--co-radius);
-    overflow: hidden; margin-bottom: 0; animation: co-fadeUp .6s ease both
-}
-.co-header-img {
-    width: 100%; height: 260px; object-fit: cover; object-position: center 30%;
-    display: block
-}
-.co-header-fade {
-    position: absolute; bottom: 0; left: 0; right: 0; height: 120px;
-    background: linear-gradient(to top, var(--co-bg), transparent);
-    pointer-events: none
-}
+/* ═══ HEADER BANNER — hidden, now on platform container ═══ */
+.co-header { display: none !important }
+.co-header-img { display: none !important }
+.co-header-fade { display: none !important }
 
-/* ═══ CHARACTER NAME ═══ */
-.co-name {
-    font-family: var(--co-font-display); font-size: clamp(1.8em, 5vw, 2.6em);
-    font-weight: 900; color: #fff; margin: -30px 0 16px 0; line-height: 1.1;
-    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5); position: relative; z-index: 3;
-    padding-left: 4px; animation: co-fadeUp .6s ease .1s both
-}
+/* ═══ CHARACTER NAME — hidden, now pseudo-element on avatar ═══ */
+.co-name { display: none !important }
 
 /* ═══ CARDS ═══ */
 .co-card {
