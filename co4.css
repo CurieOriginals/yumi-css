@@ -169,7 +169,8 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         grid-column: 2 !important;
         grid-row: 3 !important;
         margin: 0 !important;
-        margin-bottom: -60px !important;
+        margin-bottom: -80px !important;
+        margin-left: -10px !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
