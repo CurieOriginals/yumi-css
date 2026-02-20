@@ -170,7 +170,6 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         grid-row: 3 !important;
         margin: 0 !important;
         margin-bottom: -80px !important;
-        margin-left: -10px !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
@@ -191,7 +190,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 
     /* Import+Download group → pushed to the right edge */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)>.flex {
-        margin-left: auto !important
+        margin-left: -10px !important
     }
 
     /* Favorite button — hidden in grid, folded into action row */
