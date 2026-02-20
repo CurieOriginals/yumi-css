@@ -24,15 +24,15 @@
     --co-font-body: 'Inter', 'Noto Sans JP', sans-serif;
     --co-font-display: 'Noto Sans JP', sans-serif;
     --co-font-mono: 'JetBrains Mono', monospace;
-    --co-font-size: clamp(13px, 1.3vw, 15px);
-    --co-height: 42px;
+    --co-font-size: clamp(12px, 1.2vw, 14px);
+    --co-height: 38px;
     --co-inset: 16px;
     --co-fav-gap: 10px;
     --co-fav-width: clamp(100px, 14vw, 150px);
     --co-btn-solid: #161224;
     --co-btn-solid-hover: #221c36;
     --co-btn-transition: all .25s cubic-bezier(.4, 0, .2, 1);
-    --co-page-width: 1020px
+    --co-page-width: 820px
 }
 
 @media (min-width:768px) { :root { --co-inset: 24px } }
@@ -89,8 +89,8 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
     max-width: var(--co-page-width) !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding-left: 20px !important;
-    padding-right: 20px !important
+    padding-left: 16px !important;
+    padding-right: 16px !important
 }
 
 /* ═══ DESKTOP (≥992px) ═══ */
@@ -104,12 +104,12 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         grid-template-columns: auto 1fr !important;
         grid-template-rows: 1fr auto auto !important;
         align-items: end !important;
-        column-gap: 18px !important;
+        column-gap: 14px !important;
         row-gap: 4px !important;
         overflow: visible !important;
         position: relative !important;
-        min-height: 380px !important;
-        padding: 0 0 0 !important;
+        min-height: 300px !important;
+        padding: 0 20px 0 !important;
         margin-bottom: 80px !important;
         border-radius: var(--co-radius) !important;
         background: url('https://curie-assets.site/images/Park_Haerin_Header.webp') center 30% / cover no-repeat !important;
@@ -135,7 +135,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         align-self: end !important;
         z-index: 1 !important;
         font-family: var(--co-font-display) !important;
-        font-size: clamp(1.8em, 3.5vw, 2.5em) !important;
+        font-size: clamp(1.4em, 3vw, 2em) !important;
         font-weight: 900 !important;
         color: #fff !important;
         white-space: nowrap !important;
@@ -156,7 +156,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         grid-column: 1 !important;
         grid-row: 2 / -1 !important;
         align-self: end !important;
-        margin-bottom: -75px !important
+        margin-bottom: -60px !important
     }
 
     /* Remove old name pseudo-element from avatar wrapper */
@@ -164,19 +164,19 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         display: none !important
     }
 
-    /* Action buttons — col 2, row 3: equal gap header↔buttons↔about */
+    /* Action buttons (Chat, Import, Download) — col 2, row 3, below edge */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square) {
         grid-column: 2 !important;
         grid-row: 3 !important;
         margin: 0 !important;
-        margin-bottom: -40px !important;
+        margin-bottom: -60px !important;
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         justify-content: flex-start !important;
-        gap: 10px !important;
+        gap: 8px !important;
         background: transparent !important;
-        padding-top: 16px !important
+        padding-top: 12px !important
     }
 
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)>* {
@@ -193,7 +193,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         margin-left: auto !important
     }
 
-    /* Favorite button — hidden */
+    /* Favorite button — hidden in grid, folded into action row */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(.anticon-star) {
         display: none !important
     }
@@ -285,8 +285,8 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 /* ═══ AVATAR IMAGE STYLING ═══ */
 .ant-image-img {
     display: block !important;
-    width: 150px !important;
-    height: 150px !important;
+    width: 120px !important;
+    height: 120px !important;
     border-radius: var(--co-radius) !important;
     object-fit: cover !important;
     border: 3px solid rgba(255, 255, 255, 0.15) !important;
@@ -295,8 +295,8 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 
 @media (max-width:640px) {
     .ant-image-img {
-        width: 90px !important;
-        height: 90px !important
+        width: 72px !important;
+        height: 72px !important
     }
 }
 
@@ -306,11 +306,11 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn {
     height: var(--co-height) !important;
     margin: 0 !important;
-    padding: 0 16px !important;
+    padding: 0 14px !important;
     border-radius: var(--co-radius-sm) !important;
     border: 1px solid var(--co-glass-border) !important;
     box-shadow: none !important;
-    font-size: 0.85em !important;
+    font-size: 0.78em !important;
     font-family: var(--co-font-body) !important;
     font-weight: 500 !important;
     text-transform: none !important;
@@ -349,14 +349,14 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn:active {
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square) {
     flex-shrink: 0 !important;
     width: auto !important;
-    height: 50px !important;
+    height: 44px !important;
     background: linear-gradient(135deg, var(--co-accent), var(--co-accent-deep)) !important;
     color: #fff !important;
     font-weight: 600 !important;
-    font-size: 0.95em !important;
+    font-size: 0.88em !important;
     border: none !important;
     clip-path: none !important;
-    padding: 0 28px !important;
+    padding: 0 24px !important;
     border-radius: var(--co-radius-sm) !important
 }
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square)::before { display: none !important }
@@ -602,7 +602,7 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 /* Page wrapper */
 .co-page {
     width: 100%; max-width: var(--co-page-width); margin: 0 auto;
-    padding: 0 20px; position: relative; z-index: 2
+    padding: 0 16px; position: relative; z-index: 2
 }
 
 /* ═══ HEADER BANNER — hidden, now on platform container ═══ */
@@ -616,7 +616,7 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 /* ═══ CARDS ═══ */
 .co-card {
     background: var(--co-surface); border: 1px solid var(--co-glass-border);
-    border-radius: var(--co-radius); padding: 30px; margin-top: 20px;
+    border-radius: var(--co-radius); padding: 24px; margin-top: 16px;
     backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
     animation: co-fadeUp .6s ease both
 }
@@ -625,33 +625,33 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 .co-card:nth-child(5) { animation-delay: .25s }
 
 .co-card-label {
-    font-family: var(--co-font-body); font-size: 0.8em; font-weight: 600;
+    font-family: var(--co-font-body); font-size: 0.7em; font-weight: 600;
     text-transform: uppercase; letter-spacing: 0.12em; color: var(--co-accent-soft);
-    margin: 0 0 14px 0; display: flex; align-items: center; gap: 10px
+    margin: 0 0 12px 0; display: flex; align-items: center; gap: 8px
 }
 .co-card-label::before {
-    content: ''; width: 3.5px; height: 16px; border-radius: 2px;
+    content: ''; width: 3px; height: 14px; border-radius: 2px;
     background: var(--co-accent); flex-shrink: 0
 }
 
 .co-card p {
-    font-family: var(--co-font-body); font-size: 1em; font-weight: 400;
-    color: var(--co-text); line-height: 1.75; margin: 0
+    font-family: var(--co-font-body); font-size: 0.92em; font-weight: 400;
+    color: var(--co-text); line-height: 1.7; margin: 0
 }
 
 /* ═══ SCENARIOS ═══ */
 .co-scenarios { padding: 0; overflow: hidden }
-.co-scenarios .co-card-label { padding: 24px 30px 14px }
+.co-scenarios .co-card-label { padding: 20px 24px 12px }
 
 .co-sc-item {
-    display: flex; align-items: center; gap: 20px; padding: 16px 30px;
+    display: flex; align-items: center; gap: 16px; padding: 12px 24px;
     border-top: 1px solid var(--co-glass-border); transition: background .25s ease;
     cursor: default
 }
 .co-sc-item:hover { background: rgba(232, 126, 161, 0.05) }
 
 .co-sc-img {
-    width: 86px; height: 86px; border-radius: var(--co-radius-xs);
+    width: 64px; height: 64px; border-radius: var(--co-radius-xs);
     object-fit: cover; flex-shrink: 0; border: 1px solid var(--co-glass-border);
     transition: transform .3s ease, box-shadow .3s ease
 }
@@ -669,12 +669,12 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 
 .co-sc-text { flex: 1; min-width: 0 }
 .co-sc-text h4 {
-    font-family: var(--co-font-display); font-size: 1em; font-weight: 700;
-    color: var(--co-text); margin: 0 0 3px; line-height: 1.3
+    font-family: var(--co-font-display); font-size: 0.88em; font-weight: 700;
+    color: var(--co-text); margin: 0 0 2px; line-height: 1.3
 }
-.co-sc-text p { font-size: 0.9em; color: var(--co-text-dim); margin: 0; line-height: 1.5 }
+.co-sc-text p { font-size: 0.82em; color: var(--co-text-dim); margin: 0; line-height: 1.4 }
 .co-sc-tag {
-    font-size: 0.7em; padding: 3px 10px; border-radius: 12px;
+    font-size: 0.65em; padding: 2px 8px; border-radius: 12px;
     background: var(--co-accent-glow); border: 1px solid rgba(232, 126, 161, 0.15);
     color: var(--co-accent-soft); font-family: var(--co-font-body);
     font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
@@ -684,11 +684,11 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 /* ═══ PRESET BANNER ═══ */
 .co-preset-link {
     display: flex; align-items: center; justify-content: center; gap: 10px;
-    margin-top: 20px; padding: 18px 28px; border-radius: var(--co-radius);
+    margin-top: 16px; padding: 14px 24px; border-radius: var(--co-radius);
     background: linear-gradient(135deg, rgba(240, 198, 116, 0.08), rgba(232, 126, 161, 0.08));
     border: 1px solid rgba(240, 198, 116, 0.2);
     text-decoration: none; color: var(--co-gold); font-family: var(--co-font-body);
-    font-size: 0.95em; font-weight: 600; letter-spacing: 0.03em;
+    font-size: 0.88em; font-weight: 600; letter-spacing: 0.03em;
     transition: var(--co-btn-transition); animation: co-fadeUp .6s ease .3s both;
     position: relative; overflow: hidden
 }
@@ -710,9 +710,9 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 
 .co-btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 12px 32px; border-radius: 24px;
+    padding: 10px 28px; border-radius: 24px;
     background: linear-gradient(135deg, var(--co-accent), var(--co-accent-deep));
-    color: #fff; font-family: var(--co-font-body); font-size: 0.95em;
+    color: #fff; font-family: var(--co-font-body); font-size: 0.85em;
     font-weight: 600; text-decoration: none; letter-spacing: 0.03em;
     transition: var(--co-btn-transition); border: none;
     box-shadow: 0 2px 12px var(--co-accent-glow)
