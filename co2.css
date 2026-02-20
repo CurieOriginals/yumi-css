@@ -43,7 +43,7 @@ body {
     background-image: none !important;
     position: relative !important;
     min-height: 100dvh !important;
-    padding-bottom: 100px !important
+    padding-bottom: 40px !important
 }
 
 body::before {
@@ -248,28 +248,7 @@ video::-moz-media-controls { display: none !important }
     margin: 0 0 28px 0
 }
 
-.sn-engage-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: var(--sn-font-head);
-    font-size: .9rem;
-    font-weight: 600;
-    color: var(--sn-void);
-    background: var(--sn-brass);
-    padding: 12px 28px;
-    border-radius: var(--sn-round);
-    text-decoration: none;
-    transition: all .25s ease;
-    letter-spacing: .02em
-}
-
-.sn-engage-link:hover {
-    background: #fff;
-    color: var(--sn-void);
-    box-shadow: 0 8px 30px var(--sn-brass-glow);
-    transform: translateY(-1px)
-}
+/* CTA removed — platform buttons used inline instead */
 
 /* ============================================
    FLIGHT MANIFEST — SCENARIOS
@@ -633,25 +612,24 @@ video::-moz-media-controls { display: none !important }
 }
 
 /* ============================================
-   ANT PLATFORM — 2x2 BUTTON GRID (bottom right)
+   ANT PLATFORM — INLINE 2×2 BUTTON GRID
+   Flows naturally in the page, not fixed.
    ============================================ */
 div.mt-4 {
     background: transparent !important;
     background-color: transparent !important
 }
 
+/* Main action bar — inline grid, not fixed */
 div.mt-4:has(svg.lucide-messages-square) {
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 20px !important;
-    left: auto !important;
-    width: 240px !important;
-    max-width: 240px !important;
-    z-index: 9998;
+    position: relative !important;
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     grid-template-rows: auto auto !important;
-    gap: 6px !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 8px 0 28px !important;
     padding: 0 !important;
     background: transparent !important;
     border: none !important;
@@ -659,16 +637,17 @@ div.mt-4:has(svg.lucide-messages-square) {
     border-radius: 0 !important;
     -webkit-backdrop-filter: none !important;
     backdrop-filter: none !important;
-    pointer-events: auto !important
+    pointer-events: auto !important;
+    z-index: 10
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn {
-    height: 42px !important;
+    height: 44px !important;
     margin: 0 !important;
-    padding: 0 10px !important;
+    padding: 0 14px !important;
     border-radius: var(--sn-round) !important;
-    border: 1px solid rgba(245, 240, 230, .1) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, .5) !important;
+    border: 1px solid var(--sn-line-warm) !important;
+    box-shadow: none !important;
     font-size: 11px !important;
     font-family: var(--sn-font-head) !important;
     font-weight: 600 !important;
@@ -678,8 +657,6 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn {
     transform: none !important;
     animation: none !important;
     background: var(--sn-panel) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
     color: var(--sn-cream) !important;
     transition: all .15s ease !important;
     position: relative !important;
@@ -709,21 +686,23 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn:active {
     transition-duration: 0s !important
 }
 
-/* Chat With — spans full width top row */
+/* Row 1: Chat With — full width */
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square) {
     grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
     background: var(--sn-brass) !important;
     color: var(--sn-void) !important;
     border-color: var(--sn-brass) !important;
-    font-weight: 700 !important
+    font-weight: 700 !important;
+    height: 48px !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square):hover {
     background: #fff !important;
-    box-shadow: 0 6px 24px var(--sn-brass-glow) !important
+    box-shadow: 0 4px 20px var(--sn-brass-glow) !important
 }
 
-/* Import + Download row */
+/* Row 2: Import + Download side by side */
 div.mt-4:has(svg.lucide-messages-square)>.flex {
     display: contents !important
 }
@@ -742,30 +721,32 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
     display: none !important
 }
 
-/* Favorite button — part of the grid */
+/* Favorite button — sits inside the same flow, row 3 full width */
+div.mt-4.text-right.justify-end {
+    display: contents !important
+}
+
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star) {
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 268px !important;
-    z-index: 9999 !important;
+    position: relative !important;
     border-radius: var(--sn-round) !important;
-    height: 42px !important;
-    width: auto !important;
-    min-width: 90px !important;
+    height: 44px !important;
+    width: 100% !important;
+    max-width: 380px !important;
+    margin: 0 0 12px !important;
     padding: 0 14px !important;
     font-size: 11px !important;
     font-family: var(--sn-font-head) !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
     letter-spacing: .06em !important;
-    background: var(--sn-panel) !important;
-    border: 1px solid rgba(245, 240, 230, .1) !important;
-    color: var(--sn-cream) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, .5) !important;
-    backdrop-filter: blur(16px) !important;
-    -webkit-backdrop-filter: blur(16px) !important;
+    background: transparent !important;
+    border: 1px solid var(--sn-line-warm) !important;
+    color: var(--sn-brass-soft) !important;
+    box-shadow: none !important;
     transition: all .2s ease !important;
-    pointer-events: auto !important
+    pointer-events: auto !important;
+    z-index: 10 !important;
+    overflow: visible !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):hover {
@@ -778,8 +759,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):hover {
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]) {
     color: var(--sn-brass) !important;
     border-color: var(--sn-brass) !important;
-    background: var(--sn-brass-dim) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, .5), 0 0 12px var(--sn-brass-dim) !important
+    background: var(--sn-brass-dim) !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"])::before,
@@ -800,28 +780,11 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[
 
 @media (max-width:600px) {
     div.mt-4:has(svg.lucide-messages-square) {
-        width: calc(100vw - 40px) !important;
-        max-width: none !important;
-        left: 20px !important;
-        right: 20px !important
-    }
-
-    div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
-        display: none !important
-    }
-
-    div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child {
-        grid-column: 1 / -1 !important
-    }
-
-    div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square) span:not(.ant-btn-icon):not(:has(svg)) {
-        display: none !important
+        max-width: 100% !important
     }
 
     div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star) {
-        right: 20px !important;
-        bottom: 134px !important;
-        width: calc(100vw - 40px) !important
+        max-width: 100% !important
     }
 }
 
