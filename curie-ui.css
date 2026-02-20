@@ -1,45 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Nunito:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Zen+Maru+Gothic:wght@300;400;500;700;900&family=IBM+Plex+Mono:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-    --cu-bg: var(--background, #08030c);
-    --cu-font-mono: 'JetBrains Mono', monospace;
-    --cu-font-display: 'Outfit', sans-serif;
-    --cu-font-serif: 'Outfit', sans-serif;
-    --cu-font-hand: 'Nunito', sans-serif;
-    --cu-height: clamp(42px, 5vw, 56px);
-    --cu-inset: 16px;
-    --cu-radius: 0;
-    --cu-chamfer: 12px;
-    --cu-fav-gap: 10px;
-    --cu-border-top: 1px solid rgba(255, 255, 255, .1);
-    --cu-shadow: 0 -4px 20px rgba(0, 0, 0, .5);
-    --cu-divider: 1px solid rgba(255, 255, 255, .08);
-    --cu-font-size: clamp(12px, 1.2vw, 14px);
-    --cu-font-weight: 700;
-    --cu-btn-bg: transparent;
-    --cu-btn-color: inherit;
-    --cu-btn-hover-bg: rgba(244, 114, 182, .12);
-    --cu-btn-hover-color: #fff;
-    --cu-btn-active-bg: rgba(244, 114, 182, .18);
-    --cu-btn-transition: background .15s ease, color .15s ease, box-shadow .15s ease;
-    --cu-btn-hover-shadow: inset 0 -2px 0 rgba(255, 255, 255, .15);
-    --cu-fav-bg: var(--cu-btn-bg);
-    --cu-fav-color: var(--cu-btn-color);
-    --cu-fav-border: var(--cu-divider);
-    --cu-fav-width: clamp(100px, 14vw, 160px);
-    --cu-accent: #f472b6;
-    --cu-accent-soft: #fbcfe8;
-    --cu-gold: #f472b6;
-    --cu-wine: rgba(8, 3, 12, 0.85);
-    --cu-rose: rgba(244, 114, 182, 0.08);
-    --cu-text: rgba(255, 255, 255, 0.9);
-    --cu-btn-solid: #120810;
-    --cu-btn-solid-hover: #1e1020
+    --co-bg: var(--background, #120a14);
+    --co-font-mono: 'IBM Plex Mono', monospace;
+    --co-font-display: 'Zen Maru Gothic', sans-serif;
+    --co-font-serif: 'Zen Maru Gothic', sans-serif;
+    --co-font-hand: 'Quicksand', sans-serif;
+    --co-height: clamp(42px, 5vw, 56px);
+    --co-inset: 16px;
+    --co-radius: 14px;
+    --co-chamfer: 0px;
+    --co-fav-gap: 10px;
+    --co-border-top: 1px solid rgba(255, 255, 255, .08);
+    --co-shadow: 0 -4px 20px rgba(0, 0, 0, .4);
+    --co-divider: 1px solid rgba(255, 255, 255, .06);
+    --co-font-size: clamp(12px, 1.2vw, 14px);
+    --co-font-weight: 700;
+    --co-btn-bg: transparent;
+    --co-btn-color: inherit;
+    --co-btn-hover-bg: rgba(232, 120, 138, .12);
+    --co-btn-hover-color: #fff;
+    --co-btn-active-bg: rgba(232, 120, 138, .18);
+    --co-btn-transition: background .2s ease, color .2s ease, box-shadow .2s ease, border-radius .2s ease;
+    --co-btn-hover-shadow: inset 0 -2px 0 rgba(255, 255, 255, .1);
+    --co-fav-bg: var(--co-btn-bg);
+    --co-fav-color: var(--co-btn-color);
+    --co-fav-border: var(--co-divider);
+    --co-fav-width: clamp(100px, 14vw, 160px);
+    --co-accent: #D4708F;
+    --co-accent-soft: #F2A7BB;
+    --co-gold: #D4708F;
+    --co-wine: rgba(18, 12, 22, 0.82);
+    --co-rose: rgba(232, 120, 138, 0.08);
+    --co-text: rgba(255, 255, 255, 0.88);
+    --co-btn-solid: #1c1420;
+    --co-btn-solid-hover: #2a1e30
 }
 
 a {
-    color: var(--cu-accent);
-    transition: opacity 0.15s ease
+    color: var(--co-accent);
+    transition: opacity 0.2s ease
 }
 
 div.mt-2>.font-size-message {
@@ -47,7 +47,7 @@ div.mt-2>.font-size-message {
 }
 
 a:hover {
-    opacity: 0.8
+    opacity: 0.75
 }
 
 spacer {
@@ -66,13 +66,13 @@ spacer {
 
 @media (min-width:768px) {
     :root {
-        --cu-inset: 24px
+        --co-inset: 24px
     }
 }
 
 @media (min-width:1200px) {
     :root {
-        --cu-inset: 32px
+        --co-inset: 32px
     }
 }
 
@@ -83,9 +83,9 @@ div.mt-4 {
 
 div.mt-4:has(svg.lucide-messages-square) {
     position: fixed !important;
-    bottom: var(--cu-inset);
-    left: var(--cu-inset);
-    right: calc(var(--cu-inset) + var(--cu-fav-width) + var(--cu-fav-gap));
+    bottom: var(--co-inset);
+    left: var(--co-inset);
+    right: calc(var(--co-inset) + var(--co-fav-width) + var(--co-fav-gap));
     max-width: 1400px;
     margin-left: auto !important;
     margin-right: auto !important;
@@ -107,36 +107,37 @@ div.mt-4:has(svg.lucide-messages-square) {
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn {
-    height: var(--cu-height) !important;
+    height: var(--co-height) !important;
     margin: 0 !important;
     padding: 0 1.2em !important;
-    border-radius: 0 !important;
+    border-radius: var(--co-radius) !important;
     border: none !important;
     box-shadow: none !important;
-    font-size: var(--cu-font-size) !important;
-    font-family: var(--cu-font-hand) !important;
-    font-weight: 400 !important;
+    font-size: var(--co-font-size) !important;
+    font-family: var(--co-font-hand) !important;
+    font-weight: 500 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
+    letter-spacing: 0.06em !important;
     min-width: 0 !important;
     transform: none !important;
     animation: none !important;
-    background: rgba(255, 255, 255, 0.15) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
     backdrop-filter: none !important;
-    color: var(--cu-accent-soft) !important;
-    transition: var(--cu-btn-transition) !important;
+    color: var(--co-accent-soft) !important;
+    transition: var(--co-btn-transition) !important;
     position: relative;
     will-change: background, box-shadow;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important
+    clip-path: none !important
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn::before {
     content: '' !important;
     position: absolute !important;
     inset: 2px !important;
-    background: var(--cu-btn-solid) !important;
+    background: var(--co-btn-solid) !important;
     z-index: -1 !important;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important
+    border-radius: calc(var(--co-radius) - 2px) !important;
+    clip-path: none !important
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn::after {
@@ -150,15 +151,15 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn>* {
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn:hover {
     filter: none !important;
-    background: var(--cu-btn-solid-hover) !important;
-    border-color: var(--cu-accent) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+    background: var(--co-btn-solid-hover) !important;
+    border-color: var(--co-accent) !important;
+    box-shadow: 0 4px 16px rgba(212, 112, 143, 0.2) !important;
     transform: none !important;
     color: #fff !important
 }
 
 div.mt-4:has(svg.lucide-messages-square) button.ant-btn:active {
-    background-color: var(--cu-btn-active-bg) !important;
+    background-color: var(--co-btn-active-bg) !important;
     box-shadow: none !important;
     transition-duration: 0s !important
 }
@@ -167,24 +168,25 @@ div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-
     flex: 1.5 1 0 !important;
     width: auto !important;
     border-right: none !important;
-    border-radius: 0 !important;
-    background: var(--cu-accent) !important;
+    border-radius: var(--co-radius) !important;
+    background: var(--co-accent) !important;
     color: #fff !important;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, var(--cu-chamfer) 100%, 0 calc(100% - var(--cu-chamfer))) !important
+    clip-path: none !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square)::before {
     content: '' !important;
     position: absolute !important;
     inset: 2px !important;
-    background: var(--cu-btn-solid) !important;
+    background: var(--co-btn-solid) !important;
     z-index: -1 !important;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, var(--cu-chamfer) 100%, 0 calc(100% - var(--cu-chamfer))) !important
+    border-radius: calc(var(--co-radius) - 2px) !important;
+    clip-path: none !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square):hover {
-    transform: translate(-2px, -2px) !important;
-    box-shadow: 4px 4px 0 0 #000 !important
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(212, 112, 143, 0.35) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square):hover::before {
@@ -206,14 +208,14 @@ div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
     flex: 0.6 1 0 !important;
     width: auto !important;
     overflow: hidden !important;
-    border-radius: 0 !important;
+    border-radius: var(--co-radius) !important;
     clip-path: none !important;
-    background: var(--cu-btn-solid) !important;
-    border: 1px solid #2a1525 !important
+    background: var(--co-btn-solid) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child:hover {
-    background: #333 !important
+    background: #2a1e30 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child::before {
@@ -224,14 +226,14 @@ div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child {
     flex: 1 1 0 !important;
     width: auto !important;
     border-right: none !important;
-    border-radius: 0 !important;
+    border-radius: var(--co-radius) !important;
     clip-path: none !important;
-    background: var(--cu-btn-solid) !important;
-    border: 1px solid #2a1525 !important
+    background: var(--co-btn-solid) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child:hover {
-    background: #333 !important
+    background: #2a1e30 !important
 }
 
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child::before {
@@ -243,13 +245,10 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
 }
 
 @media (max-width:600px) {
-
-    /* Hide Import Chat button */
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
         display: none !important
     }
 
-    /* Icon-only for Download button */
     div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child span:not(.ant-btn-icon):not(:has(svg)) {
         display: none !important
     }
@@ -260,7 +259,6 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
         justify-content: center !important
     }
 
-    /* Icon-only for Chat With button */
     div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square) span:not(.ant-btn-icon):not(:has(svg)) {
         display: none !important
     }
@@ -278,34 +276,34 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] {
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star) {
     position: fixed !important;
-    right: var(--cu-inset) !important;
-    bottom: var(--cu-inset) !important;
+    right: var(--co-inset) !important;
+    bottom: var(--co-inset) !important;
     z-index: 9999 !important;
-    border-radius: 0 !important;
+    border-radius: var(--co-radius) !important;
     overflow: visible !important;
     padding: 0 1.5em !important;
-    height: var(--cu-height) !important;
+    height: var(--co-height) !important;
     min-width: 0 !important;
-    width: var(--cu-fav-width) !important;
-    font-size: var(--cu-font-size) !important;
-    font-family: var(--cu-font-hand) !important;
-    font-weight: 400 !important;
+    width: var(--co-fav-width) !important;
+    font-size: var(--co-font-size) !important;
+    font-family: var(--co-font-hand) !important;
+    font-weight: 500 !important;
     overflow: visible !important;
     transition: transform .2s ease, filter .2s ease, border-color .2s ease !important;
     pointer-events: auto !important
 }
 
 button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star)) {
-    background: #2a1525 !important;
+    background: rgba(255, 255, 255, 0.06) !important;
     border: none !important;
-    border-radius: 0 !important;
-    color: var(--cu-accent-soft) !important;
-    font-family: var(--cu-font-hand) !important;
-    font-weight: 400 !important;
+    border-radius: var(--co-radius) !important;
+    color: var(--co-accent-soft) !important;
+    font-family: var(--co-font-hand) !important;
+    font-weight: 500 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.05em !important;
+    letter-spacing: 0.06em !important;
     position: relative !important;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
+    clip-path: none !important;
     transition: color .2s ease !important
 }
 
@@ -313,9 +311,10 @@ button.ant-btn:not(:has(.anticon-question-circle)):not(:has(.anticon-star))::bef
     content: '' !important;
     position: absolute !important;
     inset: 1px !important;
-    background: var(--cu-btn-solid) !important;
+    background: var(--co-btn-solid) !important;
     z-index: -1 !important;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%) !important;
+    border-radius: calc(var(--co-radius) - 1px) !important;
+    clip-path: none !important;
     transition: opacity .2s ease !important
 }
 
@@ -339,13 +338,13 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
     display: block !important;
     position: absolute !important;
     inset: -2px !important;
-    border-radius: 0 !important;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important;
+    border-radius: calc(var(--co-radius) + 2px) !important;
+    clip-path: none !important;
     z-index: -2 !important;
-    background-image: linear-gradient(90deg, #f472b6, #c084fc, #818cf8, #60a5fa, #34d399, #c084fc, #f472b6) !important;
-    background-size: 200% 100% !important;
+    background-image: linear-gradient(135deg, #F2A7BB, #D4708F, #B8577A, #D4708F, #F2A7BB) !important;
+    background-size: 200% 200% !important;
     background-position: 0% 50%;
-    animation: cu-sweep 3s linear infinite !important;
+    animation: co-sweep 4s ease infinite !important;
     transition: filter .2s ease !important
 }
 
@@ -354,10 +353,10 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
     display: block !important;
     position: absolute !important;
     inset: 0 !important;
-    border-radius: 0 !important;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important;
+    border-radius: var(--co-radius) !important;
+    clip-path: none !important;
     z-index: -1 !important;
-    background: var(--cu-btn-solid) !important
+    background: var(--co-btn-solid) !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]):hover {
@@ -366,8 +365,8 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]):hover::before {
-    filter: brightness(1.4) saturate(1.3) !important;
-    box-shadow: 0 0 18px rgba(244, 114, 182, 0.5), 0 0 40px rgba(192, 132, 252, 0.3) !important
+    filter: brightness(1.3) saturate(1.2) !important;
+    box-shadow: 0 0 20px rgba(212, 112, 143, 0.5) !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M664.8 561.6"]):active {
@@ -375,14 +374,15 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star svg path[d*="M6
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[d*="M664.8 561.6"])) {
-    color: var(--cu-accent-soft) !important;
+    color: var(--co-accent-soft) !important;
     border: none !important;
-    background: #2a1525 !important;
+    background: rgba(255, 255, 255, 0.06) !important;
     box-shadow: none !important;
     animation: none !important;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important;
+    border-radius: var(--co-radius) !important;
+    clip-path: none !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.05em !important
+    letter-spacing: 0.06em !important
 }
 
 div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[d*="M664.8 561.6"])):hover {
@@ -394,9 +394,10 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[
     display: block !important;
     position: absolute !important;
     inset: 1px !important;
-    background: var(--cu-btn-solid) !important;
+    background: var(--co-btn-solid) !important;
     z-index: -1 !important;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%) !important;
+    border-radius: calc(var(--co-radius) - 1px) !important;
+    clip-path: none !important;
     transition: opacity .2s ease !important
 }
 
@@ -415,7 +416,7 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star):not(:has(path[
     margin: -1.5px 0 0 -1.5px !important;
     border-radius: 50% !important;
     pointer-events: none !important;
-    animation: cu-particles 0.8s ease-out forwards !important;
+    animation: co-particles 0.8s ease-out forwards !important;
     z-index: 10 !important;
     opacity: 0;
     background: transparent !important
@@ -445,15 +446,15 @@ footer.ant-layout-footer {
 }
 
 .ant-menu-item:has(img[alt="logo"]) .ant-menu-title-content::after {
-    content: 'CURIEUI\A BY CURIE';
+    content: 'CURIE-UI\A BY CURIE ORIGINALS';
     white-space: pre;
-    font-family: var(--cu-font-mono);
+    font-family: var(--co-font-mono);
     font-size: 7px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     line-height: 1.3;
-    opacity: 0.4;
+    opacity: 0.35;
     margin-left: 8px;
     color: #fff;
     pointer-events: none;
@@ -475,33 +476,33 @@ footer.ant-layout-footer {
 header.ant-layout-header {
     position: relative !important;
     z-index: 99999 !important;
-    padding-top: var(--cu-banner-height, 0px) !important;
+    padding-top: var(--co-banner-height, 0px) !important;
     height: auto !important;
-    min-height: calc(60px + var(--cu-banner-height, 0px)) !important;
+    min-height: calc(60px + var(--co-banner-height, 0px)) !important;
     overflow: visible !important
 }
 
-/* ===== POLICE TAPE BANNER (opt-in via --cu-banner-text) ===== */
+/* ===== TOP BANNER (opt-in via --co-banner-text) ===== */
 header.ant-layout-header::after {
-    content: var(--cu-banner-text, none);
+    content: var(--co-banner-text, none);
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: var(--cu-banner-height, 32px);
+    height: var(--co-banner-height, 32px);
     z-index: 10001;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--cu-font-mono);
+    font-family: var(--co-font-mono);
     font-size: 11px;
-    font-weight: 700;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     color: #fff;
-    background: linear-gradient(90deg, #f472b6, #c084fc, #818cf8, #c084fc, #f472b6);
-    background-size: 300% 100%;
-    animation: cu-sweep 6s linear infinite
+    background: linear-gradient(90deg, var(--co-accent), #B8577A, var(--co-accent));
+    background-size: 200% 100%;
+    animation: co-sweep 6s ease infinite
 }
 
 @media (max-width: 768px) {
@@ -515,14 +516,13 @@ header.ant-layout-header::after {
 }
 
 body {
-    padding-bottom: calc(var(--cu-height) + var(--cu-inset) * 2 + 60px) !important
+    padding-bottom: calc(var(--co-height) + var(--co-inset) * 2 + 60px) !important
 }
 
 .galaxy-bg {
     background-image: none !important;
     background-size: 0 !important
 }
-
 
 .no-arrow.no-vertical-anything {
     background-color: transparent !important
@@ -604,7 +604,7 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     }
 }
 
-.cu-container {
+.co-container {
     width: 100%;
     margin-right: auto;
     margin-left: auto;
@@ -615,12 +615,12 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
 }
 
 @media (min-width: 1024px) and (max-width: 1200px) {
-    .cu-container {
+    .co-container {
         margin-top: -150px
     }
 }
 
-.cu-row {
+.co-row {
     display: flex;
     flex-wrap: wrap;
     align-items: stretch;
@@ -628,18 +628,18 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     margin-left: -15px
 }
 
-.cu-col-1,
-.cu-col-2,
-.cu-col-3,
-.cu-col-4,
-.cu-col-5,
-.cu-col-6,
-.cu-col-7,
-.cu-col-8,
-.cu-col-9,
-.cu-col-10,
-.cu-col-11,
-.cu-col-12 {
+.co-col-1,
+.co-col-2,
+.co-col-3,
+.co-col-4,
+.co-col-5,
+.co-col-6,
+.co-col-7,
+.co-col-8,
+.co-col-9,
+.co-col-10,
+.co-col-11,
+.co-col-12 {
     position: relative;
     width: 100%;
     padding-right: 15px;
@@ -648,105 +648,50 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     flex-direction: column
 }
 
-.cu-col-1 {
-    flex: 0 0 8.333333%;
-    max-width: 8.333333%
-}
-
-.cu-col-2 {
-    flex: 0 0 16.666667%;
-    max-width: 16.666667%
-}
-
-.cu-col-3 {
-    flex: 0 0 25%;
-    max-width: 25%
-}
-
-.cu-col-4 {
-    flex: 0 0 33.333333%;
-    max-width: 33.333333%
-}
-
-.cu-col-5 {
-    flex: 0 0 41.666667%;
-    max-width: 41.666667%
-}
-
-.cu-col-6 {
-    flex: 0 0 50%;
-    max-width: 50%
-}
-
-.cu-col-7 {
-    flex: 0 0 58.333333%;
-    max-width: 58.333333%
-}
-
-.cu-col-8 {
-    flex: 0 0 66.666667%;
-    max-width: 66.666667%
-}
-
-.cu-col-9 {
-    flex: 0 0 75%;
-    max-width: 75%
-}
-
-.cu-col-10 {
-    flex: 0 0 83.333333%;
-    max-width: 83.333333%
-}
-
-.cu-col-11 {
-    flex: 0 0 91.666667%;
-    max-width: 91.666667%
-}
-
-.cu-col-12 {
-    flex: 0 0 100%;
-    max-width: 100%
-}
+.co-col-1 { flex: 0 0 8.333333%; max-width: 8.333333% }
+.co-col-2 { flex: 0 0 16.666667%; max-width: 16.666667% }
+.co-col-3 { flex: 0 0 25%; max-width: 25% }
+.co-col-4 { flex: 0 0 33.333333%; max-width: 33.333333% }
+.co-col-5 { flex: 0 0 41.666667%; max-width: 41.666667% }
+.co-col-6 { flex: 0 0 50%; max-width: 50% }
+.co-col-7 { flex: 0 0 58.333333%; max-width: 58.333333% }
+.co-col-8 { flex: 0 0 66.666667%; max-width: 66.666667% }
+.co-col-9 { flex: 0 0 75%; max-width: 75% }
+.co-col-10 { flex: 0 0 83.333333%; max-width: 83.333333% }
+.co-col-11 { flex: 0 0 91.666667%; max-width: 91.666667% }
+.co-col-12 { flex: 0 0 100%; max-width: 100% }
 
 @media (min-width:576px) {
-    .cu-container {
-        max-width: 540px
-    }
+    .co-container { max-width: 540px }
 }
 
 @media (min-width:768px) {
-    .cu-container {
-        max-width: 90%
-    }
+    .co-container { max-width: 90% }
 }
 
 @media (min-width:992px) {
-    .cu-container {
-        max-width: 960px
-    }
+    .co-container { max-width: 960px }
 }
 
 @media (min-width:1200px) {
-    .cu-container {
-        max-width: 1400px !important
-    }
+    .co-container { max-width: 1400px !important }
 }
 
-@keyframes cu-sweep {
-    to {
-        background-position: 200% center
-    }
+@keyframes co-sweep {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
 }
 
-@keyframes cu-particles {
+@keyframes co-particles {
     0% {
         opacity: 1;
-        box-shadow: 0 0 0 0 #f472b6, 0 0 0 0 #c084fc, 0 0 0 0 #818cf8, 0 0 0 0 #60a5fa, 0 0 0 0 #34d399, 0 0 0 0 #fbbf24, 0 0 0 0 #e879f9, 0 0 0 0 #06b6d4
+        box-shadow: 0 0 0 0 #F2A7BB, 0 0 0 0 #D4708F, 0 0 0 0 #B8577A, 0 0 0 0 #F7C8D6, 0 0 0 0 #E8788A, 0 0 0 0 #C96B8B, 0 0 0 0 #FFD1DC, 0 0 0 0 #E0A0B0
     }
 
     100% {
         opacity: 0;
-        box-shadow: -45px -55px 0 0 #f472b6, 48px -46px 0 0 #c084fc, 55px 38px 0 0 #818cf8, -48px 45px 0 0 #60a5fa, 25px -65px 0 0 #34d399, -60px -15px 0 0 #fbbf24, 35px 52px 0 0 #e879f9, -28px 58px 0 0 #06b6d4
+        box-shadow: -45px -55px 0 0 #F2A7BB, 48px -46px 0 0 #D4708F, 55px 38px 0 0 #B8577A, -48px 45px 0 0 #F7C8D6, 25px -65px 0 0 #E8788A, -60px -15px 0 0 #C96B8B, 35px 52px 0 0 #FFD1DC, -28px 58px 0 0 #E0A0B0
     }
 }
 
@@ -755,17 +700,17 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) {
     --page-bg-pos: center;
     --page-bg-size: cover;
     --page-bg-attach: fixed;
-    --page-bg-overlay: linear-gradient(to bottom, rgba(8, 3, 12, 0.2) 0%, rgba(8, 3, 12, 0.88) 100%)
+    --page-bg-overlay: linear-gradient(to bottom, rgba(10, 6, 14, 0.3) 0%, rgba(10, 6, 14, 0.88) 100%)
 }
 
 body {
-    background-color: #08030c !important;
+    background-color: #0a060e !important;
     background-image: none !important;
     position: relative !important
 }
 
 /* ===== VIDEO BACKGROUND ===== */
-.cux-bg-video {
+.cox-bg-video {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
@@ -774,33 +719,33 @@ body {
     object-fit: cover !important;
     z-index: -2 !important;
     pointer-events: none !important;
-    opacity: 0.5 !important;
+    opacity: 0.45 !important;
     background: transparent !important;
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%);
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.2) 100%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.15) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.15) 100%);
     will-change: transform
 }
 
 /* ===== IMAGE BACKGROUND ===== */
-.cux-bg-image {
+.cox-bg-image {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     width: 100vw !important;
     height: 100dvh !important;
     object-fit: cover !important;
-    object-position: var(--cu-bg-pos, center) !important;
+    object-position: var(--co-bg-pos, center) !important;
     z-index: -2 !important;
     pointer-events: none !important;
-    opacity: var(--cu-bg-opacity, 0.5) !important;
+    opacity: var(--co-bg-opacity, 0.4) !important;
     will-change: transform
 }
 
-.cux-bg-image::after {
+.cox-bg-image::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: var(--cu-bg-overlay, linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.85) 100%));
+    background: var(--co-bg-overlay, linear-gradient(to bottom, rgba(10, 6, 14, 0.3) 0%, rgba(10, 6, 14, 0.88) 100%));
     pointer-events: none
 }
 
@@ -826,9 +771,9 @@ video::-moz-media-controls {
     display: none !important
 }
 
-/* ===== CORNER ROSE ASSETS ===== */
-.cux-corner-l,
-.cux-corner-r {
+/* ===== CORNER DECORATIVE ASSETS ===== */
+.cox-corner-l,
+.cox-corner-r {
     position: fixed;
     bottom: -45px;
     height: 180px;
@@ -839,15 +784,8 @@ video::-moz-media-controls {
     will-change: transform
 }
 
-.cux-corner-l {
-    left: -50px
-}
-
-.cux-corner-r {
-    right: -50px
-}
-
-
+.cox-corner-l { left: -50px }
+.cox-corner-r { right: -50px }
 
 body::before {
     content: '';
@@ -870,7 +808,7 @@ main.ant-layout-content {
 
 .ant-collapse-content-box,
 .ant-collapse-content-box .ant-descriptions-item-content {
-    font-family: var(--cu-font-mono) !important;
+    font-family: var(--co-font-mono) !important;
     font-size: 0.85em
 }
 
@@ -878,17 +816,17 @@ main.ant-layout-content {
 .ant-collapse {
     border: none !important;
     background: transparent !important;
-    border-radius: var(--cu-radius) !important;
+    border-radius: var(--co-radius) !important;
     overflow: hidden !important
 }
 
 .ant-collapse>.ant-collapse-item {
     border: none !important;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 0 !important;
-    background: var(--cu-wine) !important;
-    backdrop-filter: blur(8px) !important;
-    -webkit-backdrop-filter: blur(8px) !important;
+    background: var(--co-wine) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
     margin-bottom: 0 !important;
     overflow: hidden !important
 }
@@ -898,165 +836,154 @@ main.ant-layout-content {
 }
 
 .ant-collapse>.ant-collapse-item>.ant-collapse-header {
-    font-family: var(--cu-font-serif) !important;
+    font-family: var(--co-font-serif) !important;
     font-size: 1em !important;
-    font-weight: 600 !important;
-    color: var(--cu-accent-soft) !important;
+    font-weight: 700 !important;
+    color: var(--co-accent-soft) !important;
     letter-spacing: 0.02em !important
 }
 
 .ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-expand-icon {
-    color: var(--cu-accent-soft) !important
+    color: var(--co-accent-soft) !important
 }
 
 .ant-collapse-content {
     background: transparent !important;
-    border-top: 1px solid rgba(255, 255, 255, 0.1) !important
+    border-top: 1px solid rgba(255, 255, 255, 0.08) !important
 }
 
 /* ===== MOBILE HERO LAYOUT ===== */
 @media (max-width: 768px) {
-
-    /* Video Column: 10 cols (83.33%) centered (1 col offset = 8.33%) */
-    .cu-col-5 {
+    .co-col-5 {
         flex: 0 0 83.333333% !important;
         max-width: 83.333333% !important;
         margin-left: 8.333333% !important;
         margin-top: 2em !important;
     }
 
-    /* Text Column: Full width */
-    .cu-col-7 {
+    .co-col-7 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
 
-    /* Disable sticky bottom wrapper logic */
-    .cu-col-5>div:not(.cu-scenario-tv) {
+    .co-col-5>div:not(.co-scenario-tv) {
         height: auto !important;
         position: relative !important;
         display: block !important;
         justify-content: flex-start !important;
     }
 
-    /* Hide video, show static fallback on mobile */
-    .cux-hero-video {
+    .cox-hero-video {
         display: none !important
     }
 
-    .cu-col-5:has(.cux-hero-video)>div {
+    .co-col-5:has(.cox-hero-video)>div {
         position: relative !important
     }
 
-    .cu-col-5:has(.cux-hero-video)>div::after {
+    .co-col-5:has(.cox-hero-video)>div::after {
         content: '';
         display: block;
         width: 100%;
         max-height: 40vh;
         aspect-ratio: 3 / 4;
-        background: var(--cu-hero-fallback) top center / cover no-repeat;
-        border-radius: 0;
+        background: var(--co-hero-fallback) top center / cover no-repeat;
+        border-radius: var(--co-radius);
         margin-bottom: 20px;
-        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
+        filter: drop-shadow(0 10px 24px rgba(212, 112, 143, 0.2));
         -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
         mask-image: linear-gradient(to bottom, black 60%, transparent 100%)
     }
 
-    /* Static hero image: fadeout on mobile */
-    .cux-hero-image {
+    .cox-hero-image {
         max-height: 40vh !important;
         object-fit: cover !important;
         object-position: top center !important;
-        border-radius: 0 !important;
+        border-radius: var(--co-radius) !important;
         -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
         mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
     }
 
-    .cu-col-4,
-    .cu-col-6 {
+    .co-col-4,
+    .co-col-6 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
 
-    /* Allow heading to wrap naturally on mobile */
-    .cu-title {
+    .co-title {
         padding-top: 0 !important;
         font-size: clamp(2.5em, 12vw, 6em) !important;
         word-break: break-word !important
     }
 
-    .cu-title::after {
+    .co-title::after {
         top: 6px !important;
         word-break: break-word !important;
         width: 100% !important;
     }
 
-    .cu-subtitle {
-        font-size: 1.1em !important
+    .co-subtitle {
+        font-size: 1em !important
     }
 }
 
 /* ===== MOBILE LANDSCAPE HERO ===== */
 @media (max-width: 768px) and (orientation: landscape) {
-
-    .cu-col-5:has(.cux-hero-video)>div::after {
+    .co-col-5:has(.cox-hero-video)>div::after {
         aspect-ratio: 2 / 3 !important;
         max-height: 70vh !important;
         -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
         mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
     }
 
-    .cux-hero-image {
+    .cox-hero-image {
         max-height: 70vh !important;
         -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
         mask-image: linear-gradient(to bottom, black 75%, transparent 100%) !important;
     }
 
-    .cu-letter-photo {
+    .co-letter-photo {
         width: 50% !important;
         top: 40px !important;
     }
 
-    .cu-love-letter:hover .cu-letter-photo {
+    .co-love-letter:hover .co-letter-photo {
         top: 30px !important;
     }
 }
 
 /* ===== DESKTOP: HERO + TEXT ALIGNMENT ===== */
-.cu-row:has(> .cu-col-5 .cux-hero-video),
-.cu-row:has(> .cu-col-5 .cux-hero-image) {
+.co-row:has(> .co-col-5 .cox-hero-video),
+.co-row:has(> .co-col-5 .cox-hero-image) {
     align-items: center !important;
     height: fit-content !important
 }
 
 /* ===== TABLET / IPAD HERO LAYOUT ===== */
 @media (min-width: 769px) and (max-width: 1024px) {
-
-    /* Static image hero: 6 cols */
-    .cu-col-5:has(.cux-hero-image) {
+    .co-col-5:has(.cox-hero-image) {
         flex: 0 0 50% !important;
         max-width: 50% !important;
     }
 
-    .cu-col-5:has(.cux-hero-image)~.cu-col-7 {
+    .co-col-5:has(.cox-hero-image)~.co-col-7 {
         flex: 0 0 50% !important;
         max-width: 50% !important;
     }
 
-    /* Video hero: full width centered */
-    .cu-col-5:has(.cux-hero-video) {
+    .co-col-5:has(.cox-hero-video) {
         flex: 0 0 83.333333% !important;
         max-width: 83.333333% !important;
         margin-left: 8.333333% !important;
         overflow: hidden !important;
     }
 
-    .cu-col-5>div {
+    .co-col-5>div {
         height: auto !important;
         position: relative !important;
     }
 
-    .cux-hero-video {
+    .cox-hero-video {
         max-height: 50vh !important;
         object-fit: cover !important;
         object-position: top !important;
@@ -1064,7 +991,7 @@ main.ant-layout-content {
         mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
     }
 
-    .cux-hero-image {
+    .cox-hero-image {
         max-height: 50vh !important;
         object-fit: cover !important;
         object-position: top !important;
@@ -1072,37 +999,37 @@ main.ant-layout-content {
         mask-image: linear-gradient(to bottom, black 60%, transparent 100%) !important;
     }
 
-    .cu-col-5:has(.cux-hero-video)~.cu-col-7 {
+    .co-col-5:has(.cox-hero-video)~.co-col-7 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
     }
 
-    .cu-col-7>.cu-row>.cu-col-6:first-child {
+    .co-col-7>.co-row>.co-col-6:first-child {
         flex: 0 0 58.333333% !important;
         max-width: 58.333333% !important;
     }
 
-    .cu-col-7>.cu-row>.cu-col-6:last-child {
+    .co-col-7>.co-row>.co-col-6:last-child {
         flex: 0 0 41.666667% !important;
         max-width: 41.666667% !important;
     }
 
-    .cu-title {
+    .co-title {
         font-size: 3.5em !important;
         padding-top: 0 !important
     }
 
-    .cu-subtitle {
-        font-size: 1.6em !important
+    .co-subtitle {
+        font-size: 1.4em !important
     }
 
-    .cu-blurb {
+    .co-blurb {
         font-size: 1.2em !important
     }
 
-    .cu-col-5 spacer,
-    .cu-col-7 spacer,
-    .cu-row>spacer {
+    .co-col-5 spacer,
+    .co-col-7 spacer,
+    .co-row>spacer {
         display: none !important;
         max-height: 0 !important;
         overflow: hidden !important
@@ -1110,37 +1037,32 @@ main.ant-layout-content {
 }
 
 /* ===== TYPOGRAPHY ===== */
-.cu-title {
-    font-family: var(--cu-font-display), impact, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: clamp(48px, 8vw, 90px);
-    font-weight: 700;
-    line-height: 1;
+.co-title {
+    font-family: var(--co-font-display), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(48px, 8vw, 88px);
+    font-weight: 900;
+    line-height: 1.05;
     margin: 0 0 12px 0;
     padding-top: 1.5em;
-    text-transform: uppercase;
+    text-transform: none;
     position: relative;
     z-index: 1;
-    animation: fadeSlideUp 0.6s ease both;
+    animation: coFadeSlideUp 0.7s ease both;
     will-change: transform, opacity;
     color: #fff
 }
 
-/* Striped "Scanline" Shadow */
-.cu-title::after {
+/* Soft glow shadow instead of scanline */
+.co-title::after {
     content: attr(data-text);
     position: absolute;
-    left: 6px;
-    top: 6px;
+    left: 0;
+    top: 0;
     padding-top: inherit;
     z-index: -1;
-    background: repeating-linear-gradient(-45deg,
-            var(--cu-accent),
-            var(--cu-accent) 2px,
-            transparent 2px,
-            transparent 6px);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--co-accent);
+    opacity: 0.25;
+    filter: blur(16px);
     pointer-events: none;
     font-family: inherit;
     font-size: inherit;
@@ -1149,28 +1071,29 @@ main.ant-layout-content {
     text-transform: inherit
 }
 
-.cu-subtitle {
+.co-subtitle {
     display: inline;
-    background: linear-gradient(90deg, var(--cu-accent), #c084fc);
+    background-color: var(--co-accent);
     color: #fff;
-    padding: 2px 10px;
+    padding: 3px 14px;
     line-height: 2;
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
-    font-family: var(--cu-font-mono);
-    font-weight: 700;
-    font-size: 16px;
+    font-family: var(--co-font-mono);
+    font-weight: 600;
+    font-size: 14px;
     text-transform: uppercase;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.18em;
     margin: 0;
-    animation: fadeSlideUp 0.6s ease 0.15s both;
+    border-radius: 6px;
+    animation: coFadeSlideUp 0.7s ease 0.15s both;
     will-change: transform, opacity
 }
 
-@keyframes fadeSlideUp {
+@keyframes coFadeSlideUp {
     from {
         opacity: 0;
-        transform: translateY(20px)
+        transform: translateY(24px)
     }
 
     to {
@@ -1179,19 +1102,30 @@ main.ant-layout-content {
     }
 }
 
-.cux-hero-video {
-    animation: heroFadeIn 0.8s ease 0.1s both;
+.cox-hero-video {
+    animation: coHeroFadeIn 0.9s ease 0.1s both;
     will-change: transform, opacity;
     background: transparent !important;
-    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5)) !important;
+    filter: drop-shadow(0 10px 30px rgba(212, 112, 143, 0.15)) !important;
     -webkit-appearance: none !important;
     appearance: none !important
 }
 
-@keyframes heroFadeIn {
+/* Hero image styling */
+.cox-hero-image {
+    animation: coHeroFadeIn 0.9s ease 0.1s both;
+    will-change: transform, opacity;
+    border-radius: var(--co-radius);
+    filter: drop-shadow(0 10px 30px rgba(212, 112, 143, 0.15));
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
+
+@keyframes coHeroFadeIn {
     from {
         opacity: 0;
-        transform: scale(0.97)
+        transform: scale(0.96)
     }
 
     to {
@@ -1200,303 +1134,257 @@ main.ant-layout-content {
     }
 }
 
-
-.cu-blurb {
-    font-family: var(--cu-font-hand);
-    font-size: 1.2em;
-    font-weight: 300;
-    color: var(--cu-text);
-    line-height: 1.7;
+.co-blurb {
+    font-family: var(--co-font-hand);
+    font-size: 1.15em;
+    font-weight: 400;
+    color: var(--co-text);
+    line-height: 1.75;
     margin: 1em 0 2.5em 0
 }
 
 /* ===== SECTION BASE ===== */
-.cu-section {
+.co-section {
     border: none;
-    border-radius: 0;
-    background: var(--cu-wine);
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
-    padding: 1.2em 1.4em;
+    border-radius: var(--co-radius);
+    background: var(--co-wine);
+    clip-path: none;
+    padding: 1.3em 1.5em;
     margin-bottom: 1em;
     flex: 1;
     contain: content;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px)
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05)
 }
 
-.cu-section-body ul,
-.cu-section-body ol {
+.co-section-body ul,
+.co-section-body ol {
     list-style: none !important;
     list-style-type: none !important;
     padding-left: 0 !important;
     margin: 0 !important
 }
 
-.cu-section-body li {
+.co-section-body li {
     list-style: none !important;
     list-style-type: none !important;
-    color: var(--cu-text)
+    color: var(--co-text)
 }
 
-.cu-section-title {
-    font-family: var(--cu-font-serif);
-    font-size: 1.1em;
+.co-section-title {
+    font-family: var(--co-font-serif);
+    font-size: 1.05em;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    opacity: 0.8;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
     margin: 0 0 0.8em 0;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    color: var(--cu-accent-soft)
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--co-accent-soft)
 }
 
-.cu-section-body {
-    font-family: var(--cu-font-hand);
+.co-section-body {
+    font-family: var(--co-font-hand);
     font-size: 0.9em;
-    font-weight: 300;
-    line-height: 1.6;
-    color: var(--cu-text)
+    font-weight: 400;
+    line-height: 1.65;
+    color: var(--co-text)
 }
 
-.cu-section-body p {
+.co-section-body p {
     margin: 0 0 0.8em 0;
-    color: var(--cu-text)
+    color: var(--co-text)
 }
 
-.cu-section-body p:last-child {
+.co-section-body p:last-child {
     margin-bottom: 0
 }
 
-/* ===== SCENARIOS SECTION =====
-.cu-section--scenarios {
-    padding: 0
-}
-
-/* ===== LOREBOOK SECTION ===== */
-.cu-section--feedback {
+/* ===== FEEDBACK SECTION (was lorebook) ===== */
+.co-section--feedback {
     position: relative;
     padding-left: 2.4em;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%)
+    border-radius: var(--co-radius);
+    clip-path: none
 }
 
-.cu-section--feedback::before {
+.co-section--feedback::before {
     content: '';
     position: absolute;
     left: 0;
     top: 0;
     bottom: 0;
-    width: 8px;
-    background: linear-gradient(180deg, #f472b6, #c084fc, #818cf8);
+    width: 6px;
+    background: linear-gradient(180deg, var(--co-accent), #B8577A, var(--co-accent));
+    border-radius: 3px 0 0 3px;
     z-index: 1
 }
 
-.cu-feedback-name {
-    font-family: var(--cu-font-display);
+.co-feedback-name {
+    font-family: var(--co-font-display);
     font-size: 1.1em;
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--cu-accent-soft);
+    color: var(--co-accent-soft);
     margin: 0 0 0.6em 0;
-    letter-spacing: 0.05em;
-    text-shadow: 0 0 12px rgba(244, 114, 182, 0.4)
+    letter-spacing: 0.05em
 }
 
-.cu-section--feedback .cu-btn-row {
+.co-section--feedback .co-btn-row {
     margin-top: 1.2em
 }
 
-.cu-section--feedback .cu-support-btn {
-    color: #facc15;
+.co-section--feedback .co-support-btn {
+    color: var(--co-accent-soft);
     border: none;
-    background: #facc15;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%)
+    background: var(--co-accent);
+    border-radius: 8px;
+    clip-path: none
 }
 
-.cu-section--feedback .cu-support-btn::before {
+.co-section--feedback .co-support-btn::before {
     content: '';
     position: absolute;
     inset: 1px;
-    background: var(--cu-wine);
+    background: var(--co-wine);
     z-index: -1;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    border-radius: 7px;
+    clip-path: none;
     transition: opacity .2s ease
 }
 
-.cu-section--feedback .cu-support-btn:hover {
-    color: #000;
-    transform: none;
-    box-shadow: none
+.co-section--feedback .co-support-btn:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(212, 112, 143, 0.3)
 }
 
-.cu-section--feedback .cu-support-btn:hover::before {
+.co-section--feedback .co-support-btn:hover::before {
     opacity: 0
 }
 
 /* --- Intros List --- */
-.cu-intros {
+.co-intros {
     display: flex;
     flex-direction: column;
     gap: 0
 }
 
-.cu-intro-item {
+.co-intro-item {
     display: flex;
     align-items: center;
     gap: 1em;
     padding: 0.7em 0.8em;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     cursor: default;
-    transition: background .2s ease
+    transition: background .25s ease;
+    border-radius: 8px;
+    margin: 2px 0
 }
 
-.cu-intro-item:last-child {
+.co-intro-item:last-child {
     border-bottom: none
 }
 
-.cu-intro-item:hover {
-    background: rgba(244, 114, 182, 0.05)
+.co-intro-item:hover {
+    background: rgba(212, 112, 143, 0.08)
 }
 
-.cu-intro-num {
+.co-intro-num {
     flex-shrink: 0;
-    font-family: var(--cu-font-display);
-    font-size: 1.6em;
-    font-weight: 700;
-    color: var(--cu-accent);
-    opacity: 0.4;
+    font-family: var(--co-font-display);
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--co-accent);
+    opacity: 0.3;
     width: 2em;
     text-align: center;
     letter-spacing: 0.05em;
-    transition: opacity .2s ease
+    transition: opacity .25s ease
 }
 
-.cu-intro-item:hover .cu-intro-num {
+.co-intro-item:hover .co-intro-num {
     opacity: 1
 }
 
-.cu-intro-content {
+.co-intro-content {
     flex: 1;
     min-width: 0
 }
 
-.cu-intro-content h4 {
-    font-family: var(--cu-font-display);
+.co-intro-content h4 {
+    font-family: var(--co-font-display);
     font-size: 0.9em;
     font-weight: 700;
     margin: 0 0 0.15em 0;
-    color: var(--cu-text);
-    text-transform: uppercase;
-    letter-spacing: 0.03em
+    color: var(--co-text);
+    text-transform: none;
+    letter-spacing: 0.02em
 }
 
-.cu-intro-content p {
-    font-family: var(--cu-font-hand);
+.co-intro-content p {
+    font-family: var(--co-font-hand);
     font-size: 0.85em;
     margin: 0 0 0.4em 0;
     color: rgba(255, 255, 255, 0.5);
     line-height: 1.4
 }
 
-.cu-intro-item .cu-scenario-tag {
+.co-intro-item .co-scenario-tag {
     display: inline-block;
     margin: 0
 }
 
-/* --- TV Frame --- */
-.cu-scenario-tv {
+/* --- TV / Preview Frame --- */
+.co-scenario-tv {
     position: relative;
     margin-bottom: 1em;
-    padding: 2px
+    padding: 3px;
+    border-radius: var(--co-radius);
+    overflow: hidden
 }
 
-.cu-scenario-tv::before {
+.co-scenario-tv::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: #2a1525;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: var(--co-radius);
     z-index: 0;
     transition: background .3s ease
 }
 
-.cu-tv-frame {
+.co-tv-frame {
     position: relative;
     width: 100%;
     aspect-ratio: 3 / 2;
-    background: #08030c url('https://curie-assets.site/images/Z-Image-L_00375_.png') center / cover no-repeat;
+    background: #0a060e url('https://curie-assets.site/images/Z-Image-L_00375_.png') center / cover no-repeat;
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+    border-radius: calc(var(--co-radius) - 3px);
+    clip-path: none;
     z-index: 1
 }
 
-.cu-tv-frame::after {
+.co-tv-frame::after {
     content: '';
     position: absolute;
     inset: 0;
-    background:
-        repeating-linear-gradient(0deg,
-            transparent,
-            transparent 1px,
-            rgba(0, 0, 0, 0.1) 1px,
-            rgba(0, 0, 0, 0.1) 2px),
-        linear-gradient(180deg,
-            transparent 0%,
-            rgba(255, 255, 255, 0.03) 50%,
-            transparent 100%);
-    background-size: 100% 2px, 100% 200%;
-    animation: cu-scanline 4s linear infinite, cu-scanflicker 0.15s steps(2) infinite, cu-glitch 0.3s steps(3) infinite;
+    background: linear-gradient(180deg, transparent 0%, rgba(212, 112, 143, 0.03) 50%, transparent 100%);
+    background-size: 100% 200%;
+    animation: co-softglow 6s ease infinite;
     pointer-events: none;
     z-index: 3
 }
 
-@keyframes cu-scanline {
-    0% {
-        background-position: 0 0, 0 -100%
-    }
-
-    100% {
-        background-position: 0 0, 0 100%
-    }
+@keyframes co-softglow {
+    0% { background-position: 0 -100% }
+    50% { background-position: 0 100% }
+    100% { background-position: 0 -100% }
 }
 
-@keyframes cu-scanflicker {
-    0% {
-        opacity: 0.8
-    }
-
-    100% {
-        opacity: 1
-    }
-}
-
-@keyframes cu-glitch {
-    0% {
-        transform: translateX(0)
-    }
-
-    20% {
-        transform: translateX(-3px)
-    }
-
-    40% {
-        transform: translateX(2px)
-    }
-
-    60% {
-        transform: translateX(-1px)
-    }
-
-    80% {
-        transform: translateX(4px)
-    }
-
-    100% {
-        transform: translateX(0)
-    }
-}
-
-.cu-tv-frame img {
+.co-tv-frame img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -1504,41 +1392,27 @@ main.ant-layout-content {
     object-fit: cover;
     object-position: center center;
     opacity: 0;
-    transition: opacity .4s ease;
+    transition: opacity .5s ease;
     z-index: 1
 }
 
-/* Hover: red border */
-.cu-row--scenarios:has(.cu-intro-item:hover) .cu-scenario-tv::before {
-    background: var(--cu-accent)
+/* Hover: accent border glow */
+.co-row--scenarios:has(.co-intro-item:hover) .co-scenario-tv::before {
+    background: var(--co-accent);
+    box-shadow: 0 0 20px rgba(212, 112, 143, 0.3)
 }
 
 /* Hover switching via :has() on the row */
-.cu-row--scenarios:has(.cu-intro-item[data-intro="1"]:hover) .cu-tv-frame img[data-intro="1"] {
-    opacity: 1
-}
+.co-row--scenarios:has(.co-intro-item[data-intro="1"]:hover) .co-tv-frame img[data-intro="1"] { opacity: 1 }
+.co-row--scenarios:has(.co-intro-item[data-intro="2"]:hover) .co-tv-frame img[data-intro="2"] { opacity: 1 }
+.co-row--scenarios:has(.co-intro-item[data-intro="3"]:hover) .co-tv-frame img[data-intro="3"] { opacity: 1 }
+.co-row--scenarios:has(.co-intro-item[data-intro="4"]:hover) .co-tv-frame img[data-intro="4"] { opacity: 1 }
+.co-row--scenarios:has(.co-intro-item[data-intro="5"]:hover) .co-tv-frame img[data-intro="5"] { opacity: 1 }
 
-.cu-row--scenarios:has(.cu-intro-item[data-intro="2"]:hover) .cu-tv-frame img[data-intro="2"] {
-    opacity: 1
-}
-
-.cu-row--scenarios:has(.cu-intro-item[data-intro="3"]:hover) .cu-tv-frame img[data-intro="3"] {
-    opacity: 1
-}
-
-.cu-row--scenarios:has(.cu-intro-item[data-intro="4"]:hover) .cu-tv-frame img[data-intro="4"] {
-    opacity: 1
-}
-
-.cu-row--scenarios:has(.cu-intro-item[data-intro="5"]:hover) .cu-tv-frame img[data-intro="5"] {
-    opacity: 1
-}
-
-/* --- Tablet: stack scenarios + tv + lorebook --- */
+/* --- Tablet: stack scenarios + tv + feedback --- */
 @media (max-width: 1024px) {
-
-    .cu-row--scenarios>.cu-col-5,
-    .cu-row--scenarios>.cu-col-7 {
+    .co-row--scenarios>.co-col-5,
+    .co-row--scenarios>.co-col-7 {
         flex: 0 0 100% !important;
         max-width: 100% !important;
         margin-left: 0 !important
@@ -1547,48 +1421,48 @@ main.ant-layout-content {
 
 /* --- Tablet/Mobile: hide TV --- */
 @media (max-width: 1024px) {
-    .cu-scenario-tv {
+    .co-scenario-tv {
         display: none !important
     }
 }
 
 /* ===== CHANGELOG ===== */
-.cu-changelog-list {
+.co-changelog-list {
     padding: 0;
     margin: 0
 }
 
-.cu-changelog-entry {
+.co-changelog-entry {
     padding: 0.4em 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     font-size: 0.9em;
     opacity: 0.8
 }
 
-.cu-changelog-entry:last-child {
+.co-changelog-entry:last-child {
     border-bottom: none
 }
 
-.cu-changelog-date {
+.co-changelog-date {
     font-weight: 600;
-    color: var(--cu-accent-soft);
+    color: var(--co-accent-soft);
     margin-right: 0.6em;
     font-size: 0.85em
 }
 
 /* ===== SCENARIO CARDS ===== */
-.cu-scenario-list {
+.co-scenario-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1em
 }
 
-.cu-scenario-card {
+.co-scenario-card {
     position: relative;
     border: none;
-    border-radius: 0;
+    border-radius: var(--co-radius);
     overflow: hidden;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--cu-chamfer)), calc(100% - var(--cu-chamfer)) 100%, 0 100%);
+    clip-path: none;
     min-height: 220px;
     display: flex;
     flex-direction: column;
@@ -1596,35 +1470,35 @@ main.ant-layout-content {
     padding: 1.2em;
     background-size: cover;
     background-position: center;
-    transition: border-color 0.2s ease, transform 0.2s ease;
+    transition: border-color 0.2s ease, transform 0.3s ease;
     contain: layout style;
     will-change: transform
 }
 
-.cu-scenario-card::before {
+.co-scenario-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(to top, rgba(10, 6, 14, 0.92) 0%, rgba(10, 6, 14, 0.3) 50%, rgba(10, 6, 14, 0.05) 100%);
     z-index: 1;
     transition: background 0.2s ease
 }
 
-.cu-scenario-card:hover {
-    border-color: var(--cu-accent);
-    transform: translateY(-2px)
+.co-scenario-card:hover {
+    border-color: var(--co-accent);
+    transform: translateY(-3px)
 }
 
-.cu-scenario-card:hover::before {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.2) 50%, rgba(0, 0, 0, 0.05) 100%)
+.co-scenario-card:hover::before {
+    background: linear-gradient(to top, rgba(10, 6, 14, 0.95) 0%, rgba(10, 6, 14, 0.2) 50%, rgba(10, 6, 14, 0.02) 100%)
 }
 
-.cu-scenario-card>* {
+.co-scenario-card>* {
     position: relative;
     z-index: 2
 }
 
-.cu-scenario-number {
+.co-scenario-number {
     position: absolute;
     top: 0.8em;
     right: 0.8em;
@@ -1635,41 +1509,41 @@ main.ant-layout-content {
     letter-spacing: 0.05em
 }
 
-.cu-scenario-card h4 {
-    font-family: var(--cu-font-serif);
+.co-scenario-card h4 {
+    font-family: var(--co-font-serif);
     margin: 0 0 0.3em 0;
     font-size: 1.1em;
     font-weight: 700
 }
 
-.cu-scenario-card p {
+.co-scenario-card p {
     margin: 0 0 0.6em 0;
     font-size: 0.85em;
     opacity: 0.75;
     line-height: 1.5
 }
 
-.cu-scenario-tags {
+.co-scenario-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 0.35em
 }
 
-.cu-scenario-tag {
+.co-scenario-tag {
     font-size: 0.7em;
-    padding: 0.1em 0.55em 0.05em;
-    border-radius: 0;
-    background: var(--cu-rose);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    font-family: var(--cu-font-hand);
+    padding: 0.15em 0.6em;
+    border-radius: 6px;
+    background: var(--co-rose);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-family: var(--co-font-hand);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.04em;
-    color: var(--cu-accent-soft)
+    color: var(--co-accent-soft)
 }
 
 /* ===== LOVE LETTER VARIANT ===== */
-.cu-love-letter {
+.co-love-letter {
     min-height: 300px;
     border: none !important;
     background: transparent;
@@ -1680,8 +1554,7 @@ main.ant-layout-content {
     contain: layout style
 }
 
-/* Triangular back flap /\ */
-.cu-letter-flap {
+.co-letter-flap {
     position: absolute;
     inset: 0;
     background: #efe5d5;
@@ -1689,8 +1562,7 @@ main.ant-layout-content {
     z-index: 0
 }
 
-/* Polaroid photo */
-.cu-letter-photo {
+.co-letter-photo {
     position: absolute;
     top: -5px;
     left: 50%;
@@ -1704,7 +1576,7 @@ main.ant-layout-content {
     transition: top 0.4s ease, transform 0.4s ease
 }
 
-.cu-letter-photo img {
+.co-letter-photo img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -1713,61 +1585,43 @@ main.ant-layout-content {
     border-radius: 0
 }
 
-.cu-love-letter:hover .cu-letter-photo {
+.co-love-letter:hover .co-letter-photo {
     top: -35px;
     transform: translateX(-50%) rotate(1deg)
 }
 
-/* Envelope front V-flap (static, with rounded bottom corners) */
-.cu-love-letter::before {
+.co-love-letter::before {
     background: #efe5d5 !important;
-    clip-path: polygon(0% 42%,
-            50% 62%,
-            100% 42%,
-            100% calc(100% - 12px),
-            calc(100% - 3px) calc(100% - 5px),
-            calc(100% - 8px) calc(100% - 1px),
-            calc(100% - 12px) 100%,
-            12px 100%,
-            8px calc(100% - 1px),
-            3px calc(100% - 5px),
-            0% calc(100% - 12px));
+    clip-path: polygon(0% 42%, 50% 62%, 100% 42%, 100% calc(100% - 12px), calc(100% - 3px) calc(100% - 5px), calc(100% - 8px) calc(100% - 1px), calc(100% - 12px) 100%, 12px 100%, 8px calc(100% - 1px), 3px calc(100% - 5px), 0% calc(100% - 12px));
     z-index: 1
 }
 
-/* Fold crease along V edge (static) */
-.cu-love-letter::after {
+.co-love-letter::after {
     content: '';
     position: absolute;
     inset: 0;
     z-index: 2;
     pointer-events: none;
     background: rgba(140, 100, 70, 0.18);
-    clip-path: polygon(0% 41.5%,
-            50% 61.5%,
-            100% 41.5%,
-            100% 42.5%,
-            50% 62.5%,
-            0% 42.5%);
+    clip-path: polygon(0% 41.5%, 50% 61.5%, 100% 41.5%, 100% 42.5%, 50% 62.5%, 0% 42.5%);
     opacity: 1;
     height: auto;
     bottom: 0;
     border-radius: 0
 }
 
-/* Hover: subtle card lift */
-.cu-love-letter:hover {
+.co-love-letter:hover {
     transform: translateY(-3px)
 }
 
-.cu-love-letter .cu-letter-body {
+.co-love-letter .co-letter-body {
     position: relative;
     z-index: 2;
     padding: 0.2em 0
 }
 
-.cu-love-letter .cu-letter-body h4 {
-    font-family: var(--cu-font-hand);
+.co-love-letter .co-letter-body h4 {
+    font-family: var(--co-font-hand);
     font-size: 1.25em;
     font-weight: 700;
     color: #2a1a1a;
@@ -1775,8 +1629,8 @@ main.ant-layout-content {
     line-height: 1.2
 }
 
-.cu-love-letter .cu-letter-body p {
-    font-family: var(--cu-font-hand);
+.co-love-letter .co-letter-body p {
+    font-family: var(--co-font-hand);
     font-size: 0.88em;
     color: #3a2828;
     opacity: 0.85;
@@ -1784,92 +1638,59 @@ main.ant-layout-content {
     margin: 0 0 0.5em 0
 }
 
-.cu-love-letter .cu-scenario-number {
-    color: var(--cu-accent);
+.co-love-letter .co-scenario-number {
+    color: var(--co-accent);
     opacity: 0.35;
-    font-family: var(--cu-font-display);
+    font-family: var(--co-font-display);
     font-size: 2.5em;
     top: auto;
     bottom: 0.3em;
     right: 0.4em
 }
 
-.cu-love-letter .cu-scenario-tag {
+.co-love-letter .co-scenario-tag {
     background: rgba(42, 26, 26, 0.08);
     border-color: rgba(42, 26, 26, 0.15);
     color: #3a2828
 }
 
 @media (min-width: 1270px) {
-    .cu-letter-photo {
-        top: -50px;
-        width: 75%
-    }
-
-    .cu-love-letter:hover .cu-letter-photo {
-        top: -65px
-    }
+    .co-letter-photo { top: -50px; width: 75% }
+    .co-love-letter:hover .co-letter-photo { top: -65px }
 }
 
 @media (max-width: 1024px) {
-    .cu-scenario-list {
-        grid-template-columns: repeat(2, 1fr)
-    }
-
-    .cu-letter-photo {
-        width: 65%;
-        top: 40px
-    }
-
-    .cu-col-7>.cu-row {
-        margin-bottom: 0
-    }
+    .co-scenario-list { grid-template-columns: repeat(2, 1fr) }
+    .co-letter-photo { width: 65%; top: 40px }
+    .co-col-7>.co-row { margin-bottom: 0 }
 }
 
 @media (max-width: 768px) {
-    .cu-scenario-list {
-        grid-template-columns: 1fr
-    }
-
-    .cu-letter-photo {
-        width: 65%;
-        top: 70px
-    }
-
-    .cu-love-letter:hover .cu-letter-photo {
-        top: 55px
-    }
-
-    .cu-col-7>.cu-row {
-        margin-bottom: 0
-    }
+    .co-scenario-list { grid-template-columns: 1fr }
+    .co-letter-photo { width: 65%; top: 70px }
+    .co-love-letter:hover .co-letter-photo { top: 55px }
+    .co-col-7>.co-row { margin-bottom: 0 }
 }
 
 @media (min-width: 470px) and (max-width: 768px) {
-    .cu-letter-photo {
-        width: 50% !important;
-        top: 40px !important;
-    }
-
-    .cu-love-letter:hover .cu-letter-photo {
-        top: 30px !important;
-    }
+    .co-letter-photo { width: 50% !important; top: 40px !important; }
+    .co-love-letter:hover .co-letter-photo { top: 30px !important; }
 }
 
 /* ===== POLAROID VARIANT ===== */
-.cu-polaroids {
+.co-polaroids {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2em 1.5em;
     padding: 1em 0
 }
 
-.cu-polaroid {
+.co-polaroid {
     position: relative;
     background: #fff !important;
     padding: 8px 8px 0 8px !important;
     border: none !important;
-    border-radius: 0 !important;
+    border-radius: 4px !important;
     min-height: auto !important;
     justify-content: flex-start !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -1878,28 +1699,19 @@ main.ant-layout-content {
     contain: layout style
 }
 
-/* Kill the dark gradient overlay from base card */
-.cu-polaroid::before {
-    display: none !important
-}
+.co-polaroid::before { display: none !important }
 
-.cu-polaroid:hover {
+.co-polaroid:hover {
     border-color: transparent !important;
     transform: rotate(0deg) translateY(-6px) scale(1.03) !important;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 5
 }
 
-/* Scattered rotation - applied via class in HTML */
-.cu-tilt-l {
-    transform: rotate(-2.5deg) !important
-}
+.co-tilt-l { transform: rotate(-2.5deg) !important }
+.co-tilt-r { transform: rotate(2.5deg) !important }
 
-.cu-tilt-r {
-    transform: rotate(2.5deg) !important
-}
-
-.cu-polaroid-img {
+.co-polaroid-img {
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -1908,13 +1720,13 @@ main.ant-layout-content {
     border-radius: 0
 }
 
-.cu-polaroid-body {
+.co-polaroid-body {
     padding: 0.6em 0.4em 0.8em;
     text-align: center
 }
 
-.cu-polaroid-body h4 {
-    font-family: var(--cu-font-hand);
+.co-polaroid-body h4 {
+    font-family: var(--co-font-hand);
     font-size: 1.1em;
     font-weight: 700;
     color: #2a1a1a;
@@ -1922,8 +1734,8 @@ main.ant-layout-content {
     line-height: 1.2
 }
 
-.cu-polaroid-body p {
-    font-family: var(--cu-font-hand);
+.co-polaroid-body p {
+    font-family: var(--co-font-hand);
     font-size: 0.82em;
     font-weight: 400;
     color: #4a3535;
@@ -1932,34 +1744,33 @@ main.ant-layout-content {
     margin: 0
 }
 
-.cu-polaroid .cu-scenario-number {
+.co-polaroid .co-scenario-number {
     position: absolute;
     bottom: 0.6em;
     right: 0.6em;
-    font-family: var(--cu-font-hand);
+    font-family: var(--co-font-hand);
     font-size: 1.4em;
     font-weight: 700;
-    color: var(--cu-accent);
+    color: var(--co-accent);
     opacity: 1;
     text-shadow: none;
     z-index: 2
 }
 
-.cu-polaroid .cu-scenario-tags {
+.co-polaroid .co-scenario-tags {
     display: flex;
     justify-content: center;
     gap: 0.3em;
     padding-bottom: 0.4em
 }
 
-.cu-polaroid .cu-scenario-tag {
+.co-polaroid .co-scenario-tag {
     background: rgba(42, 26, 26, 0.06);
     border-color: rgba(42, 26, 26, 0.12);
     color: #4a3535
 }
 
-/* Glossy sheen overlay */
-.cu-polaroid::after {
+.co-polaroid::after {
     content: '';
     position: absolute;
     inset: 0;
@@ -1970,58 +1781,42 @@ main.ant-layout-content {
     z-index: 3
 }
 
-.cu-polaroid:hover::after {
-    opacity: 1
-}
+.co-polaroid:hover::after { opacity: 1 }
 
 @media (min-width: 1200px) {
-    .cu-polaroids {
-        grid-template-columns: repeat(4, 1fr)
-    }
+    .co-polaroids { grid-template-columns: repeat(4, 1fr) }
 }
 
 @media (max-width: 1024px) {
-    .cu-polaroids {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5em 1em
-    }
+    .co-polaroids { grid-template-columns: repeat(2, 1fr); gap: 1.5em 1em }
 }
 
 @media (max-width: 600px) {
-    .cu-polaroids {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.2em 0.8em
-    }
-
-    .cu-polaroid-body h4 {
-        font-size: 0.95em
-    }
-
-    .cu-polaroid-body p {
-        font-size: 0.75em
-    }
+    .co-polaroids { grid-template-columns: repeat(2, 1fr); gap: 1.2em 0.8em }
+    .co-polaroid-body h4 { font-size: 0.95em }
+    .co-polaroid-body p { font-size: 0.75em }
 }
 
 /* ===== PRESETS & PERSONAS ===== */
-.cu-disclaimer {
+.co-disclaimer {
     margin: 0 0 1em 0;
-    color: var(--cu-text);
-    font-family: var(--cu-font-hand);
-    font-weight: 300
+    color: var(--co-text);
+    font-family: var(--co-font-hand);
+    font-weight: 400
 }
 
-.cu-btn-row {
+.co-btn-row {
     display: flex;
     gap: 0.6em;
     margin-bottom: 1em
 }
 
-.cu-btn-row .cu-support-btn {
+.co-btn-row .co-support-btn {
     flex: 1;
     text-align: center
 }
 
-.cu-help-banner {
+.co-help-banner {
     display: flex;
     align-items: center;
     gap: 0;
@@ -2034,50 +1829,50 @@ main.ant-layout-content {
     transition: color 0.15s ease
 }
 
-.cu-help-banner:hover {
-    color: var(--cu-accent);
+.co-help-banner:hover {
+    color: var(--co-accent);
     opacity: 1
 }
 
-.cu-help-banner img {
+.co-help-banner img {
     width: 52px;
     height: 52px;
     border-radius: 50%;
     flex-shrink: 0;
     object-fit: cover;
-    border: 2px solid rgba(244, 114, 182, 0.25);
-    box-shadow: 0 0 12px rgba(244, 114, 182, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 12px rgba(212, 112, 143, 0.2);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     transition: transform 0.2s ease, box-shadow 0.2s ease
 }
 
-.cu-help-banner:hover img {
+.co-help-banner:hover img {
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(244, 114, 182, 0.4)
+    box-shadow: 0 0 20px rgba(212, 112, 143, 0.4)
 }
 
-.cu-help-banner span {
+.co-help-banner span {
     position: relative;
-    font-family: var(--cu-font-hand);
+    font-family: var(--co-font-hand);
     font-size: 0.9em;
-    font-weight: 400;
-    background: rgba(244, 114, 182, 0.1);
-    color: rgba(255,255,255,0.88);
-    border: 1px solid rgba(244, 114, 182, 0.25);
-    border-radius: 0;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.92);
+    color: #120a14;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
     padding: 0.6em 1em;
     margin-left: 0.8em;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px)
 }
 
-.cu-help-banner:hover span {
-    color: var(--cu-accent-soft);
-    border-color: var(--cu-accent)
+.co-help-banner:hover span {
+    color: var(--co-accent);
+    border-color: var(--co-accent)
 }
 
-.cu-help-banner span::before {
+.co-help-banner span::before {
     content: '';
     position: absolute;
     left: -6px;
@@ -2087,73 +1882,74 @@ main.ant-layout-content {
     height: 0;
     border-top: 6px solid transparent;
     border-bottom: 6px solid transparent;
-    border-right: 6px solid rgba(244, 114, 182, 0.25)
+    border-right: 6px solid rgba(255, 255, 255, 0.92)
 }
 
 /* ===== SUPPORT / DONATE ===== */
-.cu-section--support {
+.co-section--support {
     text-align: center
 }
 
-.cu-support-btn {
+.co-support-btn {
     display: inline-block;
     padding: 0.8em 2.2em;
     border: none;
-    border-radius: 0;
-    background: rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.1);
     box-shadow: none;
-    color: var(--cu-accent-soft);
-    font-size: var(--cu-font-size);
-    font-family: var(--cu-font-hand);
-    font-weight: 400;
+    color: var(--co-accent-soft);
+    font-size: var(--co-font-size);
+    font-family: var(--co-font-hand);
+    font-weight: 500;
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
     will-change: transform, box-shadow;
     position: relative;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    clip-path: none;
     opacity: 1 !important
 }
 
-.cu-support-btn::before {
+.co-support-btn::before {
     content: '';
     position: absolute;
     inset: 1px;
-    background: var(--cu-btn-solid);
+    background: var(--co-btn-solid);
     z-index: -1;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%);
+    border-radius: 7px;
+    clip-path: none;
     transition: opacity 0.2s ease
 }
 
-.cu-support-btn:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 4px 4px 0 0 #000;
-    color: #000
+.co-support-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 112, 143, 0.25);
+    color: #fff
 }
 
-.cu-support-btn:hover::before {
+.co-support-btn:hover::before {
     opacity: 0
 }
 
 /* ===== ANT TAGS (platform) ===== */
 .ant-tag {
     font-size: 0.7em !important;
-    padding: 0.1em 0.55em 0.05em !important;
-    border-radius: 0 !important;
-    background: var(--cu-rose) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    font-family: var(--cu-font-hand) !important;
+    padding: 0.15em 0.6em !important;
+    border-radius: 6px !important;
+    background: var(--co-rose) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    font-family: var(--co-font-hand) !important;
     font-weight: 600 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.04em !important;
-    color: var(--cu-accent-soft) !important;
+    color: var(--co-accent-soft) !important;
     line-height: 1.6 !important;
     transition: background 0.15s ease, color 0.15s ease !important
 }
 
 .ant-tag:hover {
-    background: rgba(244, 114, 182, 0.22) !important;
+    background: rgba(255, 255, 255, 0.2) !important;
     color: #fff !important
 }
 
