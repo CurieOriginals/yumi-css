@@ -68,17 +68,6 @@ body::before {
 .galaxy-bg { background-image: none !important; background-size: 0 !important }
 .no-arrow.no-vertical-anything { background-color: transparent !important }
 
-/* ═══════════════════════════════════════
-   PLATFORM LAYOUT — BLEACHBUNNY SKELETON
-   ═══════════════════════════════════════
-   
-   Layout (CSS Grid):
-   Col 1 (avatar)  | Col 2 (name spans →)  | Col 3
-   avatar (spans)   | "Yumi Asaka"          |
-   avatar (spans)   | [Chat][Import][DL]    | [Fav]
-   
-   ═══════════════════════════════════════ */
-
 div.mt-4 { background: transparent !important; background-color: transparent !important }
 
 /* Hide ribbon text */
@@ -190,7 +179,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
 
     /* Import+Download group → pushed to the right edge */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)>.flex {
-        margin-left: auto !important
+        margin-left: -330px !important
     }
 
     /* Favorite button — hidden in grid, folded into action row */
