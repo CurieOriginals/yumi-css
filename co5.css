@@ -62,7 +62,12 @@ body {
 body::before {
     content: ''; position: fixed; inset: 0;
     background: linear-gradient(175deg, rgba(12, 10, 20, 0.25) 0%, rgba(12, 10, 20, 0.92) 100%);
-    z-index: 0; pointer-events: none
+    z-index: 0; pointer-events: none;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    will-change: transform
 }
 
 .galaxy-bg { background-image: none !important; background-size: 0 !important }
@@ -658,7 +663,12 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 .co-bg {
     position: fixed !important; inset: 0 !important; width: 100vw !important; height: 100dvh !important;
     object-fit: cover !important; z-index: -2 !important; pointer-events: none !important;
-    opacity: 0.35 !important
+    opacity: 0.35 !important;
+    -webkit-transform: translateZ(0) !important;
+    transform: translateZ(0) !important;
+    -webkit-backface-visibility: hidden !important;
+    backface-visibility: hidden !important;
+    will-change: transform !important
 }
 
 /* Page wrapper */
