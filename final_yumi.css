@@ -2,8 +2,6 @@
 
 /* ═══════════════════════════════════════
    CURIE ORIGINALS — 2026
-   Thanks for looking at my code, now I have your Chub username and IP.
-   Try to steal it, buddy. :)
    ═══════════════════════════════════════ */
 
 :root {
@@ -672,8 +670,18 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
     color: var(--co-accent-soft) !important; letter-spacing: 0.01em !important
 }
 .ant-collapse>.ant-collapse-item>.ant-collapse-header .ant-collapse-expand-icon { color: var(--co-accent-soft) !important }
-.ant-collapse-content { background: transparent !important; border-top: 1px solid var(--co-glass-border) !important; color: var(--co-text) !important }
-.ant-collapse-content-box { color: var(--co-text) !important }
+.ant-collapse-content { background: transparent !important; border-top: 1px solid var(--co-glass-border) !important; color: var(--co-text) !important; overflow: hidden !important }
+.ant-collapse-content-box { color: var(--co-text) !important; overflow-x: hidden !important; overflow-wrap: break-word !important; word-break: break-word !important }
+.ant-collapse-content-box textarea,
+.ant-collapse-content-box input,
+.ant-collapse-content-box .ant-input,
+.ant-collapse-content-box .ant-input-textarea,
+.ant-collapse-content-box .ant-comment,
+.ant-collapse-content-box .ant-comment-inner,
+.ant-collapse-content-box .ant-comment-content,
+.ant-collapse-content-box .ant-comment-nested {
+    max-width: 100% !important; box-sizing: border-box !important; overflow-wrap: break-word !important
+}
 .ant-collapse-content-box, .ant-collapse-content-box .ant-descriptions-item-content {
     font-family: var(--co-font-mono) !important; font-size: 0.85em; color: var(--co-text) !important
 }
@@ -1040,4 +1048,24 @@ div.mt-2 {
     .co-sc-text p { font-size: 0.78em; line-height: 1.5 }
     .co-sc-num { font-size: 0.75em; width: 28px; height: 22px }
     .co-scenarios .co-card-label { padding: 16px 16px 10px }
+
+    /* Discussion collapse overflow fix */
+    .ant-collapse,
+    .ant-collapse-item,
+    .ant-collapse-content,
+    .ant-collapse-content-box {
+        max-width: 100% !important;
+        overflow-x: hidden !important
+    }
+    .ant-collapse-content-box > div,
+    .ant-collapse-content-box > div > div {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        overflow-wrap: break-word !important
+    }
+    /* Reduce nested comment indent on mobile */
+    .ant-comment-nested {
+        padding-left: 16px !important;
+        margin-left: 0 !important
+    }
 }
