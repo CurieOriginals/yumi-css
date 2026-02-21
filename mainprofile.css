@@ -461,7 +461,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         gap: 6px !important
     }
 
-    /* ═══ "Rent a Girlfriend" badge — right side, border shimmer ═══ */
+    /* ═══ "Rent a Girlfriend" badge — right side, pulsing glow ═══ */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)::after {
         content: '♡ Rent a Girlfriend' !important;
         display: flex !important;
@@ -473,46 +473,28 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         font-size: 0.82em !important;
         font-weight: 700 !important;
         letter-spacing: 0.06em !important;
-        color: #ffb8d0 !important;
-        background-color: rgba(232, 126, 161, 0.06) !important;
-        background-image: linear-gradient(
-            105deg,
-            transparent 0%,
-            transparent 35%,
-            rgba(255, 180, 210, 0.3) 45%,
-            rgba(255, 220, 240, 0.5) 50%,
-            rgba(255, 180, 210, 0.3) 55%,
-            transparent 65%,
-            transparent 100%
-        ) !important;
-        background-size: 300% 100% !important;
-        background-position: 200% center !important;
-        border: 1.5px solid rgba(255, 150, 190, 0.35) !important;
+        color: #fff !important;
+        background: rgba(232, 126, 161, 0.25) !important;
+        border: 1.5px solid rgba(255, 150, 190, 0.4) !important;
         border-radius: 20px !important;
         white-space: nowrap !important;
         position: relative !important;
         z-index: 1 !important;
-        overflow: hidden !important;
-        text-shadow: 0 0 10px rgba(255, 150, 190, 0.5) !important;
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
-        animation: co-badgeSweep 4s ease-in-out infinite !important;
-        box-shadow: 0 0 8px rgba(255, 150, 190, 0.15) !important
+        animation: co-badgeGlow 3s ease-in-out infinite !important;
+        box-shadow: 0 0 10px rgba(232, 126, 161, 0.2) !important
     }
 }
 
-@keyframes co-badgeSweep {
-    0%, 15% {
-        background-position: 200% center;
-        box-shadow: 0 0 8px rgba(255, 150, 190, 0.1)
+@keyframes co-badgeGlow {
+    0%, 100% {
+        box-shadow: 0 0 8px rgba(232, 126, 161, 0.15);
+        border-color: rgba(255, 150, 190, 0.35)
     }
     50% {
-        background-position: -100% center;
-        box-shadow: 0 0 14px rgba(255, 150, 190, 0.25)
-    }
-    55%, 100% {
-        background-position: -100% center;
-        box-shadow: 0 0 8px rgba(255, 150, 190, 0.1)
+        box-shadow: 0 0 16px rgba(232, 126, 161, 0.3), 0 0 30px rgba(232, 126, 161, 0.1);
+        border-color: rgba(255, 150, 190, 0.55)
     }
 }
 
@@ -526,7 +508,6 @@ div.mt-4.text-right.justify-end button.ant-btn:has(.anticon-star) {
     border-radius: var(--co-radius-sm) !important;
     overflow: visible !important;
     padding: 0 14px !important;
-    height: var(--co-height) !important;
     min-width: 0 !important;
     width: auto !important;
     font-size: 0.78em !important;
@@ -679,7 +660,20 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 .ant-tag:hover { background: rgba(232, 126, 161, 0.25) !important; color: #fff !important }
 
 .ant-space.ant-space-horizontal.ant-space-align-center {
-    max-height: none !important; overflow: visible !important; flex-wrap: wrap !important
+    max-height: none !important; overflow: visible !important; flex-wrap: wrap !important;
+    max-width: var(--co-page-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 16px !important
+}
+
+/* Created/Updated text — align to content width */
+div.mt-2 {
+    max-width: var(--co-page-width) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 16px !important;
+    margin-top: 24px !important
 }
 .ant-select-selection-overflow, .ant-select:has(.ant-select-selection-overflow) { display: none !important }
 
