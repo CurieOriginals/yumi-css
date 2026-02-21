@@ -851,6 +851,11 @@ div.mt-2 {
     100% { transform: translateY(-100vh) rotate(15deg) }
 }
 
+@keyframes co-swipeHint {
+    0%, 100% { opacity: 0.3; letter-spacing: 0.08em }
+    50% { opacity: 0.6; letter-spacing: 0.14em }
+}
+
 /* ═══════════════════════════════════════
    CUSTOM DESIGN — PAGE STRUCTURE
    ═══════════════════════════════════════ */
@@ -909,8 +914,25 @@ div.mt-2 {
 }
 
 /* ═══ SCENARIOS ═══ */
-.co-scenarios { padding: 0; overflow: hidden }
-.co-scenarios .co-card-label { padding: 24px 24px 14px }
+.co-scenarios { padding: 0; overflow: visible }
+.co-scenarios .co-card-label {
+    padding: 24px 24px 14px;
+    position: relative
+}
+/* Swipe hint — right-aligned */
+.co-scenarios .co-card-label::after {
+    content: '← Swipe →';
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--co-font-body);
+    font-size: 0.65em;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 0.08em;
+    animation: co-swipeHint 2.5s ease-in-out infinite
+}
 
 .co-sc-list {
     display: flex;
@@ -1105,6 +1127,7 @@ div.mt-2 {
     .co-sc-text p { font-size: 0.78em; line-height: 1.5 }
     .co-sc-num { font-size: 0.75em; width: 28px; height: 22px }
     .co-scenarios .co-card-label { padding: 16px 16px 10px }
+    .co-scenarios .co-card-label::after { right: 16px; font-size: 0.6em }
 
     /* Discussion collapse overflow fix — matches feedback hub */
     .ant-collapse,
