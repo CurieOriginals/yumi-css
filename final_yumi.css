@@ -729,7 +729,8 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 .ant-comment textarea.ant-input::placeholder { color: var(--co-text-faint) !important }
 
 /* Forms inside collapse */
-.ant-form, .ant-form-item, .ant-space, .ant-space-item {
+.ant-collapse .ant-form, .ant-collapse .ant-form-item,
+.ant-collapse .ant-space, .ant-collapse .ant-space-item {
     max-width: 100% !important; box-sizing: border-box !important
 }
 
@@ -757,7 +758,11 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 .ant-tag:hover { background: rgba(232, 126, 161, 0.25) !important; color: #fff !important }
 
 .ant-space.ant-space-horizontal.ant-space-align-center {
-    max-height: none !important; overflow: visible !important; flex-wrap: wrap !important
+    max-height: none !important; overflow: visible !important; flex-wrap: wrap !important;
+    display: flex !important; flex-direction: row !important; gap: 6px !important
+}
+.ant-space.ant-space-horizontal.ant-space-align-center > .ant-space-item {
+    width: auto !important; flex: none !important
 }
 
 /* Created/Updated text — spacing above */
@@ -1129,7 +1134,8 @@ div.mt-2 {
         margin-left: 20px !important;
         padding-left: 10px !important
     }
-    .ant-form, .ant-form-item, .ant-space, .ant-space-item {
+    .ant-collapse .ant-form, .ant-collapse .ant-form-item,
+    .ant-collapse .ant-space, .ant-collapse .ant-space-item {
         max-width: 100% !important;
         width: 100% !important
     }
