@@ -9,7 +9,7 @@
     --co-surface: rgba(16, 13, 25, 0.75);
     --co-surface-hover: rgba(24, 20, 38, 0.85);
     --co-glass: rgba(255, 255, 255, 0.04);
-    --co-glass-border: rgba(255, 255, 255, 0.07);
+    --co-glass-border: rgba(255, 255, 255, 0.05);
     --co-accent: #e87ea1;
     --co-accent-soft: #f4a8c0;
     --co-accent-deep: #c95a7e;
@@ -481,15 +481,8 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         font-size: 0.78em !important;
         font-weight: 700 !important;
         letter-spacing: 0.04em !important;
-        /* Multi-color text via gradient clip */
-        background-image: linear-gradient(90deg,
-            var(--co-gold) 0%, var(--co-gold) 52%,
-            #fff 52%, #fff 58%,
-            var(--co-accent) 58%, var(--co-accent) 100%
-        ) !important;
-        -webkit-background-clip: text !important;
-        background-clip: text !important;
-        -webkit-text-fill-color: transparent !important;
+        color: #fff !important;
+        background: transparent !important;
         border: 1.5px solid rgba(255, 150, 190, 0.3) !important;
         border-radius: 20px !important;
         white-space: nowrap !important;
@@ -602,7 +595,26 @@ footer.ant-layout-footer { display: none !important }
 .ant-layout-header,
 .ant-menu-overflow-item.ant-menu-item.ant-menu-item-only-child.no-padding.ml-0.pl-0.mr-2,
 .ant-menu-overflow.ant-menu.ant-menu-root.ant-menu-horizontal.ant-menu-dark {
-    background-color: rgba(0, 0, 0, 0) !important
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: none !important;
+    box-shadow: none !important
+}
+
+/* Fix white border line on horizontal nav */
+.ant-menu-horizontal {
+    border-bottom: none !important;
+    box-shadow: none !important
+}
+
+/* Fix sidebar background */
+.ant-menu.ant-menu-root.ant-menu-vertical,
+.ant-menu-vertical,
+.ant-layout-sider,
+.ant-layout-sider-dark,
+aside.ant-layout-sider {
+    background: transparent !important;
+    background-color: transparent !important;
+    border: none !important
 }
 
 .ant-menu-item:has(img[alt="logo"]) .ant-menu-title-content { display: flex !important; align-items: center }
@@ -696,6 +708,41 @@ div.mt-2 {
     background: transparent !important; position: relative; z-index: 1
 }
 
+/* ═══ FLOATING HEARTS ═══ */
+#root::before,
+#root::after {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: 0;
+    font-size: 14px; line-height: 1;
+    color: rgba(232, 126, 161, 0.12)
+}
+#root::before {
+    content: '♡';
+    animation: co-heartsA 18s linear infinite;
+    text-shadow:
+        10vw 15vh 0 rgba(232, 126, 161, 0.08),
+        25vw 45vh 0 rgba(240, 198, 116, 0.06),
+        40vw 80vh 0 rgba(232, 126, 161, 0.10),
+        55vw 25vh 0 rgba(180, 100, 180, 0.07),
+        70vw 60vh 0 rgba(232, 126, 161, 0.06),
+        85vw 35vh 0 rgba(240, 198, 116, 0.08),
+        15vw 70vh 0 rgba(232, 126, 161, 0.07),
+        60vw 90vh 0 rgba(180, 100, 180, 0.06)
+}
+#root::after {
+    content: '♡';
+    animation: co-heartsB 24s linear infinite;
+    font-size: 10px;
+    text-shadow:
+        8vw 30vh 0 rgba(232, 126, 161, 0.06),
+        33vw 65vh 0 rgba(240, 198, 116, 0.05),
+        48vw 10vh 0 rgba(232, 126, 161, 0.07),
+        62vw 50vh 0 rgba(180, 100, 180, 0.05),
+        78vw 75vh 0 rgba(232, 126, 161, 0.06),
+        92vw 20vh 0 rgba(240, 198, 116, 0.07),
+        20vw 85vh 0 rgba(232, 126, 161, 0.05)
+}
+
 /* ═══ KEYFRAMES ═══ */
 @keyframes co-fadeUp {
     from { opacity: 0; transform: translateY(30px) }
@@ -717,6 +764,16 @@ div.mt-2 {
     33% { transform: translate(2%, -1%) scale(1.02) }
     66% { transform: translate(-1%, 2%) scale(0.98) }
     100% { transform: translate(1%, -2%) scale(1.01) }
+}
+
+@keyframes co-heartsA {
+    0% { transform: translateY(0) }
+    100% { transform: translateY(-100vh) }
+}
+
+@keyframes co-heartsB {
+    0% { transform: translateY(0) rotate(0deg) }
+    100% { transform: translateY(-100vh) rotate(15deg) }
 }
 
 /* ═══════════════════════════════════════
@@ -788,7 +845,7 @@ div.mt-2 {
     gap: 0;
     scrollbar-width: thin;
     scrollbar-color: var(--co-accent-deep) transparent;
-    padding-bottom: 4px
+    padding-bottom: 18px
 }
 .co-sc-list::-webkit-scrollbar { height: 6px }
 .co-sc-list::-webkit-scrollbar-track { background: transparent; margin: 0 16px }
@@ -806,7 +863,7 @@ div.mt-2 {
     display: flex;
     align-items: stretch;
     gap: 16px;
-    padding: 16px 20px;
+    padding: 18px 20px;
     border-left: 1px solid var(--co-glass-border);
     transition: background .25s ease;
     cursor: default;
@@ -816,7 +873,7 @@ div.mt-2 {
 .co-sc-item:hover { background: rgba(232, 126, 161, 0.04) }
 
 .co-sc-img {
-    width: 110px; height: 160px; border-radius: var(--co-radius-xs);
+    width: 120px; height: 200px; border-radius: var(--co-radius-xs);
     object-fit: cover; object-position: top center;
     flex-shrink: 0; border: 1px solid var(--co-glass-border);
     transition: transform .3s ease, box-shadow .3s ease
@@ -832,8 +889,12 @@ div.mt-2 {
 }
 
 .co-sc-num {
-    font-family: var(--co-font-mono); font-size: 0.7em; font-weight: 700;
-    color: var(--co-accent); opacity: 0.5; margin-bottom: 4px
+    font-family: var(--co-font-mono); font-size: 0.85em; font-weight: 700;
+    color: var(--co-accent-soft); margin-bottom: 6px;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 24px;
+    border: 1px solid rgba(232, 126, 161, 0.3); border-radius: 6px;
+    background: rgba(232, 126, 161, 0.08)
 }
 
 .co-sc-text { flex: 1; min-width: 0 }
@@ -963,9 +1024,9 @@ div.mt-2 {
     .co-sc-item {
         flex: 0 0 75%; padding: 14px 16px; gap: 10px
     }
-    .co-sc-img { width: 80px; height: 120px }
+    .co-sc-img { width: 90px; height: 140px }
     .co-sc-text h4 { font-size: 0.9em }
     .co-sc-text p { font-size: 0.78em; line-height: 1.5 }
-    .co-sc-num { font-size: 0.65em }
+    .co-sc-num { font-size: 0.75em; width: 28px; height: 22px }
     .co-scenarios .co-card-label { padding: 16px 16px 10px }
 }
