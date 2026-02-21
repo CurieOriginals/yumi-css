@@ -388,7 +388,8 @@ div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-
     border: none !important;
     clip-path: none !important;
     padding: 0 24px !important;
-    border-radius: var(--co-radius-sm) !important
+    border-radius: var(--co-radius-sm) !important;
+    box-shadow: 0 0 12px rgba(232, 126, 161, 0.3), 0 0 24px rgba(232, 126, 161, 0.1) !important
 }
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square)::before { display: none !important }
 div.mt-4:has(svg.lucide-messages-square)>button.ant-btn:has(svg.lucide-messages-square):hover {
@@ -412,6 +413,9 @@ div.mt-4:has(svg.lucide-messages-square)>.flex {
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
     flex-shrink: 0 !important;
     overflow: hidden !important; clip-path: none !important
+}
+div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn svg {
+    stroke-width: 2.5px !important
 }
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child:hover { background: var(--co-surface-hover) !important }
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child::before { display: none !important }
@@ -470,7 +474,19 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         font-weight: 700 !important;
         letter-spacing: 0.06em !important;
         color: #ffb8d0 !important;
-        background: rgba(232, 126, 161, 0.06) !important;
+        background-color: rgba(232, 126, 161, 0.06) !important;
+        background-image: linear-gradient(
+            105deg,
+            transparent 0%,
+            transparent 35%,
+            rgba(255, 180, 210, 0.3) 45%,
+            rgba(255, 220, 240, 0.5) 50%,
+            rgba(255, 180, 210, 0.3) 55%,
+            transparent 65%,
+            transparent 100%
+        ) !important;
+        background-size: 300% 100% !important;
+        background-position: 200% center !important;
         border: 1.5px solid rgba(255, 150, 190, 0.35) !important;
         border-radius: 20px !important;
         white-space: nowrap !important;
@@ -480,18 +496,6 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         text-shadow: 0 0 10px rgba(255, 150, 190, 0.5) !important;
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important;
-        background-image: linear-gradient(
-            105deg,
-            transparent 0%,
-            transparent 35%,
-            rgba(255, 180, 210, 0.25) 45%,
-            rgba(255, 220, 240, 0.4) 50%,
-            rgba(255, 180, 210, 0.25) 55%,
-            transparent 65%,
-            transparent 100%
-        ) !important;
-        background-size: 300% 100% !important;
-        background-position: 200% center !important;
         animation: co-badgeSweep 4s ease-in-out infinite !important;
         box-shadow: 0 0 8px rgba(255, 150, 190, 0.15) !important
     }
@@ -766,15 +770,30 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 .co-scenarios { padding: 0; overflow: hidden }
 .co-scenarios .co-card-label { padding: 24px 24px 14px }
 
+.co-sc-list {
+    max-height: 340px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--co-accent-deep) transparent
+}
+.co-sc-list::-webkit-scrollbar { width: 6px }
+.co-sc-list::-webkit-scrollbar-track { background: transparent }
+.co-sc-list::-webkit-scrollbar-thumb {
+    background: var(--co-accent-deep); border-radius: 3px
+}
+.co-sc-list::-webkit-scrollbar-thumb:hover {
+    background: var(--co-accent)
+}
+
 .co-sc-item {
-    display: flex; align-items: center; gap: 18px; padding: 16px 24px;
+    display: flex; align-items: center; gap: 18px; padding: 18px 24px;
     border-top: 1px solid var(--co-glass-border); transition: background .25s ease;
-    cursor: default; min-height: 90px
+    cursor: default; min-height: 100px
 }
 .co-sc-item:hover { background: rgba(232, 126, 161, 0.05) }
 
 .co-sc-img {
-    width: 72px; height: 72px; border-radius: var(--co-radius-xs);
+    width: 80px; height: 80px; border-radius: var(--co-radius-xs);
     object-fit: cover; flex-shrink: 0; border: 1px solid var(--co-glass-border);
     transition: transform .3s ease, box-shadow .3s ease
 }
@@ -867,9 +886,14 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
     flex: 1; display: flex; align-items: center; gap: 14px;
     padding: 14px 16px; border-radius: var(--co-radius-sm);
     background: var(--co-glass); border: 1px solid var(--co-glass-border);
-    transition: background .25s ease
+    transition: background .25s ease, border-color .25s ease;
+    text-decoration: none
 }
-.co-credit:hover { background: rgba(232, 126, 161, 0.05) }
+.co-credit:hover {
+    background: rgba(232, 126, 161, 0.05);
+    border-color: rgba(232, 126, 161, 0.2);
+    opacity: 1
+}
 
 .co-credit-avatar {
     width: 44px; height: 44px; border-radius: 50%;
@@ -900,7 +924,8 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
     .co-name { font-size: 1.6em; margin-top: -20px }
     .co-card { padding: 18px; margin-top: 12px }
     .co-sc-item { padding: 14px 16px; gap: 12px; min-height: 80px; align-items: flex-start }
-    .co-sc-img { width: 60px; height: 60px }
+    .co-sc-img { width: 64px; height: 64px }
+    .co-sc-list { max-height: 300px }
     .co-sc-num { min-width: 20px; font-size: 0.7em; padding-top: 4px }
     .co-sc-text h4 { font-size: 0.9em }
     .co-sc-text p { font-size: 0.78em; line-height: 1.5 }
