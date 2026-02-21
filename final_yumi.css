@@ -318,7 +318,8 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         flex: 0 0 100% !important;
         max-width: 100% !important;
         padding-left: 0 !important;
-        padding-right: 0 !important
+        padding-right: 0 !important;
+        overflow-x: hidden !important
     }
 }
 
@@ -804,10 +805,11 @@ div.mt-2 {
     display: none !important
 }
 
-/* Mobile: prevent overscroll bounce */
+/* Mobile: prevent overscroll bounce and horizontal overflow */
 @media (max-width:991px) {
     html, body {
-        overscroll-behavior: none !important
+        overscroll-behavior: none !important;
+        overflow-x: hidden !important
     }
 }
 
@@ -1057,15 +1059,32 @@ div.mt-2 {
         max-width: 100% !important;
         overflow-x: hidden !important
     }
-    .ant-collapse-content-box > div,
-    .ant-collapse-content-box > div > div {
+    /* Force all nested content to stay in bounds */
+    .ant-collapse-content-box > *,
+    .ant-collapse-content-box > * > *,
+    .ant-collapse-content-box > * > * > * {
         max-width: 100% !important;
+        min-width: 0 !important;
         overflow-x: hidden !important;
-        overflow-wrap: break-word !important
+        overflow-wrap: break-word !important;
+        box-sizing: border-box !important
     }
     /* Reduce nested comment indent on mobile */
     .ant-comment-nested {
-        padding-left: 16px !important;
+        padding-left: 12px !important;
         margin-left: 0 !important
+    }
+    /* Force textareas/inputs to fit */
+    .ant-collapse-content-box textarea,
+    .ant-collapse-content-box .ant-input,
+    .ant-collapse-content-box .ant-input-textarea {
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important
+    }
+    /* Contain the ant-row inside discussion */
+    .ant-row.ant-row-center {
+        overflow-x: hidden !important
     }
 }
