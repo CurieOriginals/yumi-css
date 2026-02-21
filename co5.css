@@ -178,9 +178,9 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         min-width: 0 !important
     }
 
-    /* Import+Download group → pushed right, flush with About box */
+    /* Import+Download group → left next to Chat, no push right */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)>.flex {
-        margin-left: auto !important;
+        margin-left: 0 !important;
         margin-right: 0 !important
     }
 
@@ -405,6 +405,61 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         min-width: 0 !important;
         overflow: hidden !important;
         white-space: nowrap !important
+    }
+}
+
+/* Desktop: Import+Download → square icon-only buttons + Rent a Girlfriend badge */
+@media (min-width:992px) {
+    /* Hide text labels on Import and Download */
+    div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn span:not(.ant-btn-icon):not(:has(svg)) {
+        display: none !important
+    }
+    /* Square icon buttons */
+    div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn {
+        width: 42px !important;
+        height: 42px !important;
+        padding: 0 !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important
+    }
+    div.mt-4:has(svg.lucide-messages-square)>.flex {
+        gap: 6px !important
+    }
+
+    /* ═══ "Rent a Girlfriend" badge — right side ═══ */
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)::after {
+        content: '♡ Rent a Girlfriend' !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        margin-left: auto !important;
+        padding: 8px 20px !important;
+        font-family: var(--co-font-display) !important;
+        font-size: 0.82em !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.06em !important;
+        color: var(--co-accent-soft) !important;
+        background: linear-gradient(135deg, rgba(232, 126, 161, 0.12), rgba(240, 198, 116, 0.08)) !important;
+        border: 1px solid rgba(232, 126, 161, 0.25) !important;
+        border-radius: 20px !important;
+        white-space: nowrap !important;
+        position: relative !important;
+        z-index: 1 !important;
+        animation: co-badgePulse 3s ease-in-out infinite !important;
+        text-shadow: 0 0 12px rgba(232, 126, 161, 0.3) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important
+    }
+}
+
+@keyframes co-badgePulse {
+    0%, 100% {
+        box-shadow: 0 0 8px rgba(232, 126, 161, 0.15), 0 0 0 rgba(240, 198, 116, 0);
+        border-color: rgba(232, 126, 161, 0.25)
+    }
+    50% {
+        box-shadow: 0 0 18px rgba(232, 126, 161, 0.25), 0 0 30px rgba(240, 198, 116, 0.06);
+        border-color: rgba(232, 126, 161, 0.45)
     }
 }
 
