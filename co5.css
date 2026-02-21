@@ -173,7 +173,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         margin: 0 !important
     }
 
-    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square) button {
+    .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)>button {
         width: auto !important;
         min-width: 0 !important
     }
@@ -379,13 +379,13 @@ div.mt-4:has(svg.lucide-messages-square)>.flex {
     overflow: visible !important
 }
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child {
-    flex-shrink: 0 !important; width: auto !important;
+    flex-shrink: 0 !important;
     overflow: hidden !important; clip-path: none !important
 }
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child:hover { background: var(--co-surface-hover) !important }
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:first-child::before { display: none !important }
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child {
-    flex-shrink: 0 !important; width: auto !important; clip-path: none !important
+    flex-shrink: 0 !important; clip-path: none !important
 }
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child:hover { background: var(--co-surface-hover) !important }
 div.mt-4:has(svg.lucide-messages-square)>.flex>button.ant-btn:last-child::before { display: none !important }
@@ -426,7 +426,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         gap: 6px !important
     }
 
-    /* ═══ "Rent a Girlfriend" badge — right side ═══ */
+    /* ═══ "Rent a Girlfriend" badge — right side, NEON ═══ */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)::after {
         content: '♡ Rent a Girlfriend' !important;
         display: flex !important;
@@ -438,15 +438,15 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         font-size: 0.82em !important;
         font-weight: 700 !important;
         letter-spacing: 0.06em !important;
-        color: #f4a8c0 !important;
-        background: linear-gradient(135deg, rgba(232, 126, 161, 0.15), rgba(240, 198, 116, 0.10)) !important;
-        border: 1px solid rgba(232, 126, 161, 0.5) !important;
+        color: #ffb8d0 !important;
+        background: rgba(232, 126, 161, 0.08) !important;
+        border: 1.5px solid rgba(255, 150, 190, 0.6) !important;
         border-radius: 20px !important;
         white-space: nowrap !important;
         position: relative !important;
         z-index: 1 !important;
         animation: co-badgePulse 3s ease-in-out infinite !important;
-        text-shadow: 0 0 16px rgba(232, 126, 161, 0.5) !important;
+        text-shadow: 0 0 10px rgba(255, 150, 190, 0.7), 0 0 30px rgba(232, 126, 161, 0.4) !important;
         backdrop-filter: blur(12px) !important;
         -webkit-backdrop-filter: blur(12px) !important
     }
@@ -454,12 +454,12 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
 
 @keyframes co-badgePulse {
     0%, 100% {
-        box-shadow: 0 0 10px rgba(232, 126, 161, 0.25), 0 0 0 rgba(240, 198, 116, 0);
-        border-color: rgba(232, 126, 161, 0.5)
+        box-shadow: 0 0 8px rgba(255, 150, 190, 0.3), 0 0 20px rgba(232, 126, 161, 0.15), inset 0 0 8px rgba(255, 150, 190, 0.05);
+        border-color: rgba(255, 150, 190, 0.5)
     }
     50% {
-        box-shadow: 0 0 22px rgba(232, 126, 161, 0.4), 0 0 40px rgba(240, 198, 116, 0.1);
-        border-color: rgba(232, 126, 161, 0.7)
+        box-shadow: 0 0 14px rgba(255, 150, 190, 0.5), 0 0 40px rgba(232, 126, 161, 0.3), inset 0 0 12px rgba(255, 150, 190, 0.08);
+        border-color: rgba(255, 150, 190, 0.8)
     }
 }
 
