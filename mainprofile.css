@@ -457,7 +457,7 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         gap: 6px !important
     }
 
-    /* ═══ "Rent a Girlfriend" badge — right side, NEON ═══ */
+    /* ═══ "Rent a Girlfriend" badge — right side, border shimmer ═══ */
     .ant-row.ant-row-center>.ant-col-lg-6:first-child>.mt-4:has(svg.lucide-messages-square)::after {
         content: '♡ Rent a Girlfriend' !important;
         display: flex !important;
@@ -470,27 +470,45 @@ div.mt-4:has(svg.lucide-messages-square) button.ant-btn[aria-describedby] { disp
         font-weight: 700 !important;
         letter-spacing: 0.06em !important;
         color: #ffb8d0 !important;
-        background: rgba(232, 126, 161, 0.08) !important;
-        border: 1.5px solid rgba(255, 150, 190, 0.6) !important;
+        background: rgba(232, 126, 161, 0.06) !important;
+        border: 1.5px solid rgba(255, 150, 190, 0.35) !important;
         border-radius: 20px !important;
         white-space: nowrap !important;
         position: relative !important;
         z-index: 1 !important;
-        animation: co-badgePulse 3s ease-in-out infinite !important;
-        text-shadow: 0 0 10px rgba(255, 150, 190, 0.7), 0 0 30px rgba(232, 126, 161, 0.4) !important;
+        overflow: hidden !important;
+        text-shadow: 0 0 10px rgba(255, 150, 190, 0.5) !important;
         backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important
+        -webkit-backdrop-filter: blur(12px) !important;
+        background-image: linear-gradient(
+            105deg,
+            transparent 0%,
+            transparent 35%,
+            rgba(255, 180, 210, 0.25) 45%,
+            rgba(255, 220, 240, 0.4) 50%,
+            rgba(255, 180, 210, 0.25) 55%,
+            transparent 65%,
+            transparent 100%
+        ) !important;
+        background-size: 300% 100% !important;
+        background-position: 200% center !important;
+        animation: co-badgeSweep 4s ease-in-out infinite !important;
+        box-shadow: 0 0 8px rgba(255, 150, 190, 0.15) !important
     }
 }
 
-@keyframes co-badgePulse {
-    0%, 100% {
-        box-shadow: 0 0 8px rgba(255, 150, 190, 0.3), 0 0 20px rgba(232, 126, 161, 0.15), inset 0 0 8px rgba(255, 150, 190, 0.05);
-        border-color: rgba(255, 150, 190, 0.5)
+@keyframes co-badgeSweep {
+    0%, 15% {
+        background-position: 200% center;
+        box-shadow: 0 0 8px rgba(255, 150, 190, 0.1)
     }
     50% {
-        box-shadow: 0 0 14px rgba(255, 150, 190, 0.5), 0 0 40px rgba(232, 126, 161, 0.3), inset 0 0 12px rgba(255, 150, 190, 0.08);
-        border-color: rgba(255, 150, 190, 0.8)
+        background-position: -100% center;
+        box-shadow: 0 0 14px rgba(255, 150, 190, 0.25)
+    }
+    55%, 100% {
+        background-position: -100% center;
+        box-shadow: 0 0 8px rgba(255, 150, 190, 0.1)
     }
 }
 
@@ -825,6 +843,54 @@ div[length][color]:has(.msg-mkdn-container)+div:has(> spacer) { display: none !i
 .co-btn:hover {
     transform: translateY(-2px); color: #fff; opacity: 1;
     box-shadow: 0 8px 24px rgba(232, 126, 161, 0.3)
+}
+
+/* ═══ CARD ROW — About + Creator's Note side by side ═══ */
+.co-card-row {
+    display: flex; gap: 16px; margin-top: 16px
+}
+.co-card-row .co-card {
+    flex: 1; margin-top: 0; min-width: 0
+}
+
+@media (max-width: 640px) {
+    .co-card-row { flex-direction: column; gap: 12px }
+}
+
+/* ═══ CREDITS ═══ */
+.co-credits { animation: co-fadeUp .6s ease .4s both }
+.co-credits-grid {
+    display: flex; gap: 16px; margin-top: 8px
+}
+
+.co-credit {
+    flex: 1; display: flex; align-items: center; gap: 14px;
+    padding: 14px 16px; border-radius: var(--co-radius-sm);
+    background: var(--co-glass); border: 1px solid var(--co-glass-border);
+    transition: background .25s ease
+}
+.co-credit:hover { background: rgba(232, 126, 161, 0.05) }
+
+.co-credit-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    object-fit: cover; flex-shrink: 0;
+    border: 2px solid var(--co-glass-border)
+}
+
+.co-credit-info { min-width: 0 }
+.co-credit-name {
+    font-family: var(--co-font-display); font-size: 0.88em; font-weight: 700;
+    color: var(--co-text); line-height: 1.3
+}
+.co-credit-role {
+    font-family: var(--co-font-body); font-size: 0.75em; font-weight: 400;
+    color: var(--co-text-dim); line-height: 1.4
+}
+
+@media (max-width: 640px) {
+    .co-credits-grid { flex-direction: column; gap: 10px }
+    .co-credit { padding: 12px 14px; gap: 12px }
+    .co-credit-avatar { width: 38px; height: 38px }
 }
 
 /* ═══ MOBILE ═══ */
