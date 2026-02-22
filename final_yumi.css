@@ -136,7 +136,7 @@ div.mt-4 { background: transparent !important; background-color: transparent !im
         padding: 0 0 0 !important;
         margin-bottom: 80px !important;
         border-radius: var(--co-radius) !important;
-        background: url('https://curie-assets.site/images/Yumi_Header.webp') center 20% / cover no-repeat !important;
+        background: url('https://curie-assets.site/images/Yumi_Header.webp') center 10% / cover no-repeat !important;
         box-sizing: border-box !important
     }
 
